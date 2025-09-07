@@ -1,0 +1,56 @@
+@startuml main-dualities
+skinparam ranksep 100
+skinparam nodesep 60
+!include lib/game.puml!loop
+$showDuality()
+$hideMainLoop()
+@enduml
+
+@startuml main-dualities-matrix
+!include lib/game.puml!loop
+skinparam ranksep 50
+skinparam nodesep 60
+$showDuality()
+$hideMainLoop()
+$showFullMatrix()
+@enduml
+
+@startuml main-loop
+!include lib/game.puml!loop
+skinparam ranksep 50
+skinparam nodesep 40
+$hideDuality()
+$showMainLoop()
+@enduml
+
+@startuml main-loop-matrix
+!include lib/game.puml!loop
+skinparam ranksep 50
+skinparam nodesep 40
+$hideDuality()
+$showMainLoop()
+$showFullMatrix()
+@enduml
+
+@startuml main-loop-full
+skinparam ranksep 30
+skinparam nodesep 40
+!include lib/game.puml!loop
+$showDuality()
+$showMainLoop()
+$showFullMatrix()
+@enduml
+
+@startuml master-loop
+skinparam ranksep 50
+skinparam nodesep 80
+!include lib/game.puml!loop
+$showMasterLoop()
+@enduml
+
+@startuml engine-loop
+skinparam ranksep 50
+skinparam nodesep 80
+!include lib/game.puml!loop
+$showEngineLoop()
+@enduml

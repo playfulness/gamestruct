@@ -1,0 +1,157 @@
+@startuml (id=loop)
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/database>
+!include <tupadr3/font-awesome-5/cube>
+!include <tupadr3/font-awesome-5/user_alt>
+!include <tupadr3/font-awesome-5/chevron_circle_down>
+!include <tupadr3/font-awesome-5/chevron_circle_up>
+
+skinparam defaultTextAlignment center
+skinparam defaultFontName Ubuntu Mono
+skinparam defaultFontSize 15
+scale max 600 width
+
+<style>
+  collections {
+    FontSize 20
+  }
+  rectangle {
+    FontSize 20
+  }
+  label {
+    FontSize 16
+  }
+  .axis {
+    FontSize 12
+    FontColor DimGrey
+  }
+</style>
+
+' FA5_USER_ALT(origin, "игрок ", label)
+' label origin [
+' ]
+' label origin [
+'   <$user_alt>
+' ]
+label origin [
+  <$user_alt{scale=0.4}>
+  <$user_alt{scale=0.4}>  <$user_alt{scale=0.4}>
+  <$user_alt{scale=0.4}>
+]
+
+!procedure $showDuality()
+  label leftmost <<axis>> [
+    м
+    и
+    н
+    у
+    в
+    ш
+    е
+    е
+  ]
+  label rightmost <<axis>> [
+    г
+    р
+    я
+    д
+    у
+    щ
+    е
+    е
+  ]
+  label highest <<axis>> [
+    т р а н с а к ц и я
+  ]
+  label lowest <<axis>> [
+    т р а н с ф о р м а ц и я
+  ]
+!endprocedure
+
+!procedure $hideDuality()
+  label leftmost <<axis>> [
+    <U+0000>
+  ]
+  label rightmost <<axis>> [
+    <U+0000>
+  ]
+  label highest <<axis>> [
+    ' <U+0000>
+  ]
+  label lowest <<axis>> [
+    ' <U+0000>
+  ]
+!endprocedure
+
+!procedure $showLoop()
+  rectangle context [
+    <$database{scale=0.4}><size:8> </size>контекст
+  ]
+  rectangle state [
+    <$cube{scale=0.4}><size:8> </size>состояние
+  ]
+  collections action [
+    <$chevron_circle_down{scale=0.4}><size:8> </size>действие
+  ]
+  collections event [
+    <$chevron_circle_up{scale=0.4}><size:8> </size>событие
+  ]
+
+  $showGrid()
+
+  context -d-> action
+  action -d-> state
+  state -u-> event
+  event -u-> context
+!endprocedure
+
+!procedure $hideLoop()
+  label event [
+  ]
+  label action [
+  ]
+  label context [
+  ]
+  label state [
+  ]
+  $showGrid()
+!endprocedure
+
+!procedure $showGrid()
+  leftmost ~[thickness=1]r~ event
+  event ~[thickness=1]r~ origin
+  origin ~[thickness=1]r~ action
+  action ~[thickness=1]r~ rightmost
+
+  highest ~[thickness=1]d~ context
+  context ~[thickness=1]d~ origin
+  origin ~[thickness=1]d~ state
+  state ~[thickness=1]d~ lowest
+!endprocedure
+
+!procedure $showMatrix()
+  label provision [
+    обеспечение
+  ]
+  label explanation [
+    объяснение
+  ]
+  label execution [
+    исполнение
+  ]
+  label observation [
+    наблюдение
+  ]
+  context ~[hidden]r~ provision
+  state ~[hidden]r~ execution
+  observation ~[hidden]r~ state
+  explanation ~[hidden]r~ context
+!endprocedure
+
+!$debug = 0
+!if ($debug)
+  $showDuality()
+  $showLoop()
+  $showMatrix()
+!endif
+@enduml

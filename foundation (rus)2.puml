@@ -1,0 +1,283 @@
+@startuml цикл-обновления
+skinparam defaultFontSize 15
+skinparam defaultTextAlignment center
+scale max 600 width
+
+<style>
+node {
+    FontSize 25
+}
+cloud {
+    FontSize 25
+}
+queue {
+    FontSize 25
+}
+collections {
+    FontSize 25
+}
+</style>
+
+node состояние
+collections наблюдение
+cloud объяснение
+collections воздействие
+
+note as impl
+    физическое воплощение
+end note
+
+note as repr
+    логическое представление
+end note
+
+note as effect
+    операционные
+    эффекты
+end note
+
+impl ~d~ состояние
+объяснение ~d~ repr
+effect ~l~ наблюдение
+effect ~r~ воздействие
+
+состояние -d-> наблюдение
+наблюдение -d-> объяснение
+объяснение -u-> воздействие
+воздействие -u-> состояние
+@enduml
+
+@startuml спираль-обновления
+skinparam nodesep 100
+skinparam ranksep 50
+skinparam linetype ortho
+skinparam defaultFontSize 20
+scale max 1200 width
+
+rectangle "0000000000000" as stub1
+hide stub1
+rectangle "0000000000000" as stub2
+hide stub2
+rectangle "0000000000000" as stub3
+hide stub3
+
+node "состояние<sub> <U+3007></sub>" as impl0
+collections "наблюдение<sub> <U+3007></sub>" as obsr0
+cloud "объяснение<sub> <U+3007></sub>" as expl0
+collections "воздействие<sub> <U+3007></sub>" as infl0
+
+node "состояние<sub> 1</sub>" as impl1
+collections "наблюдение<sub> 1</sub>" as obsr1
+cloud "             ...           " as expl1
+collections "              ...             " as infl1
+
+node "состояние<sub> k</sub>" as impl2
+collections "наблюдение<sub> k</sub>" as obsr2
+cloud "объяснение<sub> <U+2205></sub>" as expl2
+collections "воздействие<sub> <U+2205></sub>" as infl2
+
+node "состояние<sub> <U+2205></sub>" as impl3
+collections "наблюдение<sub> <U+2205></sub>" as obsr3
+
+label legend [
+    <size:20><U+3007> - начальное</size>
+    <size:20><U+2205> - финальное</size>
+]
+
+impl0 ~d~> impl1
+impl1 ~d~> impl2
+impl2 ~d~> impl3
+
+obsr0 ~d~> obsr1
+obsr1 ~d~> obsr2
+obsr2 ~d~> obsr3
+
+expl0 ~d~> expl1
+expl1 ~d~> expl2
+expl2 ~d~> stub2
+
+stub1 ~d~> infl0
+infl0 ~d~> infl1
+infl1 ~d~> infl2
+infl2 ~d~> stub3
+
+stub1 -r-> impl0
+
+impl0 -d-> obsr0
+obsr0 -r-> expl0
+expl0 -r-> infl0
+infl0 -r-> impl1
+
+impl1 -d-> obsr1
+obsr1 -r-> expl1
+expl1 -r-> infl1
+infl1 -r-> impl2
+
+impl2 -d-> obsr2
+obsr2 -r-> expl2
+expl2 -r-> infl2
+infl2 -r-> impl3
+
+impl3 -d-> obsr3
+obsr3 -r-> stub2
+stub2 -r-> stub3
+stub3 -r-> legend
+@enduml
+
+@startuml обновление-состояния
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam defaultFontSize 25
+scale max 600 width
+
+<style>
+caption {
+    FontName Ubuntu Mono
+    FontSize 20
+}
+</style>
+
+node "состояние<sub><size:18>k-1</size></sub>" as impl1
+collections "воздействие<sub><size:18>k</size></sub>" as infl
+node "состояние<sub><size:18>k</size></sub>" as impl2
+
+impl1 ~d~> impl2
+infl -r-> impl2
+
+caption \nState<sub><size:15>k</size></sub> = apply(State<sub><size:15>k-1</size></sub>, []Effect<sub><size:15>k</size></sub>)
+@enduml
+
+@startuml обновление-наблюдений
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam defaultFontSize 25
+scale max 600 width
+
+<style>
+caption {
+    FontName Ubuntu Mono
+    FontSize 20
+}
+</style>
+
+collections "наблюдение<sub><size:18>k-1</size></sub>" as infl1
+node "состояние<sub><size:18>k</size></sub>" as impl
+collections "наблюдение<sub><size:18>k</size></sub>" as infl2
+
+infl1 ~d~> infl2
+impl -r-> infl2
+
+caption \n[]Effect<sub><size:15>k</size></sub> = apply([]Effect<sub><size:15>k-1</size></sub>, State<sub><size:15>k</size></sub>)
+@enduml
+
+@startuml обновление-объяснения
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam defaultFontSize 25
+scale max 600 width
+
+<style>
+caption {
+    FontName Ubuntu Mono
+    FontSize 20
+}
+</style>
+
+cloud "объяснение<sub><size:18>k-1</size></sub>" as expl1
+collections "наблюдение<sub><size:18>k</size></sub>" as impl
+cloud "объяснение<sub><size:18>k</size></sub>" as expl2
+
+expl1 ~d~> expl2
+impl -r-> expl2
+
+caption \nExplan<sub><size:15>k</size></sub> = apply(Explan<sub><size:15>k-1</size></sub>, []Effect<sub><size:15>k</size></sub>)
+@enduml
+
+@startuml обновление-воздействий
+skinparam nodesep 100
+skinparam ranksep 100
+skinparam defaultFontSize 25
+scale max 600 width
+
+<style>
+caption {
+    FontName Ubuntu Mono
+    FontSize 20
+}
+</style>
+
+collections "воздействие<sub><size:18>k-1</size></sub>" as infl1
+cloud "объяснение<sub><size:18>k</size></sub>" as expl
+collections "воздействие<sub><size:18>k</size></sub>" as infl2
+
+infl1 ~d~> infl2
+expl -r-> infl2
+
+caption \n[]Effect<sub><size:15>k</size></sub> = apply([]Effect<sub><size:15>k-1</size></sub>, Explan<sub><size:15>k</size></sub>)
+@enduml
+
+@startuml рантайм
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/cog>
+!include <tupadr3/font-awesome-5/pen_square>
+!include <tupadr3/font-awesome-5/user_alt>
+!include <tupadr3/font-awesome-5/user_cog>
+!include <tupadr3/font-awesome-5/user_edit>
+!include <tupadr3/material/person>
+
+skinparam defaultTextAlignment center
+skinparam defaultFontName Ubuntu Mono
+skinparam defaultFontSize 15
+skinparam ranksep 30
+skinparam nodesep 50
+scale max 600 width
+
+left to right direction
+
+<style>
+collections {
+    FontSize 20
+}
+label {
+    FontSize 20
+}
+.axis {
+    FontSize 15
+    FontStyle plain
+    FontColor DimGrey
+}
+</style>
+
+FA5_USER_EDIT(master, "мастер ", label)
+
+collections "<$pen_square{scale=0.4}><size:8> </size>персонаж" as character
+
+FA5_USER_ALT(playerN, "игрок ", label)
+
+collections "<$cog{scale=0.4}><size:8> </size>аватар" as avatar
+
+FA5_USER_COG(engine, "движок ", label)
+
+master -[hidden]d- character
+character -[hidden]d- playerN
+playerN -[hidden]d- avatar
+avatar -[hidden]d- engine
+
+label "<U+0000>" as highest
+label "<U+0000>" as lowest
+
+playerN ~[thickness=2]l~ highest
+playerN ~[thickness=2]r~ lowest
+
+label "нарратив" as narrative <<axis>>
+label "тематика" as theme <<axis>>
+
+highest -[#transparent]u-- narrative
+lowest -[#transparent]u-- theme
+
+label "сеттинг" as setting <<axis>>
+label "механика" as mechanics <<axis>>
+
+highest -[#transparent]d-- setting
+lowest -[#transparent]d-- mechanics
+@enduml

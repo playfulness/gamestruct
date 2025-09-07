@@ -1,0 +1,42 @@
+@startuml player-dualities
+!include lib/player.puml!loop
+skinparam ranksep 25
+skinparam nodesep 100
+$showDuality()
+$hideLoop()
+@enduml
+
+@startuml player-dualities-matrix
+!include lib/player.puml!loop
+skinparam ranksep 15
+skinparam nodesep 100
+$showDuality()
+$hideLoop()
+$showMatrix()
+@enduml
+
+@startuml player-loop
+!include lib/player.puml!loop
+skinparam ranksep 60
+skinparam nodesep 50
+$hideDuality()
+$showLoop()
+@enduml
+
+@startuml player-loop-matrix
+!include lib/player.puml!loop
+skinparam ranksep 60
+skinparam nodesep 50
+$hideDuality()
+$showLoop()
+$showMatrix()
+@enduml
+
+@startuml player-loop-full
+!include lib/player.puml!loop
+skinparam ranksep 40
+skinparam nodesep 50
+$showDuality()
+$showLoop()
+$showMatrix()
+@enduml

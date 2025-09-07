@@ -1,0 +1,275 @@
+@startuml (id=loop)
+!include <tupadr3/common>
+!include <tupadr3/font-awesome-5/cog>
+!include <tupadr3/font-awesome-5/pen_square>
+!include <tupadr3/font-awesome-5/user_alt>
+!include <tupadr3/font-awesome-5/user_cog>
+!include <tupadr3/font-awesome-5/user_edit>
+
+skinparam defaultTextAlignment center
+skinparam defaultFontName Ubuntu Mono
+skinparam defaultFontSize 15
+scale max 600 width
+
+left to right direction
+
+<style>
+rectangle {
+    FontSize 20
+}
+collections {
+    FontSize 20
+}
+label {
+    FontSize 16
+}
+.axis {
+    FontSize 12
+    FontColor DimGrey
+}
+</style>
+
+' label origin [
+' ]
+' label origin [
+'   <$user_alt>
+' ]
+label origin [
+  <$user_alt{scale=0.4}>
+  <$user_alt{scale=0.4}>  <$user_alt{scale=0.4}>
+  <$user_alt{scale=0.4}>
+]
+
+!procedure $showCharacter($playerNr=1)
+  !$description = "<$pen_square{scale=0.4}><size:8> </size>персонаж"
+  !if ($playerNr == 1)
+    rectangle character [
+      $description
+    ]
+  !else
+    collections character [
+      $description
+    ]
+  !endif
+!endprocedure
+
+!procedure $showAvatar($playerNr=1)
+  !$description = "<$cog{scale=0.4}><size:8> </size>аватар"
+  !if ($playerNr == 1)
+    rectangle avatar [
+      $description
+    ]
+  !else
+    collections avatar [
+      $description
+    ]
+  !endif
+!endprocedure
+
+!procedure $showDuality()
+  label highest <<axis>> [
+    р а ц и о н а л ь н о е
+    ' п р а в и л а
+  ]
+  label lowest <<axis>> [
+    э м о ц и о н а л ь н о е
+    ' ч у в с т в а
+  ]
+  label rightmost <<axis>> [
+    г
+    е
+    й
+    м
+    п
+    л
+    е
+    й
+  ]
+  label leftmost <<axis>> [
+    н
+    а
+    р
+    р
+    а
+    т
+    и
+    в
+  ]
+!endprocedure
+
+!procedure $hideDuality()
+  label leftmost <<axis>> [
+    <U+0000>
+  ]
+  label rightmost <<axis>> [
+    <U+0000>
+  ]
+  label highest <<axis>> [
+  ]
+  label lowest <<axis>> [
+  ]
+!endprocedure
+
+!procedure $showMasterMatrix()
+  label plot [
+    сюжет
+  ]
+  label theme [
+    тематика
+  ]
+  plot -[hidden]r- character
+  character -[hidden]r- theme
+!endprocedure
+
+!procedure $showEngineMatrix()
+  label mechanics [
+    механика
+  ]
+  label setting [
+    сеттинг
+  ]
+  mechanics -[hidden]r- avatar
+  avatar -[hidden]r- setting
+!endprocedure
+
+!procedure $showFullMatrix()
+  $showMasterMatrix()
+  $showEngineMatrix()
+  plot -[hidden]d- playerN
+  theme -[hidden]d- playerM
+  playerN -[hidden]d- mechanics
+  playerM -[hidden]d- setting
+!endprocedure
+
+!procedure $showMainLoop()
+  $showCharacter(2)
+  $showAvatar(2)
+
+  FA5_USER_ALT(playerN, "игрок N", label)
+  FA5_USER_ALT(playerM, "игрок M", label)
+
+  $showMainGrid()
+
+  character -d-> playerN
+  playerM -u-> character
+
+  playerN -d-> avatar
+  avatar -u-> playerM
+!endprocedure
+
+!procedure $hideMainLoop()
+  label character [
+  ]
+  label avatar [
+  ]
+  label playerM [
+  ]
+  label playerN [
+  ]
+  $showMainGrid()
+!endprocedure
+
+!procedure $showMainGrid()
+  leftmost ~[thickness=1]d~ character
+  character ~[thickness=1]d~ origin
+  origin ~[thickness=1]d~ avatar
+  avatar ~[thickness=1]d~ rightmost
+
+  highest ~[thickness=1]r~ playerN
+  playerN ~[thickness=1]r~ origin
+  origin ~[thickness=1]r~ playerM
+  playerM ~[thickness=1]r~ lowest
+!endprocedure
+
+!procedure $showMasterGrid()
+  leftmost ~[thickness=1]d~ master
+  master ~[thickness=1]d~ character
+  character ~[thickness=1]d~ origin
+
+  highest ~[thickness=1]r~ origin
+  origin ~[thickness=1]r~ lowest
+!endprocedure
+
+!procedure $showMasterLoop()
+  $showCharacter(2)
+  
+  FA5_USER_EDIT(master, "мастер ", label)
+
+  character -u-> master
+  ' character -[hidden]u-> master
+  ' master -[hidden]d-> character
+  master ~[thickness=1]d~ character
+  master -d-> character
+  
+  character -d-> origin
+  ' character -[hidden]d- origin
+  ' origin -[hidden]u- character
+  character ~[thickness=1]d~ origin
+  origin -u-> character
+
+  $showMasterMatrix()
+  
+  label leftmost <<axis>> [
+    <U+0000>
+  ]
+  leftmost ~[thickness=1]d~ master
+
+  label rightmost <<axis>> [
+    <U+0000>
+  ]
+  origin ~[thickness=1]d~ rightmost
+
+  label highest <<axis>> [
+  ]
+  highest ~[thickness=1]r~ origin
+
+  label lowest <<axis>> [
+  ]
+  origin ~[thickness=1]r~ lowest
+!endprocedure
+
+!procedure $showEngineLoop()
+  $showAvatar(2)
+  
+  FA5_USER_COG(engine, "движок ", label)
+
+  avatar -u-> origin
+  ' avatar -[hidden]u-> origin
+  ' origin -[hidden]d-> avatar
+  origin ~[thickness=1]d~ avatar
+  origin -d-> avatar
+  
+  avatar -d-> engine
+  ' avatar -[hidden]d- engine
+  ' engine -[hidden]u- avatar
+  avatar ~[thickness=1]d~ engine
+  engine -u-> avatar
+
+  $showEngineMatrix()
+    label leftmost <<axis>> [
+    <U+0000>
+  ]
+
+  leftmost ~[thickness=1]d~ origin
+
+  label rightmost <<axis>> [
+    <U+0000>
+  ]
+  engine ~[thickness=1]d~ rightmost
+
+  label highest <<axis>> [
+  ]
+  highest ~[thickness=1]r~ origin
+
+  label lowest <<axis>> [
+  ]
+  origin ~[thickness=1]r~ lowest
+!endprocedure
+
+!$debug = 0
+!if ($debug)
+  ' $showMainLoop()
+  ' $showFullMatrix()
+  $showEngineLoop()
+!endif
+@enduml
