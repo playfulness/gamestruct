@@ -367,9 +367,9 @@ skinparam defaultFontSize 20
 scale max 1200 width
 
 rectangle "0000000000000000000" as stub1
-hide stub1
+hidden stub1
 rectangle "0000000000000000000" as stub2
-hide stub2
+hidden stub2
 
 node "состояние<sub> <U+3007></sub>" as impl0
 cloud "объяснение<sub> <U+3007></sub>" as expl0

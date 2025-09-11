@@ -39,21 +39,19 @@ label origin [
   <$user_alt{scale=0.4}>
 ]
 
-!procedure $showDuality()
+!procedure $fillLegend()
   label leftmost <<axis>> [
-    м
-    и
-    н
-    у
-    в
+    п
+    р
+    о
     ш
-    е
+    л
+    о
     е
   ]
   label rightmost <<axis>> [
-    г
-    р
-    я
+    б
+    у
     д
     у
     щ
@@ -68,7 +66,7 @@ label origin [
   ]
 !endprocedure
 
-!procedure $hideDuality()
+!procedure $emptyLegend()
   label leftmost <<axis>> [
     <U+0000>
   ]
@@ -83,7 +81,7 @@ label origin [
   ]
 !endprocedure
 
-!procedure $showLoop()
+!procedure $fillLoop()
   rectangle context [
     <$database{scale=0.4}><size:8> </size>контекст
   ]
@@ -97,7 +95,7 @@ label origin [
     <$chevron_circle_up{scale=0.4}><size:8> </size>событие
   ]
 
-  $showGrid()
+  $fillGrid()
 
   context -d-> action
   action -d-> state
@@ -105,7 +103,7 @@ label origin [
   event -u-> context
 !endprocedure
 
-!procedure $hideLoop()
+!procedure $hiddenLoop()
   label event [
   ]
   label action [
@@ -114,10 +112,10 @@ label origin [
   ]
   label state [
   ]
-  $showGrid()
+  $fillGrid()
 !endprocedure
 
-!procedure $showGrid()
+!procedure $fillGrid()
   leftmost ~[thickness=1]r~ event
   event ~[thickness=1]r~ origin
   origin ~[thickness=1]r~ action
@@ -129,7 +127,7 @@ label origin [
   state ~[thickness=1]d~ lowest
 !endprocedure
 
-!procedure $showMatrix()
+!procedure $fillMatrix()
   label provision [
     обеспечение
   ]
@@ -150,8 +148,8 @@ label origin [
 
 !$debug = 0
 !if ($debug)
-  $showDuality()
-  $showLoop()
-  $showMatrix()
+  $fillLegend()
+  $fillLoop()
+  $fillMatrix()
 !endif
 @enduml

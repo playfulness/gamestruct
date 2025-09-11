@@ -1,56 +1,135 @@
-@startuml main-dualities
-skinparam ranksep 100
-skinparam nodesep 60
+@startuml player-only
 !include lib/game.puml!loop
-$showDuality()
-$hideMainLoop()
+skinparam ranksep 200
+$fillPlayer()
+$emptyLegend()
+$joinLegend1("hidden")
+@enduml
+
+@startuml player-with-legend-x
+!include lib/game.puml!loop
+skinparam ranksep 200
+skinparam nodesep 60
+$fillPlayer()
+$fillLegendX()
+$emptyLegendY()
+$joinLegend1("hidden", "thickness=1")
+@enduml
+
+@startuml player-with-puzzled-character-and-avatar
+!include lib/game.puml!loop
+skinparam ranksep 80
+$fillPuzzle(character)
+$fillPlayer()
+$fillPuzzle(avatar)
+$joinGrid3("hidden")
+$fillLegendX()
+$emptyLegendY()
+$joinLegend3("hidden", "thickness=1")
+@enduml
+
+@startuml player-with-filled-character-and-avatar
+!include lib/game.puml!loop
+skinparam ranksep 40
+$fillCharacter()
+$fillPlayer()
+$fillAvatar()
+$joinGrid3("hidden")
+$fillLegendX()
+$emptyLegendY()
+$joinLegend3("hidden", "thickness=1")
+@enduml
+
+@startuml players-with-filled-characters-and-avatars
+!include lib/game.puml!loop
+skinparam ranksep 60
+$fillHorizontal3()
+$joinGrid3("hidden")
+$emptyLegend()
+$joinLegend3("hidden", "thickness=1")
+@enduml
+
+@startuml players-with-puzzled-master-and-engine
+!include lib/game.puml!loop
+skinparam ranksep 30
+$fillPuzzle(master)
+$fillHorizontal3()
+$fillPuzzle(engine)
+$joinGrid5("hidden")
+$emptyLegend()
+$joinLegend5("hidden", "thickness=1")
+@enduml
+
+@startuml players-with-filled-master-and-engine
+!include lib/game.puml!loop
+skinparam ranksep 30
+$fillMaster()
+$fillHorizontal3()
+$fillEngine()
+$joinGrid5("hidden")
+$emptyLegend()
+$joinLegend5("hidden", "thickness=1")
+@enduml
+
+@startuml player-with-legend-y
+!include lib/game.puml!loop
+skinparam ranksep 200
+$fillPlayer()
+$emptyLegendX()
+$fillLegendY()
+$joinLegend1("thickness=1")
+@enduml
+
+@startuml player-with-puzzled-matrix
+!include lib/game.puml!loop
+skinparam ranksep 50
+$emptyCharacter()
+$fillPlayer()
+$emptyAvatar()
+$joinGrid3("thickness=1")
+
+$puzzleMatrix()
+$joinMatrix()
+
+$fillLegend()
+$joinLegend3("thickness=1", "thickness=1")
 @enduml
 
 @startuml main-dualities-matrix
 !include lib/game.puml!loop
 skinparam ranksep 50
-skinparam nodesep 60
-$showDuality()
-$hideMainLoop()
-$showFullMatrix()
+skinparam nodesep 40
+$fillPlayers()
+$fillLegend()
+$emptyGameLoop()
+$fillGameMatrix()
 @enduml
 
 @startuml main-loop
 !include lib/game.puml!loop
 skinparam ranksep 50
-skinparam nodesep 40
-$hideDuality()
-$showMainLoop()
+skinparam nodesep 80
+$fillPlayers()
+$emptyLegend()
+$fillGameLoop()
 @enduml
 
 @startuml main-loop-matrix
 !include lib/game.puml!loop
 skinparam ranksep 50
-skinparam nodesep 40
-$hideDuality()
-$showMainLoop()
-$showFullMatrix()
+skinparam nodesep 80
+$fillPlayers()
+$emptyLegend()
+$fillGameLoop()
+$fillGameMatrix()
 @enduml
 
 @startuml main-loop-full
-skinparam ranksep 30
-skinparam nodesep 40
+skinparam ranksep 40
+skinparam nodesep 90
 !include lib/game.puml!loop
-$showDuality()
-$showMainLoop()
-$showFullMatrix()
-@enduml
-
-@startuml master-loop
-skinparam ranksep 50
-skinparam nodesep 80
-!include lib/game.puml!loop
-$showMasterLoop()
-@enduml
-
-@startuml engine-loop
-skinparam ranksep 50
-skinparam nodesep 80
-!include lib/game.puml!loop
-$showEngineLoop()
+$fillPlayers()
+$fillLegend()
+$fillGameLoop()
+$fillGameMatrix()
 @enduml
