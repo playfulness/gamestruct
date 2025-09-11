@@ -39,7 +39,7 @@ label origin [
   <$user_alt{scale=0.4}>
 ]
 
-!procedure $fillLegend()
+!procedure $fill_legend()
   label leftmost <<axis>> [
     п
     р
@@ -66,7 +66,7 @@ label origin [
   ]
 !endprocedure
 
-!procedure $emptyLegend()
+!procedure $empty_legend()
   label leftmost <<axis>> [
     <U+0000>
   ]
@@ -148,7 +148,7 @@ label origin [
 
 !$debug = 0
 !if ($debug)
-  $fillLegend()
+  $fill_legend()
   $fillLoop()
   $fillMatrix()
 !endif

@@ -42,14 +42,14 @@ left to right direction
   }
 </style>
 
-!procedure $fillPlayer($style=sth)
+!procedure $fill_player($style=sth)
   label origin <<$style>> [
     <$user_alt>
     игрок
   ]
 !endprocedure
 
-!procedure $fillPlayers()
+!procedure $fill_players()
   label origin [
     <$user_alt{scale=0.4}>
     <$user_alt{scale=0.4}>  <$user_alt{scale=0.4}>
@@ -58,14 +58,14 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fillCharacter()
+!procedure $fill_character()
   rectangle character [
     <$pen_square{scale=0.4}><size:8> </size>персонаж
   ]
 !endprocedure
 
 !procedure $hideCharacter()
-  $fillCharacter()
+  $fill_character()
   hide character
 !endprocedure
 
@@ -74,20 +74,20 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fillCharacters()
+!procedure $fill_characters()
   collections character [
     <$pen_square{scale=0.4}><size:8> </size>персонажи
   ]
 !endprocedure
 
-!procedure $fillAvatar()
+!procedure $fill_avatar()
   rectangle avatar [
     <$cog{scale=0.4}><size:8> </size>аватар
   ]
 !endprocedure
 
 !procedure $hideAvatar()
-  $fillAvatar()
+  $fill_avatar()
   hide avatar
 !endprocedure
 
@@ -96,24 +96,18 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fillAvatars()
+!procedure $fill_avatars()
   collections avatar [
     <$cog{scale=0.4}><size:8> </size>аватары
   ]
 !endprocedure
 
-!procedure $fillHorizontal3()
-  $fillCharacters()
-  $fillPlayers()
-  $fillAvatars()
+!procedure $fill_legend()
+  $fill_legend_x()
+  $fill_legend_y()
 !endprocedure
 
-!procedure $fillLegend()
-  $fillLegendX()
-  $fillLegendY()
-!endprocedure
-
-!procedure $fillLegendX($style=axis)
+!procedure $fill_legend_x($style=axis)
   label leftmost <<$style>> [
     н
     а
@@ -137,12 +131,12 @@ left to right direction
 !endprocedure
 
 !procedure $hideLegendX()
-  $fillLegendX()
+  $fill_legend_x()
   hide leftmost
   hide rightmost
 !endprocedure
 
-!procedure $fillLegendY($style=axis)
+!procedure $fill_legend_y($style=axis)
   label highest <<$style>> [
     р а ц и о
   ]
@@ -152,49 +146,63 @@ left to right direction
 !endprocedure
 
 !procedure $hideLegendY()
-  $fillLegendY()
+  $fill_legend_x()
   hide highest
   hide lowest
 !endprocedure
 
-!procedure $emptyLegend()
-  $emptyLegendX()
-  $emptyLegendY()
+!procedure $empty_legend()
+  $empty_legend_x()
+  $empty_legend_y()
 !endprocedure
 
-!procedure $emptyLegendX()
+!procedure $empty_legend_x()
   label leftmost <<axis>> [
   ]
   label rightmost <<axis>> [
   ]
 !endprocedure
 
-!procedure $emptyLegendY()
+!procedure $empty_legend_y()
   label highest <<axis>> [
   ]
   label lowest <<axis>> [
   ]
 !endprocedure
 
-!procedure $joinLegend1($x, $y="hidden")
+!procedure $join_legend_1x1($x, $y="hidden")
   leftmost ~[$x]d~ origin
   origin ~[$x]d~ rightmost
   highest ~[$y]r~ origin
   origin ~[$y]r~ lowest
 !endprocedure
 
-!procedure $joinLegend3($x, $y="hidden")
+!procedure $join_legend_3x1($x, $y="hidden")
   leftmost ~[$x]d~ character
   avatar ~[$x]d~ rightmost
   highest ~[$y]r~ origin
   origin ~[$y]r~ lowest
 !endprocedure
 
-!procedure $joinLegend5($x, $y="hidden")
+!procedure $join_legend_3x3($x, $y="hidden")
+  leftmost ~[$x]d~ character
+  avatar ~[$x]d~ rightmost
+  highest ~[$y]r~ upper
+  lower ~[$y]r~ lowest
+!endprocedure
+
+!procedure $join_legend_5x1($x, $y="hidden")
   leftmost ~[$x]d~ master
   engine ~[$x]d~ rightmost
   highest ~[$y]r~ origin
   origin ~[$y]r~ lowest
+!endprocedure
+
+!procedure $join_legend_5x3($x, $y="hidden")
+  leftmost ~[$x]d~ master
+  engine ~[$x]d~ rightmost
+  highest ~[$y]r~ upper
+  lower ~[$y]r~ lowest
 !endprocedure
 
 !procedure $fillPlot()
@@ -207,11 +215,6 @@ left to right direction
   label theme [
     тема
   ]
-!endprocedure
-
-!procedure $fillNarrativeMatrix()
-  $fillPlot()
-  $fillTheme()
 !endprocedure
 
 !procedure $fillMasterMatrix()
@@ -237,33 +240,29 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fillGameplayMatrix()
-  $fillMechanics()
-  $fillSetting()
-!endprocedure
-
-!procedure $fillRatioMatrix()
+!procedure $fill_matrix()
   $fillPlot()
-  $fillMechanics()
-!endprocedure
-
-!procedure $fillEmotioMatrix()
   $fillTheme()
   $fillSetting()
+  $fillMechanics()
 !endprocedure
 
-!procedure $puzzleMatrix()
-  $fillPuzzle(plot)
-  $fillPuzzle(mechanics)
-  $fillPuzzle(setting)
-  $fillPuzzle(theme)
+!procedure $puzzle_matrix()
+  $fill_puzzle(plot)
+  $fill_puzzle(mechanics)
+  $fill_puzzle(setting)
+  $fill_puzzle(theme)
 !endprocedure
 
-!procedure $joinMatrix()
-  plot -[hidden]r- character
-  character -[hidden]r- theme
-  mechanics -[hidden]r- avatar
-  avatar -[hidden]r- setting
+!procedure $join_matrix()
+  ' plot -[hidden]r- character
+  ' character -[hidden]r- theme
+  ' mechanics -[hidden]r- avatar
+  ' avatar -[hidden]r- setting
+  plot -[hidden]d- upper
+  upper -[hidden]d- mechanics
+  theme -[hidden]d- lower
+  lower -[hidden]d- setting
 !endprocedure
 
 !procedure $fillEngineMatrix()
@@ -283,8 +282,8 @@ left to right direction
 !endprocedure
 
 !procedure $fillGameLoop()
-  $fillCharacters()
-  $fillAvatars()
+  $fill_characters()
+  $fill_avatars()
 
   FA5_USER_EDIT(master, "мастер ", label)
 
@@ -309,7 +308,7 @@ left to right direction
   $fillGameGrid()
 !endprocedure
 
-!procedure $fillMaster()
+!procedure $fill_master()
   FA5_USER_EDIT(master, "мастер ", label)
 !endprocedure
 
@@ -318,11 +317,11 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fillEngine()
+!procedure $fill_engine()
   FA5_USER_COG(engine, "движок ", label)
 !endprocedure
 
-!procedure $fillPuzzle($key)
+!procedure $fill_puzzle($key)
   label $key <<puzzler>> [
     ?
   ]
@@ -357,15 +356,60 @@ left to right direction
   engine ~[thickness=1]d~ rightmost
 !endprocedure
 
-!procedure $joinGrid3($mode)
+!procedure $empty_grid_1x3()
+  $fill_player()
+  label upper [
+  ]
+  label lower [
+  ]
+!endprocedure
+
+!procedure $empty_grid_3x3()
+  $emptyCharacter()
+  $fill_player()
+  $emptyAvatar()
+  label upper [
+  ]
+  label lower [
+  ]
+!endprocedure
+
+!procedure $fill_grid_3x1()
+  $fill_characters()
+  $fill_players()
+  $fill_avatars()
+!endprocedure
+
+!procedure $join_grid_3x1($mode)
   character ~[$mode]d~ origin
   origin ~[$mode]d~ avatar
 !endprocedure
 
-!procedure $joinGrid5($mode)
+!procedure $fill_grid_5x1()
+  $fill_master()
+  $fill_grid_3x1()
+  $fill_engine()
+!endprocedure
+
+!procedure $join_grid_5x1($mode)
   master ~[$mode]d~ character
-  $joinGrid3($mode)
+  $join_grid_3x1($mode)
   avatar ~[$mode]d~ engine
+!endprocedure
+
+!procedure $join_grid_1x3($mode)
+  upper ~[$mode]r~ origin
+  origin ~[$mode]r~ lower
+!endprocedure
+
+!procedure $join_grid_3x3($mode)
+  $join_grid_3x1($mode)
+  $join_grid_1x3($mode)
+!endprocedure
+
+!procedure $join_grid_5x3($mode)
+  $join_grid_5x1($mode)
+  $join_grid_1x3($mode)
 !endprocedure
 
 !procedure $fillVertical()
@@ -380,13 +424,13 @@ left to right direction
 
 !procedure $fillGameStruct($count)
   !if ($count == 1)
-    $fillCharacter()
-    $fillPlayer()
-    $fillAvatar()
+    $fill_character()
+    $fill_player()
+    $fill_avatar()
   !else
-    $fillCharacters()
-    $fillPlayers()
-    $fillAvatars()
+    $fill_characters()
+    $fill_players()
+    $fill_avatars()
   !endif
 
   leftmost ~[hidden]d~ master
@@ -399,6 +443,6 @@ left to right direction
 
 !$debug = 0
 !if ($debug)
-  $fillPuzzle(foo)
+  $fill_puzzle(foo)
 !endif
 @enduml
