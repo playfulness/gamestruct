@@ -115,7 +115,7 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $guess_actor($id)
+!procedure $guess_agent($id)
   label $id <<puzzler>> [
      ?
   ]
@@ -181,6 +181,11 @@ left to right direction
   ]
   label lowest <<axis>> [
   ]
+!endprocedure
+
+!procedure $join_legend_x($x="thickness=1", $y="thickness=1")
+  leftmost ~[$x]d~ master
+  engine ~[$x]d~ rightmost
 !endprocedure
 
 !procedure $join_legend_1x1($x="thickness=1", $y="thickness=1")
@@ -250,10 +255,10 @@ left to right direction
 !endprocedure
 
 !procedure $guess_matrix()
-  $guess_actor(plot)
-  $guess_actor(mechanics)
-  $guess_actor(setting)
-  $guess_actor(theme)
+  $guess_agent(plot)
+  $guess_agent(mechanics)
+  $guess_agent(setting)
+  $guess_agent(theme)
 !endprocedure
 
 !procedure $join_matrix_3x1()

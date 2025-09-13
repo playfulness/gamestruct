@@ -1,3 +1,23 @@
+@startuml player-struct-desc
+!include lib/game.puml!core
+skinparam ranksep 30
+skinparam nodesep 70
+scale max 1200 width
+
+$fill_grid_5x1("mp")
+$join_grid_5x1("hidden")
+
+note top of master: агент
+note top of player: агенты
+note top of engine: агент
+
+note bottom of character: протоколы
+note bottom of avatar: протоколы
+
+$empty_legend_x()
+$join_legend_x("hidden", "hidden")
+@enduml
+
 @startuml player-self-loop
 !include lib/game.puml!core
 skinparam ranksep 30

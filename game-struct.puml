@@ -1,6 +1,6 @@
 @startuml filled-player
 !include lib/game.puml!core
-skinparam ranksep 200
+skinparam ranksep 250
 skinparam nodesep 50
 
 $fill_player()
@@ -11,12 +11,12 @@ $join_legend_1x1("hidden", "hidden")
 
 @startuml puzzled-master-and-puzzled-engine
 !include lib/game.puml!core
-skinparam ranksep 50
+skinparam ranksep 60
 skinparam nodesep 50
 
-$guess_actor(master)
+$guess_agent(master)
 $empty_grid_3x1()
-$guess_actor(engine)
+$guess_agent(engine)
 $join_grid_5x1("hidden")
 
 $empty_legend()
@@ -25,12 +25,12 @@ $join_legend_5x1("hidden", "hidden")
 
 @startuml filled-master-and-puzzled-engine
 !include lib/game.puml!core
-skinparam ranksep 50
+skinparam ranksep 60
 skinparam nodesep 50
 
 $fill_master()
 $empty_grid_3x1()
-$guess_actor(engine)
+$guess_agent(engine)
 $join_grid_5x1("hidden")
 
 $empty_legend()
@@ -39,7 +39,7 @@ $join_legend_5x1("hidden", "hidden")
 
 @startuml filled-master-and-filled-engine
 !include lib/game.puml!core
-skinparam ranksep 50
+skinparam ranksep 60
 skinparam nodesep 50
 
 $fill_master()
@@ -85,7 +85,7 @@ $join_legend_5x1("hidden", "hidden")
 
 @startuml filled-character-and-filled-avatar
 !include lib/game.puml!core
-skinparam ranksep 20
+skinparam ranksep 25
 skinparam nodesep 50
 
 $fill_grid_5x1()

@@ -1,7 +1,7 @@
 @startuml filled-player
 !include lib/game.puml!core
-skinparam ranksep 200
-skinparam nodesep 50
+skinparam ranksep 250
+skinparam nodesep 60
 
 $fill_player()
 
@@ -11,8 +11,8 @@ $join_legend_1x1()
 
 @startuml player-with-legend-x
 !include lib/game.puml!core
-skinparam ranksep 200
-skinparam nodesep 50
+skinparam ranksep 250
+skinparam nodesep 60
 
 $fill_player()
 
@@ -23,7 +23,7 @@ $join_legend_1x1($x="hidden")
 
 @startuml player-with-legend-y
 !include lib/game.puml!core
-skinparam ranksep 200
+skinparam ranksep 250
 skinparam nodesep 40
 
 $fill_player()
@@ -35,7 +35,7 @@ $join_legend_1x1($y="hidden")
 
 @startuml player-with-legend
 !include lib/game.puml!core
-skinparam ranksep 200
+skinparam ranksep 250
 skinparam nodesep 40
 
 $fill_player()
@@ -60,7 +60,7 @@ $join_legend_3x3()
 
 @startuml filled-matrix
 !include lib/game.puml!core
-skinparam ranksep 60
+skinparam ranksep 70
 skinparam nodesep 20
 
 $empty_grid_3x3()
