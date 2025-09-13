@@ -6,7 +6,7 @@ skinparam nodesep 50
 $fill_player()
 
 $empty_legend()
-$join_legend_1x1("thickness=1", "thickness=1")
+$join_legend_1x1()
 @enduml
 
 @startuml player-with-legend-x
@@ -18,7 +18,7 @@ $fill_player()
 
 $fill_legend_x()
 $empty_legend_y()
-$join_legend_1x1("hidden", "thickness=1")
+$join_legend_1x1($x="hidden")
 @enduml
 
 @startuml player-with-legend-y
@@ -30,7 +30,7 @@ $fill_player()
 
 $empty_legend_x()
 $fill_legend_y()
-$join_legend_1x1("thickness=1")
+$join_legend_1x1($y="hidden")
 @enduml
 
 @startuml player-with-legend
@@ -40,7 +40,7 @@ skinparam nodesep 40
 
 $fill_player()
 $fill_legend()
-$join_legend_1x1("thickness=1", "thickness=1")
+$join_legend_1x1()
 @enduml
 
 @startuml puzzled-matrix
@@ -49,13 +49,13 @@ skinparam ranksep 90
 skinparam nodesep 20
 
 $empty_grid_3x3()
-$join_grid_3x3("thickness=1")
+$join_grid_3x3()
 
-$puzzle_matrix()
+$guess_matrix()
 $join_matrix_3x3()
 
 $fill_legend()
-$join_legend_3x3("thickness=1", "thickness=1")
+$join_legend_3x3()
 @enduml
 
 @startuml filled-matrix
@@ -64,11 +64,11 @@ skinparam ranksep 60
 skinparam nodesep 20
 
 $empty_grid_3x3()
-$join_grid_3x3("thickness=1")
+$join_grid_3x3()
 
 $fill_matrix()
 $join_matrix_3x3()
 
 $fill_legend()
-$join_legend_3x3("thickness=1", "thickness=1")
+$join_legend_3x3()
 @enduml

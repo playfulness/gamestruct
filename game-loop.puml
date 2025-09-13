@@ -2,51 +2,67 @@
 !include lib/game.puml!core
 skinparam ranksep 30
 skinparam nodesep 70
+scale max 1200 width
 
-$fill_grid_5x1()
-$loop_character("hidden")
-$loop_avatar("hidden")
-$join_actors_5x1("hidden")
+$fill_grid_5x1("mp")
+$loop_character()
+$loop_avatar()
+$join_protocol_5x1()
+
+$fill_matrix()
+$join_matrix_3x1()
 
 $empty_legend()
-$join_legend_5x1("hidden")
+$join_legend_5x1()
 @enduml
 
 @startuml player-narrative-loop
 !include lib/game.puml!core
 skinparam ranksep 30
 skinparam nodesep 70
+scale max 1200 width
 
-$fill_grid_5x1()
-$loop_narrative("hidden")
-$join_gameplay_5x1("hidden")
+$fill_grid_5x1("mp")
+$loop_narrative()
+$join_gameplay_5x1()
+
+$fill_matrix()
+$join_matrix_3x1()
 
 $empty_legend()
-$join_legend_5x1("hidden")
+$join_legend_5x1()
 @enduml
 
 @startuml player-gameplay-loop
 !include lib/game.puml!core
 skinparam ranksep 30
 skinparam nodesep 70
+scale max 1200 width
 
-$fill_grid_5x1()
-$loop_gameplay("hidden")
-$join_narrative_5x1("hidden")
+$fill_grid_5x1("mp")
+$loop_gameplay()
+$join_narrative_5x1()
+
+$fill_matrix()
+$join_matrix_3x1()
 
 $empty_legend()
-$join_legend_5x1("hidden")
+$join_legend_5x1()
 @enduml
 
-@startuml gameplay-and-narrative-loop
+@startuml player-all-loops
 !include lib/game.puml!core
-skinparam ranksep 30
+skinparam ranksep 40
 skinparam nodesep 70
+scale max 1200 width
 
-$fill_grid_5x1()
-$loop_narrative("hidden")
-$loop_gameplay("hidden")
+$fill_grid_5x1("mp")
+$loop_narrative()
+$loop_gameplay()
+
+$fill_matrix()
+$join_matrix_3x1()
 
 $empty_legend()
-$join_legend_5x1("hidden")
+$join_legend_5x1()
 @enduml

@@ -6,7 +6,7 @@ skinparam nodesep 50
 $fill_player()
 
 $empty_legend()
-$join_legend_1x1("hidden")
+$join_legend_1x1("hidden", "hidden")
 @enduml
 
 @startuml puzzled-master-and-puzzled-engine
@@ -14,13 +14,13 @@ $join_legend_1x1("hidden")
 skinparam ranksep 50
 skinparam nodesep 50
 
-$puzzle_actor(master)
+$guess_actor(master)
 $empty_grid_3x1()
-$puzzle_actor(engine)
+$guess_actor(engine)
 $join_grid_5x1("hidden")
 
 $empty_legend()
-$join_legend_5x1("hidden")
+$join_legend_5x1("hidden", "hidden")
 @enduml
 
 @startuml filled-master-and-puzzled-engine
@@ -30,11 +30,11 @@ skinparam nodesep 50
 
 $fill_master()
 $empty_grid_3x1()
-$puzzle_actor(engine)
+$guess_actor(engine)
 $join_grid_5x1("hidden")
 
 $empty_legend()
-$join_legend_5x1("hidden")
+$join_legend_5x1("hidden", "hidden")
 @enduml
 
 @startuml filled-master-and-filled-engine
@@ -48,7 +48,7 @@ $fill_engine()
 $join_grid_5x1("hidden")
 
 $empty_legend()
-$join_legend_5x1("hidden")
+$join_legend_5x1("hidden", "hidden")
 @enduml
 
 @startuml puzzled-character-and-puzzled-avatar
@@ -57,14 +57,14 @@ skinparam ranksep 30
 skinparam nodesep 50
 
 $fill_master()
-$puzzle_protocol(character)
+$draft_protocol(character)
 $fill_player()
-$puzzle_protocol(avatar)
+$draft_protocol(avatar)
 $fill_engine()
 $join_grid_5x1("hidden")
 
 $empty_legend()
-$join_legend_5x1("hidden")
+$join_legend_5x1("hidden", "hidden")
 @enduml
 
 @startuml filled-character-and-puzzled-avatar
@@ -75,12 +75,12 @@ skinparam nodesep 50
 $fill_master()
 $fill_character()
 $fill_player()
-$puzzle_protocol(avatar)
+$draft_protocol(avatar)
 $fill_engine()
 $join_grid_5x1("hidden")
 
 $empty_legend()
-$join_legend_5x1("hidden")
+$join_legend_5x1("hidden", "hidden")
 @enduml
 
 @startuml filled-character-and-filled-avatar
@@ -92,7 +92,7 @@ $fill_grid_5x1()
 $join_grid_5x1("hidden")
 
 $empty_legend()
-$join_legend_5x1("hidden")
+$join_legend_5x1("hidden", "hidden")
 @enduml
 
 @startuml filled-characters-and-filled-avatars
@@ -104,5 +104,5 @@ $fill_grid_5x1("mp")
 $join_grid_5x1("hidden")
 
 $empty_legend()
-$join_legend_5x1("hidden")
+$join_legend_5x1("hidden", "hidden")
 @enduml

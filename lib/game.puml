@@ -33,7 +33,6 @@ left to right direction
   .sth {
   }
   .nth {
-    ' FontSize 12
     FontColor Transparent
   }
   .puzzler {
@@ -42,9 +41,9 @@ left to right direction
   }
 </style>
 
-!procedure $fill_player($mode="sp", $style=sth)
+!procedure $fill_player($mode="sp")
   !if ($mode=="sp")
-    label player <<$style>> [
+    label player [
       <$user_alt{scale=0.9}>
       игрок
     ]
@@ -116,14 +115,14 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $puzzle_actor($id)
+!procedure $guess_actor($id)
   label $id <<puzzler>> [
      ?
   ]
 !endprocedure
 
-!procedure $puzzle_protocol($id)
-  rectangle $id #line.dotted;back:transparent [
+!procedure $draft_protocol($id)
+  rectangle $id #line.dashed;back:transparent [
     <U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000>
   ]
 !endprocedure
@@ -184,35 +183,35 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $join_legend_1x1($x, $y="hidden")
+!procedure $join_legend_1x1($x="thickness=1", $y="thickness=1")
   leftmost ~[$x]d~ player
   player ~[$x]d~ rightmost
   highest ~[$y]r~ player
   player ~[$y]r~ lowest
 !endprocedure
 
-!procedure $join_legend_3x1($x, $y="hidden")
+!procedure $join_legend_3x1($x="thickness=1", $y="thickness=1")
   leftmost ~[$x]d~ character
   avatar ~[$x]d~ rightmost
   highest ~[$y]r~ player
   player ~[$y]r~ lowest
 !endprocedure
 
-!procedure $join_legend_3x3($x, $y="hidden")
+!procedure $join_legend_3x3($x="thickness=1", $y="thickness=1")
   leftmost ~[$x]d~ character
   avatar ~[$x]d~ rightmost
   highest ~[$y]r~ upper
   lower ~[$y]r~ lowest
 !endprocedure
 
-!procedure $join_legend_5x1($x, $y="hidden")
+!procedure $join_legend_5x1($x="thickness=1", $y="thickness=1")
   leftmost ~[$x]d~ master
   engine ~[$x]d~ rightmost
   highest ~[$y]r~ player
   player ~[$y]r~ lowest
 !endprocedure
 
-!procedure $join_legend_5x3($x, $y="hidden")
+!procedure $join_legend_5x3($x="thickness=1", $y="thickness=1")
   leftmost ~[$x]d~ master
   engine ~[$x]d~ rightmost
   highest ~[$y]r~ upper
@@ -221,7 +220,7 @@ left to right direction
 
 !procedure $fill_plot()
   label plot [
-    ""  сюжет  ""
+    ""сюжет""
   ]
 !endprocedure
 
@@ -233,7 +232,7 @@ left to right direction
 
 !procedure $fill_mechanics()
   label mechanics [
-    ""механика""
+    ""механики""
   ]
 !endprocedure
 
@@ -250,11 +249,11 @@ left to right direction
   $fill_mechanics()
 !endprocedure
 
-!procedure $puzzle_matrix()
-  $puzzle_actor(plot)
-  $puzzle_actor(mechanics)
-  $puzzle_actor(setting)
-  $puzzle_actor(theme)
+!procedure $guess_matrix()
+  $guess_actor(plot)
+  $guess_actor(mechanics)
+  $guess_actor(setting)
+  $guess_actor(theme)
 !endprocedure
 
 !procedure $join_matrix_3x1()
@@ -289,6 +288,7 @@ left to right direction
   $empty_character()
   $fill_player()
   $empty_avatar()
+
   label upper [
   ]
   label lower [
@@ -319,68 +319,68 @@ left to right direction
   $fill_engine()
 !endprocedure
 
-!procedure $join_grid_1x3($mode)
+!procedure $join_grid_1x3($mode="thickness=1")
   upper ~[$mode]r~ player
   player ~[$mode]r~ lower
 !endprocedure
 
-!procedure $join_grid_3x1($mode)
+!procedure $join_grid_3x1($mode="thickness=1")
   character ~[$mode]d~ player
   player ~[$mode]d~ avatar
 !endprocedure
 
-!procedure $join_grid_5x1($mode)
+!procedure $join_grid_5x1($mode="thickness=1")
   $join_narrative_5x1($mode)
   $join_gameplay_5x1($mode)
 !endprocedure
 
-!procedure $join_grid_3x3($mode)
+!procedure $join_grid_3x3($mode="thickness=1")
   $join_grid_3x1($mode)
   $join_grid_1x3($mode)
 !endprocedure
 
-!procedure $join_grid_5x3($mode)
+!procedure $join_grid_5x3($mode="thickness=1")
   $join_grid_5x1($mode)
   $join_grid_1x3($mode)
 !endprocedure
 
-!procedure $join_narrative_5x1($mode)
+!procedure $join_narrative_5x1($mode="thickness=1")
   master ~[$mode]d~ character
   character ~[$mode]d~ player
 !endprocedure
 
-!procedure $join_gameplay_5x1($mode)
+!procedure $join_gameplay_5x1($mode="thickness=1")
   player ~[$mode]d~ avatar
   avatar ~[$mode]d~ engine
 !endprocedure
 
-!procedure $join_actors_5x1($mode="thickness=1")
+!procedure $join_protocol_5x1($mode="thickness=1")
   master ~[$mode]d~ character
   avatar ~[$mode]d~ engine
 !endprocedure
 
 !procedure $loop_character($mode="thickness=1")
-  character -d-> player
+  character -[plain]d-> player
   character ~[$mode]d~ player
-  character <-d- player
+  character <-[plain]d- player
 !endprocedure
 
 !procedure $loop_avatar($mode="thickness=1")
-  player <-d- avatar
+  player <-[plain]d- avatar
   player ~[$mode]d~ avatar
-  player -d-> avatar
+  player -[plain]d-> avatar
 !endprocedure
 
 !procedure $loop_master($mode="thickness=1")
-  master <-d- character
+  master <-[plain]d- character
   master ~[$mode]d~ character
-  master -d-> character
+  master -[plain]d-> character
 !endprocedure
 
 !procedure $loop_engine($mode="thickness=1")
-  avatar -d-> engine
+  avatar -[plain]d-> engine
   avatar ~[$mode]d~ engine
-  avatar <-d- engine
+  avatar <-[plain]d- engine
 !endprocedure
 
 !procedure $loop_narrative($mode="thickness=1")
@@ -393,18 +393,8 @@ left to right direction
   $loop_engine($mode)
 !endprocedure
 
-!$debug = 0
+!$debug = %false()
 !if ($debug)
-skinparam ranksep 20
-skinparam nodesep 20
-$fill_grid_5x1()
-$empty_grid_1x3()
-$join_grid_5x3("thickness=1")
-
-$fill_matrix()
-$join_matrix_3x3()
-
-$fill_legend()
-$join_legend_5x3("thickness=1", "thickness=1")
+  $fill_player()
 !endif
 @enduml
