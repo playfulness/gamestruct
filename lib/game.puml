@@ -1,4 +1,4 @@
-@startuml (id=loop)
+@startuml (id=core)
 !include <tupadr3/common>
 !include <tupadr3/font-awesome-5/cog>
 !include <tupadr3/font-awesome-5/pen_square>
@@ -12,7 +12,7 @@
 skinparam defaultTextAlignment center
 skinparam defaultFontName Ubuntu Mono
 skinparam defaultFontSize 15
-scale max 1200 width
+scale max 600 width
 
 left to right direction
 
@@ -33,18 +33,18 @@ left to right direction
   .sth {
   }
   .nth {
-    FontSize 12
+    ' FontSize 12
     FontColor Transparent
   }
   .puzzler {
-    FontSize 50
+    FontSize 40
     FontStyle bold
   }
 </style>
 
 !procedure $fill_player($style=sth)
   label origin <<$style>> [
-    <$user_alt>
+    <$user_alt{scale=0.9}>
     игрок
   ]
 !endprocedure
@@ -58,19 +58,14 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fill_character()
-  rectangle character [
-    <$pen_square{scale=0.4}><size:8> </size>персонаж
+!procedure $empty_character()
+  label character [
   ]
 !endprocedure
 
-!procedure $hideCharacter()
-  $fill_character()
-  hide character
-!endprocedure
-
-!procedure $emptyCharacter()
-  label character [
+!procedure $fill_character()
+  rectangle character [
+    <$pen_square{scale=0.4}><size:8> </size>персонаж
   ]
 !endprocedure
 
@@ -80,25 +75,56 @@ left to right direction
   ]
 !endprocedure
 
+!procedure $empty_avatar()
+  label avatar [
+  ]
+!endprocedure
+
+!procedure $puzzle_protocol($id)
+  rectangle $id #line.dotted;back:transparent [
+    <U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000>
+  ]
+!endprocedure
+
 !procedure $fill_avatar()
   rectangle avatar [
     <$cog{scale=0.4}><size:8> </size>аватар
   ]
 !endprocedure
 
-!procedure $hideAvatar()
-  $fill_avatar()
-  hide avatar
-!endprocedure
-
-!procedure $emptyAvatar()
-  label avatar [
-  ]
-!endprocedure
-
 !procedure $fill_avatars()
   collections avatar [
     <$cog{scale=0.4}><size:8> </size>аватары
+  ]
+!endprocedure
+
+!procedure $empty_master()
+  label master [
+  ]
+!endprocedure
+
+!procedure $fill_master()
+  label master [
+    <$user_edit{scale=0.9}>
+    мастер
+  ]
+!endprocedure
+
+!procedure $empty_engine()
+  label engine [
+  ]
+!endprocedure
+
+!procedure $fill_engine()
+  label engine [
+    <$user_cog{scale=0.9}>
+    движок
+  ]
+!endprocedure
+
+!procedure $puzzle_actor($id)
+  label $id <<puzzler>> [
+     ?
   ]
 !endprocedure
 
@@ -130,12 +156,6 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $hideLegendX()
-  $fill_legend_x()
-  hide leftmost
-  hide rightmost
-!endprocedure
-
 !procedure $fill_legend_y($style=axis)
   label highest <<$style>> [
     р а ц и о
@@ -143,12 +163,6 @@ left to right direction
   label lowest <<$style>> [
     э м о ц и о
   ]
-!endprocedure
-
-!procedure $hideLegendY()
-  $fill_legend_x()
-  hide highest
-  hide lowest
 !endprocedure
 
 !procedure $empty_legend()
@@ -205,60 +219,63 @@ left to right direction
   lower ~[$y]r~ lowest
 !endprocedure
 
-!procedure $fillPlot()
+!procedure $fill_plot()
   label plot [
-    сюжет
+    ""  сюжет  ""
   ]
 !endprocedure
 
-!procedure $fillTheme()
+!procedure $fill_theme()
   label theme [
-    тема
+    ""  тема  ""
   ]
 !endprocedure
 
 !procedure $fillMasterMatrix()
   label plot [
-    сюжет
+    ""сюжет""
   ]
   label theme [
-    тема
+    ""тема""
   ]
   plot -[hidden]r- character
   character -[hidden]r- theme
 !endprocedure
 
-!procedure $fillMechanics()
+!procedure $fill_mechanics()
   label mechanics [
-    механика
+    ""механика""
   ]
 !endprocedure
 
-!procedure $fillSetting()
+!procedure $fill_setting()
   label setting [
-    сеттинг
+    ""сеттинг""
   ]
 !endprocedure
 
 !procedure $fill_matrix()
-  $fillPlot()
-  $fillTheme()
-  $fillSetting()
-  $fillMechanics()
+  $fill_plot()
+  $fill_theme()
+  $fill_setting()
+  $fill_mechanics()
 !endprocedure
 
 !procedure $puzzle_matrix()
-  $fill_puzzle(plot)
-  $fill_puzzle(mechanics)
-  $fill_puzzle(setting)
-  $fill_puzzle(theme)
+  $puzzle_actor(plot)
+  $puzzle_actor(mechanics)
+  $puzzle_actor(setting)
+  $puzzle_actor(theme)
 !endprocedure
 
-!procedure $join_matrix()
-  ' plot -[hidden]r- character
-  ' character -[hidden]r- theme
-  ' mechanics -[hidden]r- avatar
-  ' avatar -[hidden]r- setting
+!procedure $join_matrix_3x1()
+  plot -[hidden]r- character
+  character -[hidden]r- theme
+  mechanics -[hidden]r- avatar
+  avatar -[hidden]r- setting
+!endprocedure
+
+!procedure $join_matrix_3x3()
   plot -[hidden]d- upper
   upper -[hidden]d- mechanics
   theme -[hidden]d- lower
@@ -308,30 +325,6 @@ left to right direction
   $fillGameGrid()
 !endprocedure
 
-!procedure $fill_master()
-  FA5_USER_EDIT(master, "мастер ", label)
-!endprocedure
-
-!procedure $emptyMaster()
-  label master [
-  ]
-!endprocedure
-
-!procedure $fill_engine()
-  FA5_USER_COG(engine, "движок ", label)
-!endprocedure
-
-!procedure $fill_puzzle($key)
-  label $key <<puzzler>> [
-    ?
-  ]
-!endprocedure
-
-!procedure $emptyEngine()
-  label engine [
-  ]
-!endprocedure
-
 !procedure $emptyGameLoop()
   label character [
   ]
@@ -356,28 +349,46 @@ left to right direction
   engine ~[thickness=1]d~ rightmost
 !endprocedure
 
+!procedure $fillVertical()
+  highest ~[thickness=1]r~ origin: \n
+  origin ~[thickness=1]r~ lowest: \n
+!endprocedure
+
 !procedure $empty_grid_1x3()
-  $fill_player()
   label upper [
   ]
+  $fill_player()
   label lower [
   ]
 !endprocedure
 
 !procedure $empty_grid_3x3()
-  $emptyCharacter()
+  $empty_character()
   $fill_player()
-  $emptyAvatar()
+  $empty_avatar()
   label upper [
   ]
   label lower [
   ]
 !endprocedure
 
-!procedure $fill_grid_3x1()
-  $fill_characters()
-  $fill_players()
-  $fill_avatars()
+!procedure $empty_grid_3x1()
+  $empty_character()
+  $fill_player()
+  $empty_avatar()
+!endprocedure
+
+!procedure $fill_grid_3x1($mode="sp")
+  ' sp stand for single player
+  !if ($mode=="sp")
+    $fill_character()
+    $fill_player()
+    $fill_avatar()
+  !else
+    $fill_characters()
+    $fill_players()
+    $fill_avatars()
+  !endif
 !endprocedure
 
 !procedure $join_grid_3x1($mode)
@@ -385,9 +396,9 @@ left to right direction
   origin ~[$mode]d~ avatar
 !endprocedure
 
-!procedure $fill_grid_5x1()
+!procedure $fill_grid_5x1($mode="sp")
   $fill_master()
-  $fill_grid_3x1()
+  $fill_grid_3x1($mode)
   $fill_engine()
 !endprocedure
 
@@ -412,37 +423,18 @@ left to right direction
   $join_grid_1x3($mode)
 !endprocedure
 
-!procedure $fillVertical()
-  highest ~[thickness=1]r~ origin: \n
-  origin ~[thickness=1]r~ lowest: \n
-!endprocedure
-
-!procedure $hiddenGameGrid()
-  leftmost ~[hidden]d~ origin
-  origin ~[hidden]d~ rightmost
-!endprocedure
-
-!procedure $fillGameStruct($count)
-  !if ($count == 1)
-    $fill_character()
-    $fill_player()
-    $fill_avatar()
-  !else
-    $fill_characters()
-    $fill_players()
-    $fill_avatars()
-  !endif
-
-  leftmost ~[hidden]d~ master
-  master ~[hidden]d~ character
-  character ~[hidden]d~ origin
-  origin ~[hidden]d~ avatar
-  avatar ~[hidden]d~ engine
-  engine ~[hidden]d~ rightmost
-!endprocedure
-
 !$debug = 0
 !if ($debug)
-  $fill_puzzle(foo)
+skinparam ranksep 20
+skinparam nodesep 20
+$fill_grid_5x1()
+$empty_grid_1x3()
+$join_grid_5x3("thickness=1")
+
+$fill_matrix()
+$join_matrix_3x3()
+
+$fill_legend()
+$join_legend_5x3("thickness=1", "thickness=1")
 !endif
 @enduml

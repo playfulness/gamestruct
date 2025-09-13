@@ -1,0 +1,74 @@
+@startuml filled-player
+!include lib/game.puml!core
+skinparam ranksep 200
+skinparam nodesep 50
+
+$fill_player()
+
+$empty_legend()
+$join_legend_1x1("thickness=1", "thickness=1")
+@enduml
+
+@startuml player-with-legend-x
+!include lib/game.puml!core
+skinparam ranksep 200
+skinparam nodesep 50
+
+$fill_player()
+
+$fill_legend_x()
+$empty_legend_y()
+$join_legend_1x1("hidden", "thickness=1")
+@enduml
+
+@startuml player-with-legend-y
+!include lib/game.puml!core
+skinparam ranksep 200
+skinparam nodesep 40
+
+$fill_player()
+
+$empty_legend_x()
+$fill_legend_y()
+$join_legend_1x1("thickness=1")
+@enduml
+
+@startuml player-with-legend
+!include lib/game.puml!core
+skinparam ranksep 200
+skinparam nodesep 40
+
+$fill_player()
+$fill_legend()
+$join_legend_1x1("thickness=1", "thickness=1")
+@enduml
+
+@startuml puzzled-matrix
+!include lib/game.puml!core
+skinparam ranksep 100
+skinparam nodesep 20
+
+$empty_grid_3x3()
+$join_grid_3x3("thickness=1")
+
+$puzzle_matrix()
+$join_matrix_3x3()
+
+$fill_legend()
+$join_legend_3x3("thickness=1", "thickness=1")
+@enduml
+
+@startuml filled-matrix
+!include lib/game.puml!core
+skinparam ranksep 70
+skinparam nodesep 20
+
+$empty_grid_3x3()
+$join_grid_3x3("thickness=1")
+
+$fill_matrix()
+$join_matrix_3x3()
+
+$fill_legend()
+$join_legend_3x3("thickness=1", "thickness=1")
+@enduml

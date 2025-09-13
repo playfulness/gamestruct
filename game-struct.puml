@@ -1,0 +1,108 @@
+@startuml filled-player
+!include lib/game.puml!core
+skinparam ranksep 200
+skinparam nodesep 50
+
+$fill_player()
+
+$empty_legend()
+$join_legend_1x1("hidden")
+@enduml
+
+@startuml puzzled-master-and-puzzled-engine
+!include lib/game.puml!core
+skinparam ranksep 50
+skinparam nodesep 50
+
+$puzzle_actor(master)
+$empty_grid_3x1()
+$puzzle_actor(engine)
+$join_grid_5x1("hidden")
+
+$empty_legend()
+$join_legend_5x1("hidden")
+@enduml
+
+@startuml filled-master-and-puzzled-engine
+!include lib/game.puml!core
+skinparam ranksep 50
+skinparam nodesep 50
+
+$fill_master()
+$empty_grid_3x1()
+$puzzle_actor(engine)
+$join_grid_5x1("hidden")
+
+$empty_legend()
+$join_legend_5x1("hidden")
+@enduml
+
+@startuml filled-master-and-filled-engine
+!include lib/game.puml!core
+skinparam ranksep 50
+skinparam nodesep 50
+
+$fill_master()
+$empty_grid_3x1()
+$fill_engine()
+$join_grid_5x1("hidden")
+
+$empty_legend()
+$join_legend_5x1("hidden")
+@enduml
+
+@startuml puzzled-character-and-puzzled-avatar
+!include lib/game.puml!core
+skinparam ranksep 30
+skinparam nodesep 50
+
+$fill_master()
+$puzzle_protocol(character)
+$fill_player()
+$puzzle_protocol(avatar)
+$fill_engine()
+$join_grid_5x1("hidden")
+
+$empty_legend()
+$join_legend_5x1("hidden")
+@enduml
+
+@startuml filled-character-and-puzzled-avatar
+!include lib/game.puml!core
+skinparam ranksep 30
+skinparam nodesep 50
+
+$fill_master()
+$fill_character()
+$fill_player()
+$puzzle_protocol(avatar)
+$fill_engine()
+$join_grid_5x1("hidden")
+
+$empty_legend()
+$join_legend_5x1("hidden")
+@enduml
+
+@startuml filled-character-and-filled-avatar
+!include lib/game.puml!core
+skinparam ranksep 20
+skinparam nodesep 50
+
+$fill_grid_5x1()
+$join_grid_5x1("hidden")
+
+$empty_legend()
+$join_legend_5x1("hidden")
+@enduml
+
+@startuml filled-characters-and-filled-avatars
+!include lib/game.puml!core
+skinparam ranksep 20
+skinparam nodesep 50
+
+$fill_grid_5x1("mp")
+$join_grid_5x1("hidden")
+
+$empty_legend()
+$join_legend_5x1("hidden")
+@enduml
