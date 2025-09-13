@@ -45,7 +45,7 @@ $join_legend_1x1("thickness=1", "thickness=1")
 
 @startuml puzzled-matrix
 !include lib/game.puml!core
-skinparam ranksep 100
+skinparam ranksep 90
 skinparam nodesep 20
 
 $empty_grid_3x3()
@@ -60,7 +60,7 @@ $join_legend_3x3("thickness=1", "thickness=1")
 
 @startuml filled-matrix
 !include lib/game.puml!core
-skinparam ranksep 70
+skinparam ranksep 60
 skinparam nodesep 20
 
 $empty_grid_3x3()

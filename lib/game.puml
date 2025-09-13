@@ -42,20 +42,20 @@ left to right direction
   }
 </style>
 
-!procedure $fill_player($style=sth)
-  label origin <<$style>> [
-    <$user_alt{scale=0.9}>
-    игрок
-  ]
-!endprocedure
-
-!procedure $fill_players()
-  label origin [
-    <$user_alt{scale=0.4}>
-    <$user_alt{scale=0.4}>  <$user_alt{scale=0.4}>
-    <$user_alt{scale=0.4}>
-    игроки
-  ]
+!procedure $fill_player($mode="sp", $style=sth)
+  !if ($mode=="sp")
+    label player <<$style>> [
+      <$user_alt{scale=0.9}>
+      игрок
+    ]
+  !else
+    label player [
+      <$user_alt{scale=0.4}>
+      <$user_alt{scale=0.4}>  <$user_alt{scale=0.4}>
+      <$user_alt{scale=0.4}>
+      игроки
+    ]
+  !endif
 !endprocedure
 
 !procedure $empty_character()
@@ -63,16 +63,16 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fill_character()
-  rectangle character [
-    <$pen_square{scale=0.4}><size:8> </size>персонаж
-  ]
-!endprocedure
-
-!procedure $fill_characters()
-  collections character [
-    <$pen_square{scale=0.4}><size:8> </size>персонажи
-  ]
+!procedure $fill_character($mode="sp")
+  !if ($mode=="sp")
+    rectangle character [
+      <$pen_square{scale=0.4}><size:8> </size>персонаж
+    ]
+  !else
+    collections character [
+      <$pen_square{scale=0.4}><size:8> </size>персонажи
+    ]
+  !endif
 !endprocedure
 
 !procedure $empty_avatar()
@@ -80,22 +80,16 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $puzzle_protocol($id)
-  rectangle $id #line.dotted;back:transparent [
-    <U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000>
-  ]
-!endprocedure
-
-!procedure $fill_avatar()
-  rectangle avatar [
-    <$cog{scale=0.4}><size:8> </size>аватар
-  ]
-!endprocedure
-
-!procedure $fill_avatars()
-  collections avatar [
-    <$cog{scale=0.4}><size:8> </size>аватары
-  ]
+!procedure $fill_avatar($mode="sp")
+  !if ($mode=="sp")
+    rectangle avatar [
+      <$cog{scale=0.4}><size:8> </size>аватар
+    ]
+  !else
+    collections avatar [
+      <$cog{scale=0.4}><size:8> </size>аватары
+    ]
+  !endif
 !endprocedure
 
 !procedure $empty_master()
@@ -125,6 +119,12 @@ left to right direction
 !procedure $puzzle_actor($id)
   label $id <<puzzler>> [
      ?
+  ]
+!endprocedure
+
+!procedure $puzzle_protocol($id)
+  rectangle $id #line.dotted;back:transparent [
+    <U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000>
   ]
 !endprocedure
 
@@ -185,17 +185,17 @@ left to right direction
 !endprocedure
 
 !procedure $join_legend_1x1($x, $y="hidden")
-  leftmost ~[$x]d~ origin
-  origin ~[$x]d~ rightmost
-  highest ~[$y]r~ origin
-  origin ~[$y]r~ lowest
+  leftmost ~[$x]d~ player
+  player ~[$x]d~ rightmost
+  highest ~[$y]r~ player
+  player ~[$y]r~ lowest
 !endprocedure
 
 !procedure $join_legend_3x1($x, $y="hidden")
   leftmost ~[$x]d~ character
   avatar ~[$x]d~ rightmost
-  highest ~[$y]r~ origin
-  origin ~[$y]r~ lowest
+  highest ~[$y]r~ player
+  player ~[$y]r~ lowest
 !endprocedure
 
 !procedure $join_legend_3x3($x, $y="hidden")
@@ -208,8 +208,8 @@ left to right direction
 !procedure $join_legend_5x1($x, $y="hidden")
   leftmost ~[$x]d~ master
   engine ~[$x]d~ rightmost
-  highest ~[$y]r~ origin
-  origin ~[$y]r~ lowest
+  highest ~[$y]r~ player
+  player ~[$y]r~ lowest
 !endprocedure
 
 !procedure $join_legend_5x3($x, $y="hidden")
@@ -229,17 +229,6 @@ left to right direction
   label theme [
     ""  тема  ""
   ]
-!endprocedure
-
-!procedure $fillMasterMatrix()
-  label plot [
-    ""сюжет""
-  ]
-  label theme [
-    ""тема""
-  ]
-  plot -[hidden]r- character
-  character -[hidden]r- theme
 !endprocedure
 
 !procedure $fill_mechanics()
@@ -282,84 +271,18 @@ left to right direction
   lower -[hidden]d- setting
 !endprocedure
 
-!procedure $fillEngineMatrix()
-  label mechanics [
-    механика
-  ]
-  label setting [
-    сеттинг
-  ]
-  mechanics -[hidden]r- avatar
-  avatar -[hidden]r- setting
-!endprocedure
-
-!procedure $fillGameMatrix()
-  $fillMasterMatrix()
-  $fillEngineMatrix()
-!endprocedure
-
-!procedure $fillGameLoop()
-  $fill_characters()
-  $fill_avatars()
-
-  FA5_USER_EDIT(master, "мастер ", label)
-
-  character -u-> master
-  master ~[thickness=1]d~ character
-  master -d-> character
-  
-  character -d-> origin
-  character ~[thickness=1]d~ origin
-  origin -u-> character
-
-  FA5_USER_COG(engine, "движок ", label)
-
-  avatar -u-> origin
-  origin ~[thickness=1]d~ avatar
-  origin -d-> avatar
-  
-  avatar -d-> engine
-  avatar ~[thickness=1]d~ engine
-  engine -u-> avatar
-
-  $fillGameGrid()
-!endprocedure
-
-!procedure $emptyGameLoop()
-  label character [
-  ]
-  label avatar [
-  ]
-
-  leftmost ~[thickness=1]d~ character
-  character ~[thickness=1]d~ origin
-  origin ~[thickness=1]d~ avatar
-  avatar ~[thickness=1]d~ rightmost
-
-  $fillVertical()
-!endprocedure
-
-!procedure $fillGameGrid()
-  $fillHorizontal()
-  $fillVertical()
-!endprocedure
-
-!procedure $fillHorizontal()
-  leftmost ~[thickness=1]d~ master
-  engine ~[thickness=1]d~ rightmost
-!endprocedure
-
-!procedure $fillVertical()
-  highest ~[thickness=1]r~ origin: \n
-  origin ~[thickness=1]r~ lowest: \n
-!endprocedure
-
 !procedure $empty_grid_1x3()
   label upper [
   ]
   $fill_player()
   label lower [
   ]
+!endprocedure
+
+!procedure $empty_grid_3x1()
+  $empty_character()
+  $fill_player()
+  $empty_avatar()
 !endprocedure
 
 !procedure $empty_grid_3x3()
@@ -372,28 +295,10 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $empty_grid_3x1()
-  $empty_character()
-  $fill_player()
-  $empty_avatar()
-!endprocedure
-
 !procedure $fill_grid_3x1($mode="sp")
-  ' sp stand for single player
-  !if ($mode=="sp")
-    $fill_character()
-    $fill_player()
-    $fill_avatar()
-  !else
-    $fill_characters()
-    $fill_players()
-    $fill_avatars()
-  !endif
-!endprocedure
-
-!procedure $join_grid_3x1($mode)
-  character ~[$mode]d~ origin
-  origin ~[$mode]d~ avatar
+  $fill_character($mode)
+  $fill_player($mode)
+  $fill_avatar($mode)
 !endprocedure
 
 !procedure $fill_grid_5x1($mode="sp")
@@ -402,15 +307,31 @@ left to right direction
   $fill_engine()
 !endprocedure
 
-!procedure $join_grid_5x1($mode)
-  master ~[$mode]d~ character
-  $join_grid_3x1($mode)
-  avatar ~[$mode]d~ engine
+!procedure $fill_narrative($mode="sp")
+  $fill_master()
+  $fill_character($mode)
+  $fill_player($mode)
+!endprocedure
+
+!procedure $fill_gameplay($mode="sp")
+  $fill_player($mode)
+  $fill_avatar($mode)
+  $fill_engine()
 !endprocedure
 
 !procedure $join_grid_1x3($mode)
-  upper ~[$mode]r~ origin
-  origin ~[$mode]r~ lower
+  upper ~[$mode]r~ player
+  player ~[$mode]r~ lower
+!endprocedure
+
+!procedure $join_grid_3x1($mode)
+  character ~[$mode]d~ player
+  player ~[$mode]d~ avatar
+!endprocedure
+
+!procedure $join_grid_5x1($mode)
+  $join_narrative_5x1($mode)
+  $join_gameplay_5x1($mode)
 !endprocedure
 
 !procedure $join_grid_3x3($mode)
@@ -421,6 +342,55 @@ left to right direction
 !procedure $join_grid_5x3($mode)
   $join_grid_5x1($mode)
   $join_grid_1x3($mode)
+!endprocedure
+
+!procedure $join_narrative_5x1($mode)
+  master ~[$mode]d~ character
+  character ~[$mode]d~ player
+!endprocedure
+
+!procedure $join_gameplay_5x1($mode)
+  player ~[$mode]d~ avatar
+  avatar ~[$mode]d~ engine
+!endprocedure
+
+!procedure $join_actors_5x1($mode="thickness=1")
+  master ~[$mode]d~ character
+  avatar ~[$mode]d~ engine
+!endprocedure
+
+!procedure $loop_character($mode="thickness=1")
+  character -d-> player
+  character ~[$mode]d~ player
+  character <-d- player
+!endprocedure
+
+!procedure $loop_avatar($mode="thickness=1")
+  player <-d- avatar
+  player ~[$mode]d~ avatar
+  player -d-> avatar
+!endprocedure
+
+!procedure $loop_master($mode="thickness=1")
+  master <-d- character
+  master ~[$mode]d~ character
+  master -d-> character
+!endprocedure
+
+!procedure $loop_engine($mode="thickness=1")
+  avatar -d-> engine
+  avatar ~[$mode]d~ engine
+  avatar <-d- engine
+!endprocedure
+
+!procedure $loop_narrative($mode="thickness=1")
+  $loop_master($mode)
+  $loop_character($mode)
+!endprocedure
+
+!procedure $loop_gameplay($mode="thickness=1")
+  $loop_avatar($mode)
+  $loop_engine($mode)
 !endprocedure
 
 !$debug = 0
