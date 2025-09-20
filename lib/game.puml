@@ -18,28 +18,40 @@ left to right direction
 
 <style>
   rectangle {
-    FontSize 20
+    FontSize: 22;
   }
   collections {
-    FontSize 20
+    FontSize: 22;
   }
   label {
-    FontSize 16
+    FontSize: 16;
   }
   .axis {
-    FontSize 12
-    FontColor DimGrey
+    FontSize: 12;
+    FontColor: DimGrey;
+  }
+  .plane {
+    FontSize: 16;
+    Padding: 0;
+    Margin: 0;
   }
   .sth {
   }
   .nth {
-    FontColor Transparent
+    FontColor: Transparent;
   }
   .puzzler {
-    FontSize 40
-    FontStyle bold
+    FontSize: 40;
+    FontStyle: bold;
   }
 </style>
+
+
+!procedure $fill_origin()
+  label player [
+    <$user_alt{scale=0.9}>
+  ]
+!endprocedure
 
 !procedure $fill_player($mode="sp")
   !if ($mode=="sp")
@@ -115,7 +127,7 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $guess_agent($id)
+!procedure $puzzle_agent($id)
   label $id <<puzzler>> [
      ?
   ]
@@ -123,7 +135,7 @@ left to right direction
 
 !procedure $draft_protocol($id)
   rectangle $id #line.dashed;back:transparent [
-    <U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000>
+    <U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000><U+0000>
   ]
 !endprocedure
 
@@ -134,14 +146,29 @@ left to right direction
 
 !procedure $fill_legend_x($style=axis)
   label leftmost <<$style>> [
-    н
-    а
-    р
-    р
-    а
+    ' н
+    ' а
+    ' р
+    ' р
+    ' а
+    ' т
+    ' и
+    ' в
+    ' и
+    ' с
+    ' т
+    ' о
+    ' р
+    ' и
+    ' я
+    к
+    у
+    л
+    с
     т
+    о
+    р
     и
-    в
   ]
   label rightmost <<$style>> [
     г
@@ -223,15 +250,15 @@ left to right direction
   lower ~[$y]r~ lowest
 !endprocedure
 
-!procedure $fill_plot()
-  label plot [
-    ""сюжет""
+!procedure $fill_arcs()
+  label arcs [
+    ""  арки  ""
   ]
 !endprocedure
 
-!procedure $fill_theme()
-  label theme [
-    ""  тема  ""
+!procedure $fill_themes()
+  label themes [
+    ""  темы  ""
   ]
 !endprocedure
 
@@ -241,38 +268,38 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fill_setting()
-  label setting [
-    ""сеттинг""
+!procedure $fill_settings()
+  label settings [
+    ""сеттинги""
   ]
 !endprocedure
 
 !procedure $fill_matrix()
-  $fill_plot()
-  $fill_theme()
-  $fill_setting()
+  $fill_arcs()
+  $fill_themes()
+  $fill_settings()
   $fill_mechanics()
 !endprocedure
 
 !procedure $guess_matrix()
-  $guess_agent(plot)
-  $guess_agent(mechanics)
-  $guess_agent(setting)
-  $guess_agent(theme)
+  $puzzle_agent(arcs)
+  $puzzle_agent(mechanics)
+  $puzzle_agent(settings)
+  $puzzle_agent(themes)
 !endprocedure
 
 !procedure $join_matrix_3x1()
-  plot -[hidden]r- character
-  character -[hidden]r- theme
+  arcs -[hidden]r- character
+  character -[hidden]r- themes
   mechanics -[hidden]r- avatar
-  avatar -[hidden]r- setting
+  avatar -[hidden]r- settings
 !endprocedure
 
 !procedure $join_matrix_3x3()
-  plot -[hidden]d- upper
+  arcs -[hidden]d- upper
   upper -[hidden]d- mechanics
-  theme -[hidden]d- lower
-  lower -[hidden]d- setting
+  themes -[hidden]d- lower
+  lower -[hidden]d- settings
 !endprocedure
 
 !procedure $empty_grid_1x3()
@@ -291,7 +318,7 @@ left to right direction
 
 !procedure $empty_grid_3x3()
   $empty_character()
-  $fill_player()
+  ' $fill_player()
   $empty_avatar()
 
   label upper [

@@ -1,67 +1,44 @@
-@startuml filled-player
-!include lib/game.puml!core
-skinparam ranksep 250
-skinparam nodesep 60
-
-$fill_player()
-
-$empty_legend()
-$join_legend_1x1()
-@enduml
-
 @startuml player-with-legend-x
 !include lib/game.puml!core
-skinparam ranksep 250
-skinparam nodesep 60
+skinparam ranksep 100
+skinparam nodesep 30
 
-$fill_player()
+$fill_origin()
 
-$fill_legend_x()
+$fill_legend_x(plane)
 $empty_legend_y()
 $join_legend_1x1($x="hidden")
 @enduml
 
 @startuml player-with-legend-y
 !include lib/game.puml!core
-skinparam ranksep 250
-skinparam nodesep 40
+skinparam ranksep 100
+skinparam nodesep 10
 
-$fill_player()
+$fill_origin()
 
 $empty_legend_x()
-$fill_legend_y()
+$fill_legend_y(plane)
 $join_legend_1x1($y="hidden")
 @enduml
 
 @startuml player-with-legend
 !include lib/game.puml!core
-skinparam ranksep 250
-skinparam nodesep 40
+skinparam ranksep 120
+skinparam nodesep 20
 
-$fill_player()
+$fill_origin()
+
 $fill_legend()
 $join_legend_1x1()
 @enduml
 
-@startuml puzzled-matrix
-!include lib/game.puml!core
-skinparam ranksep 90
-skinparam nodesep 20
-
-$empty_grid_3x3()
-$join_grid_3x3()
-
-$guess_matrix()
-$join_matrix_3x3()
-
-$fill_legend()
-$join_legend_3x3()
-@enduml
-
 @startuml filled-matrix
 !include lib/game.puml!core
-skinparam ranksep 70
+skinparam ranksep 30
 skinparam nodesep 20
+
+$fill_origin()
 
 $empty_grid_3x3()
 $join_grid_3x3()

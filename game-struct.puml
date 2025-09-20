@@ -1,40 +1,13 @@
 @startuml filled-player
 !include lib/game.puml!core
-skinparam ranksep 250
+skinparam ranksep 200
 skinparam nodesep 50
 
-$fill_player()
-
-$empty_legend()
-$join_legend_1x1("hidden", "hidden")
-@enduml
-
-@startuml puzzled-master-and-puzzled-engine
-!include lib/game.puml!core
-skinparam ranksep 60
-skinparam nodesep 50
-
-$guess_agent(master)
 $empty_grid_3x1()
-$guess_agent(engine)
-$join_grid_5x1("hidden")
+$join_grid_3x1("hidden")
 
-$empty_legend()
-$join_legend_5x1("hidden", "hidden")
-@enduml
-
-@startuml filled-master-and-puzzled-engine
-!include lib/game.puml!core
-skinparam ranksep 60
-skinparam nodesep 50
-
-$fill_master()
-$empty_grid_3x1()
-$guess_agent(engine)
-$join_grid_5x1("hidden")
-
-$empty_legend()
-$join_legend_5x1("hidden", "hidden")
+' $empty_legend()
+' $join_legend_1x1("hidden", "hidden")
 @enduml
 
 @startuml filled-master-and-filled-engine
@@ -47,8 +20,8 @@ $empty_grid_3x1()
 $fill_engine()
 $join_grid_5x1("hidden")
 
-$empty_legend()
-$join_legend_5x1("hidden", "hidden")
+' $empty_legend()
+' $join_legend_5x1("hidden", "hidden")
 @enduml
 
 @startuml puzzled-character-and-puzzled-avatar
@@ -63,8 +36,8 @@ $draft_protocol(avatar)
 $fill_engine()
 $join_grid_5x1("hidden")
 
-$empty_legend()
-$join_legend_5x1("hidden", "hidden")
+' $empty_legend()
+' $join_legend_5x1("hidden", "hidden")
 @enduml
 
 @startuml filled-character-and-puzzled-avatar
@@ -79,20 +52,24 @@ $draft_protocol(avatar)
 $fill_engine()
 $join_grid_5x1("hidden")
 
-$empty_legend()
-$join_legend_5x1("hidden", "hidden")
+' $empty_legend()
+' $join_legend_5x1("hidden", "hidden")
 @enduml
 
-@startuml filled-character-and-filled-avatar
+@startuml puzzled-character-and-filled-avatar
 !include lib/game.puml!core
 skinparam ranksep 25
 skinparam nodesep 50
 
-$fill_grid_5x1()
+$fill_master()
+$draft_protocol(character)
+$fill_player()
+$fill_avatar()
+$fill_engine()
 $join_grid_5x1("hidden")
 
-$empty_legend()
-$join_legend_5x1("hidden", "hidden")
+' $empty_legend()
+' $join_legend_5x1("hidden", "hidden")
 @enduml
 
 @startuml filled-characters-and-filled-avatars
@@ -103,6 +80,6 @@ skinparam nodesep 50
 $fill_grid_5x1("mp")
 $join_grid_5x1("hidden")
 
-$empty_legend()
-$join_legend_5x1("hidden", "hidden")
+' $empty_legend()
+' $join_legend_5x1("hidden", "hidden")
 @enduml
