@@ -61,44 +61,9 @@ left to right direction
     ]
   !else
     label player [
-      <$user_alt{scale=0.4}>
-      <$user_alt{scale=0.4}>  <$user_alt{scale=0.4}>
-      <$user_alt{scale=0.4}>
+      <$user_alt{scale=0.5}>
+      <$user_alt{scale=0.5}> <$user_alt{scale=0.5}>
       игроки
-    ]
-  !endif
-!endprocedure
-
-!procedure $empty_character()
-  label character [
-  ]
-!endprocedure
-
-!procedure $fill_character($mode="sp")
-  !if ($mode=="sp")
-    rectangle character [
-      <$pen_square{scale=0.4}><size:8> </size>персонаж
-    ]
-  !else
-    collections character [
-      <$pen_square{scale=0.4}><size:8> </size>персонажи
-    ]
-  !endif
-!endprocedure
-
-!procedure $empty_avatar()
-  label avatar [
-  ]
-!endprocedure
-
-!procedure $fill_avatar($mode="sp")
-  !if ($mode=="sp")
-    rectangle avatar [
-      <$cog{scale=0.4}><size:8> </size>аватар
-    ]
-  !else
-    collections avatar [
-      <$cog{scale=0.4}><size:8> </size>аватары
     ]
   !endif
 !endprocedure
@@ -127,6 +92,40 @@ left to right direction
   ]
 !endprocedure
 
+!procedure $empty_character()
+  label character [
+  ]
+!endprocedure
+
+!procedure $fill_character($mode="sp")
+  !if ($mode=="sp")
+    rectangle character [
+      <$pen_square{scale=0.4}><size:8> </size>персонаж
+    ]
+  !else
+    collections character [
+      <$pen_square{scale=0.4}><size:8> </size>персонажи
+    ]
+  !endif
+!endprocedure
+
+!procedure $empty_avatar()
+  label avatar [
+  ]
+!endprocedure
+
+!procedure $fill_avatar($mode="sp")
+  !if ($mode=="sp")
+    rectangle avatar [
+      <U+0000><$cog{scale=0.4}><size:8> </size>аватар<U+0000>
+    ]
+  !else
+    collections avatar [
+      <U+0000><$cog{scale=0.4}><size:8> </size>аватары<U+0000>
+    ]
+  !endif
+!endprocedure
+
 !procedure $puzzle_agent($id)
   label $id <<puzzler>> [
      ?
@@ -146,21 +145,6 @@ left to right direction
 
 !procedure $fill_legend_x($style=axis)
   label leftmost <<$style>> [
-    ' н
-    ' а
-    ' р
-    ' р
-    ' а
-    ' т
-    ' и
-    ' в
-    ' и
-    ' с
-    ' т
-    ' о
-    ' р
-    ' и
-    ' я
     к
     у
     л
@@ -210,9 +194,14 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $join_legend_x($x="thickness=1", $y="thickness=1")
+!procedure $join_legend_x($x="thickness=1")
   leftmost ~[$x]d~ master
   engine ~[$x]d~ rightmost
+!endprocedure
+
+!procedure $join_legend_y($y="thickness=1")
+  highest ~[$y]r~ player
+  player ~[$y]r~ lowest
 !endprocedure
 
 !procedure $join_legend_1x1($x="thickness=1", $y="thickness=1")
@@ -252,25 +241,25 @@ left to right direction
 
 !procedure $fill_arcs()
   label arcs [
-    ""  арки  ""
+    ""  арка  ""
   ]
 !endprocedure
 
 !procedure $fill_themes()
   label themes [
-    ""  темы  ""
+    ""  тема  ""
   ]
 !endprocedure
 
 !procedure $fill_mechanics()
   label mechanics [
-    ""механики""
+    ""механика""
   ]
 !endprocedure
 
 !procedure $fill_settings()
   label settings [
-    ""сеттинги""
+    ""сеттинг""
   ]
 !endprocedure
 
@@ -318,7 +307,6 @@ left to right direction
 
 !procedure $empty_grid_3x3()
   $empty_character()
-  ' $fill_player()
   $empty_avatar()
 
   label upper [
@@ -415,7 +403,7 @@ left to right direction
   avatar <-[plain]d- engine
 !endprocedure
 
-!procedure $loop_narrative($mode="thickness=1")
+!procedure $loop_story($mode="thickness=1")
   $loop_master($mode)
   $loop_character($mode)
 !endprocedure
