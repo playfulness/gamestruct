@@ -9,6 +9,8 @@
 !include <tupadr3/font-awesome-5/question_circle>
 !include <tupadr3/font-awesome-5/puzzle_piece>
 
+!include i18n.puml!core
+
 skinparam defaultTextAlignment center
 skinparam defaultFontName Ubuntu Mono
 skinparam defaultFontSize 15
@@ -239,35 +241,35 @@ left to right direction
   lower ~[$y]r~ lowest
 !endprocedure
 
-!procedure $fill_arcs()
+!procedure $fill_arcs($count=1)
   label arcs [
-    ""  арка  ""
+    ""  $translate(arcs, $count)  ""
   ]
 !endprocedure
 
-!procedure $fill_themes()
+!procedure $fill_themes($count=1)
   label themes [
-    ""  тема  ""
+    ""  $translate(themes, $count)  ""
   ]
 !endprocedure
 
-!procedure $fill_mechanics()
+!procedure $fill_mechanics($count=1)
   label mechanics [
-    ""механика""
+    ""$translate(mechanics, $count)""
   ]
 !endprocedure
 
-!procedure $fill_settings()
+!procedure $fill_settings($count=1)
   label settings [
-    ""сеттинг""
+    ""$translate(settings, $count)""
   ]
 !endprocedure
 
-!procedure $fill_matrix()
-  $fill_arcs()
-  $fill_themes()
-  $fill_settings()
-  $fill_mechanics()
+!procedure $fill_matrix($count=1)
+  $fill_arcs($count)
+  $fill_themes($count)
+  $fill_settings($count)
+  $fill_mechanics($count)
 !endprocedure
 
 !procedure $guess_matrix()

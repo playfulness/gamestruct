@@ -35,6 +35,7 @@ $join_legend_1x1()
 
 @startuml filled-matrix
 !include lib/game.puml!core
+!include lib/i18n.puml!ru
 skinparam ranksep 30
 skinparam nodesep 20
 
@@ -43,7 +44,7 @@ $fill_origin()
 $empty_grid_3x3()
 $join_grid_3x3()
 
-$fill_matrix()
+$fill_matrix(2)
 $join_matrix_3x3()
 
 $fill_legend()

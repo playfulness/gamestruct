@@ -1,0 +1,30 @@
+@startuml (id=core)
+!function $translate($key, $count=1)
+  !if ($count==1)
+    !return $locale[$key].one
+  !else
+    !return $locale[$key].many
+  !endif
+!endfunction
+@enduml
+
+@startuml (id=ru)
+!$locale = {
+  "arcs": {
+    "one": "арка",
+    "many": "арки"
+  },
+  "themes": {
+    "one": "тема",
+    "many": "темы"
+  },
+  "mechanics": {
+    "one": "механика",
+    "many": "механики"
+  },
+  "settings": {
+    "one": "сеттинг",
+    "many": "сеттинги"
+  }
+}
+@enduml
