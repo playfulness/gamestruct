@@ -10,21 +10,105 @@
 
 @startuml (id=ru)
 !$locale = {
-  "arcs": {
+  "player": {
+    "one": "игрок",
+    "many": "игроки"
+  },
+  "master": {
+    "one": "мастер"
+  },
+  "engine": {
+    "one": "движок"
+  },
+  "character": {
+    "one": "персонаж",
+    "many": "персонажы"
+  },
+  "avatar": {
+    "one": "аватар",
+    "many": "аватары"
+  },
+  "story": {
+    "one": "и\nс\nт\nо\nр\nи\nя"
+    ' "one": "к\nу\nл\nс\nт\nо\nр\nи"
+  },
+  "gameplay": {
+    "one": "г\nе\nй\nм\nп\nл\nе\nй"
+  },
+  "ratio": {
+    "one": "р а ц и о"
+  },
+  "emotio": {
+    "one": "э м о ц и о"
+  },
+  "arc": {
     "one": "арка",
     "many": "арки"
   },
-  "themes": {
+  "theme": {
     "one": "тема",
     "many": "темы"
   },
-  "mechanics": {
+  "mechanic": {
     "one": "механика",
     "many": "механики"
   },
-  "settings": {
+  "setting": {
     "one": "сеттинг",
     "many": "сеттинги"
+  }
+}
+@enduml
+
+@startuml (id=en)
+!$locale = {
+  "player": {
+    "one": "player",
+    "many": "players"
+  },
+  "master": {
+    "one": "gamemaster",
+    "many": "gamemasters"
+  },
+  "engine": {
+    "one": "engine",
+    "many": "engines"
+  },
+  "character": {
+    "one": "character",
+    "many": "characters"
+  },
+  "avatar": {
+    "one": "avatar",
+    "many": "avatars"
+  },
+  "story": {
+    "one": "s\nt\no\nr\ny"
+  },
+  "gameplay": {
+    "one": "g\na\nm\ne\np\nl\na\ny"
+  },
+  "ratio": {
+    "one": "r a t i o"
+  },
+  "emotio": {
+    "one": "e m o t i o"
+  },
+  "arc": {
+    "one": "arc",
+    "many": "arcs"
+  },
+  "theme": {
+    "one": "theme",
+    "many": "themes"
+  },
+  "mechanic": {
+    "one": "mechanics",
+    "many": "mechanics"
+  },
+  "setting": {
+    "one": "setting",
+    "many": "settings"
   }
 }
 @enduml

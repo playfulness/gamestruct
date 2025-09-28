@@ -1,11 +1,11 @@
 @startuml multi-player-loops
 !include lib/game.puml!core
-!include lib/i18n.puml!ru
+!include lib/i18n.puml!en
 skinparam ranksep 30
 skinparam nodesep 65
 scale max 600 width
 
-$fill_grid_3x1("mp")
+$fill_grid_3x1(N)
 
 character -[dashed]d-> "\n\n\nD" player
 character -[plain]d-> "B" player
@@ -28,12 +28,12 @@ $join_legend_3x1()
 
 @startuml player-action-loop
 !include lib/game.puml!core
-!include lib/i18n.puml!ru
-skinparam ranksep 30
+!include lib/i18n.puml!en
+skinparam ranksep 40
 skinparam nodesep 70
 scale max 1200 width
 
-$fill_grid_5x1("sp")
+$fill_grid_5x1()
 
 master "B" <-[plain]d- character
 master ~[thickness=1]d~ character
@@ -60,12 +60,12 @@ $join_legend_y()
 
 @startuml player-reaction-loop
 !include lib/game.puml!core
-!include lib/i18n.puml!ru
-skinparam ranksep 30
+!include lib/i18n.puml!en
+skinparam ranksep 40
 skinparam nodesep 70
 scale max 1200 width
 
-$fill_grid_5x1("sp")
+$fill_grid_5x1()
 
 master "D" <-[dashed]d- character
 master ~[thickness=1]d~ character

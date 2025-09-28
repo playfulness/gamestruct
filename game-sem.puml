@@ -1,9 +1,10 @@
 @startuml player-with-legend-x
 !include lib/game.puml!core
+!include lib/i18n.puml!en
 skinparam ranksep 100
 skinparam nodesep 30
 
-$fill_origin()
+$iconify_players()
 
 $fill_legend_x(plane)
 $empty_legend_y()
@@ -12,10 +13,11 @@ $join_legend_1x1($x="hidden")
 
 @startuml player-with-legend-y
 !include lib/game.puml!core
+!include lib/i18n.puml!en
 skinparam ranksep 100
 skinparam nodesep 10
 
-$fill_origin()
+$iconify_players()
 
 $empty_legend_x()
 $fill_legend_y(plane)
@@ -24,10 +26,11 @@ $join_legend_1x1($y="hidden")
 
 @startuml player-with-legend
 !include lib/game.puml!core
+!include lib/i18n.puml!en
 skinparam ranksep 120
 skinparam nodesep 20
 
-$fill_origin()
+$iconify_players()
 
 $fill_legend()
 $join_legend_1x1()
@@ -35,11 +38,11 @@ $join_legend_1x1()
 
 @startuml filled-matrix
 !include lib/game.puml!core
-!include lib/i18n.puml!ru
+!include lib/i18n.puml!en
 skinparam ranksep 30
 skinparam nodesep 20
 
-$fill_origin()
+$iconify_players()
 
 $empty_grid_3x3()
 $join_grid_3x3()

@@ -1,85 +1,73 @@
 @startuml filled-player
 !include lib/game.puml!core
+!include lib/i18n.puml!en
 skinparam ranksep 200
 skinparam nodesep 50
 
 $empty_grid_3x1()
 $join_grid_3x1("hidden")
-
-' $empty_legend()
-' $join_legend_1x1("hidden", "hidden")
 @enduml
 
 @startuml filled-master-and-filled-engine
 !include lib/game.puml!core
-skinparam ranksep 60
+!include lib/i18n.puml!en
+skinparam ranksep 35
 skinparam nodesep 50
 
 $fill_master()
 $empty_grid_3x1()
 $fill_engine()
 $join_grid_5x1("hidden")
-
-' $empty_legend()
-' $join_legend_5x1("hidden", "hidden")
 @enduml
 
-@startuml puzzled-character-and-puzzled-avatar
+@startuml outlined-character-and-outlined-avatar
 !include lib/game.puml!core
+!include lib/i18n.puml!en
 skinparam ranksep 30
 skinparam nodesep 50
 
 $fill_master()
 $draft_protocol(character)
-$fill_player()
+$fill_players()
 $draft_protocol(avatar)
 $fill_engine()
 $join_grid_5x1("hidden")
-
-' $empty_legend()
-' $join_legend_5x1("hidden", "hidden")
 @enduml
 
-@startuml filled-character-and-puzzled-avatar
+@startuml filled-character-and-outlined-avatar
 !include lib/game.puml!core
+!include lib/i18n.puml!en
 skinparam ranksep 30
 skinparam nodesep 50
 
 $fill_master()
-$fill_character()
-$fill_player()
+$fill_characters()
+$fill_players()
 $draft_protocol(avatar)
 $fill_engine()
 $join_grid_5x1("hidden")
-
-' $empty_legend()
-' $join_legend_5x1("hidden", "hidden")
 @enduml
 
-@startuml puzzled-character-and-filled-avatar
+@startuml outlined-character-and-filled-avatar
 !include lib/game.puml!core
+!include lib/i18n.puml!en
 skinparam ranksep 25
 skinparam nodesep 50
 
 $fill_master()
 $draft_protocol(character)
-$fill_player()
-$fill_avatar()
+$fill_players()
+$fill_avatars()
 $fill_engine()
 $join_grid_5x1("hidden")
-
-' $empty_legend()
-' $join_legend_5x1("hidden", "hidden")
 @enduml
 
 @startuml filled-characters-and-filled-avatars
 !include lib/game.puml!core
-skinparam ranksep 20
+!include lib/i18n.puml!en
+skinparam ranksep 25
 skinparam nodesep 50
 
-$fill_grid_5x1("mp")
+$fill_grid_5x1(N)
 $join_grid_5x1("hidden")
-
-' $empty_legend()
-' $join_legend_5x1("hidden", "hidden")
 @enduml

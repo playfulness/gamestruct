@@ -14,7 +14,8 @@
 skinparam defaultTextAlignment center
 skinparam defaultFontName Ubuntu Mono
 skinparam defaultFontSize 15
-scale max 600 width
+scale max 800 width
+' skinparam dpi 150
 
 left to right direction
 
@@ -48,24 +49,30 @@ left to right direction
   }
 </style>
 
-
-!procedure $fill_origin()
-  label player [
-    <$user_alt{scale=0.9}>
-  ]
-!endprocedure
-
-!procedure $fill_player($mode="sp")
-  !if ($mode=="sp")
+!procedure $iconify_players($count=1)
+  !if ($count==1)
     label player [
       <$user_alt{scale=0.9}>
-      игрок
     ]
   !else
     label player [
       <$user_alt{scale=0.5}>
       <$user_alt{scale=0.5}> <$user_alt{scale=0.5}>
-      игроки
+    ]
+  !endif
+!endprocedure
+
+!procedure $fill_players($count=1)
+  !if ($count==1)
+    label player [
+      <$user_alt{scale=0.9}>
+      $translate(player, $count)
+    ]
+  !else
+    label player [
+      <$user_alt{scale=0.5}>
+      <$user_alt{scale=0.5}> <$user_alt{scale=0.5}>
+      $translate(player, $count)
     ]
   !endif
 !endprocedure
@@ -78,7 +85,7 @@ left to right direction
 !procedure $fill_master()
   label master [
     <$user_edit{scale=0.9}>
-    мастер
+    $translate(master)
   ]
 !endprocedure
 
@@ -90,7 +97,7 @@ left to right direction
 !procedure $fill_engine()
   label engine [
     <$user_cog{scale=0.9}>
-    движок
+    $translate(engine)
   ]
 !endprocedure
 
@@ -99,14 +106,14 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fill_character($mode="sp")
-  !if ($mode=="sp")
+!procedure $fill_characters($count=1)
+  !if ($count==1)
     rectangle character [
-      <$pen_square{scale=0.4}><size:8> </size>персонаж
+      <$pen_square{scale=0.4}><size:8> </size>$translate(character, $count)
     ]
   !else
     collections character [
-      <$pen_square{scale=0.4}><size:8> </size>персонажи
+      <$pen_square{scale=0.4}><size:8> </size>$translate(character, $count)
     ]
   !endif
 !endprocedure
@@ -116,14 +123,14 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fill_avatar($mode="sp")
-  !if ($mode=="sp")
+!procedure $fill_avatars($count=1)
+  !if ($count==1)
     rectangle avatar [
-      <U+0000><$cog{scale=0.4}><size:8> </size>аватар<U+0000>
+      <U+0000><$cog{scale=0.4}><size:8> </size>$translate(avatar, $count)<U+0000>
     ]
   !else
     collections avatar [
-      <U+0000><$cog{scale=0.4}><size:8> </size>аватары<U+0000>
+      <U+0000><$cog{scale=0.4}><size:8> </size>$translate(avatar, $count)<U+0000>
     ]
   !endif
 !endprocedure
@@ -147,33 +154,19 @@ left to right direction
 
 !procedure $fill_legend_x($style=axis)
   label leftmost <<$style>> [
-    к
-    у
-    л
-    с
-    т
-    о
-    р
-    и
+    $translate(story)
   ]
   label rightmost <<$style>> [
-    г
-    е
-    й
-    м
-    п
-    л
-    е
-    й
+    $translate(gameplay)
   ]
 !endprocedure
 
 !procedure $fill_legend_y($style=axis)
   label highest <<$style>> [
-    р а ц и о
+    $translate(ratio)
   ]
   label lowest <<$style>> [
-    э м о ц и о
+    $translate(emotio)
   ]
 !endprocedure
 
@@ -243,25 +236,25 @@ left to right direction
 
 !procedure $fill_arcs($count=1)
   label arcs [
-    ""  $translate(arcs, $count)  ""
+    ""  $translate(arc, $count)  ""
   ]
 !endprocedure
 
 !procedure $fill_themes($count=1)
   label themes [
-    ""  $translate(themes, $count)  ""
+    ""  $translate(theme, $count)  ""
   ]
 !endprocedure
 
 !procedure $fill_mechanics($count=1)
   label mechanics [
-    ""$translate(mechanics, $count)""
+    ""$translate(mechanic, $count)""
   ]
 !endprocedure
 
 !procedure $fill_settings($count=1)
   label settings [
-    ""$translate(settings, $count)""
+    ""$translate(setting, $count)""
   ]
 !endprocedure
 
@@ -296,14 +289,14 @@ left to right direction
 !procedure $empty_grid_1x3()
   label upper [
   ]
-  $fill_player()
+  $fill_players()
   label lower [
   ]
 !endprocedure
 
 !procedure $empty_grid_3x1()
   $empty_character()
-  $fill_player()
+  $fill_players()
   $empty_avatar()
 !endprocedure
 
@@ -317,27 +310,15 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fill_grid_3x1($mode="sp")
-  $fill_character($mode)
-  $fill_player($mode)
-  $fill_avatar($mode)
+!procedure $fill_grid_3x1($count=1)
+  $fill_characters($count)
+  $fill_players($count)
+  $fill_avatars($count)
 !endprocedure
 
-!procedure $fill_grid_5x1($mode="sp")
+!procedure $fill_grid_5x1($count=1)
   $fill_master()
-  $fill_grid_3x1($mode)
-  $fill_engine()
-!endprocedure
-
-!procedure $fill_narrative($mode="sp")
-  $fill_master()
-  $fill_character($mode)
-  $fill_player($mode)
-!endprocedure
-
-!procedure $fill_gameplay($mode="sp")
-  $fill_player($mode)
-  $fill_avatar($mode)
+  $fill_grid_3x1($count)
   $fill_engine()
 !endprocedure
 
@@ -417,6 +398,6 @@ left to right direction
 
 !$debug = %false()
 !if ($debug)
-  $fill_player()
+  $fill_players()
 !endif
 @enduml
