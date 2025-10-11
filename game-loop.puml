@@ -22,8 +22,8 @@ player "X\n\n\n" -[dashed]d- avatar
 $fill_matrix()
 $join_matrix_3x1()
 
-$empty_legend()
-$join_legend_3x1()
+$empty_axes()
+$join_axes_3x1()
 @enduml
 
 @startuml player-action-loop
@@ -54,8 +54,8 @@ avatar -[dashed]d- "X" engine
 $fill_matrix()
 $join_matrix_3x1()
 
-$empty_legend()
-$join_legend_y()
+$empty_axes()
+$join_axis_y()
 @enduml
 
 @startuml player-reaction-loop
@@ -86,6 +86,6 @@ avatar -[plain]d- "Z" engine
 $fill_matrix()
 $join_matrix_3x1()
 
-$empty_legend()
-$join_legend_y()
+$empty_axes()
+$join_axis_y()
 @enduml

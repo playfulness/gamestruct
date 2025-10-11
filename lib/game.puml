@@ -12,7 +12,8 @@
 !include i18n.puml!core
 
 skinparam defaultTextAlignment center
-skinparam defaultFontName Ubuntu Mono
+' skinparam defaultFontName Ubuntu Mono
+skinparam defaultFontName Nimbus Mono PS
 skinparam defaultFontSize 15
 scale max 800 width
 ' skinparam dpi 150
@@ -21,22 +22,24 @@ left to right direction
 
 <style>
   rectangle {
-    FontSize: 22;
+    FontSize: 20;
   }
   collections {
-    FontSize: 22;
+    FontSize: 20;
+  }
+  card {
+    FontSize: 20;
   }
   label {
-    FontSize: 16;
+    FontSize: 20;
   }
   .axis {
-    FontSize: 12;
+    FontSize: 20;
+    FontName: Nimbus Mono PS;
     FontColor: DimGrey;
   }
   .plane {
     FontSize: 16;
-    Padding: 0;
-    Margin: 0;
   }
   .sth {
   }
@@ -48,6 +51,11 @@ left to right direction
     FontStyle: bold;
   }
 </style>
+
+!procedure $empty_player()
+  label player [
+  ]
+!endprocedure
 
 !procedure $iconify_players($count=1)
   !if ($count==1)
@@ -82,6 +90,13 @@ left to right direction
   ]
 !endprocedure
 
+!procedure $iconify_master()
+  label master [
+    ' <$user_edit{scale=0.9}>
+    <$user_edit>
+  ]
+!endprocedure
+
 !procedure $fill_master()
   label master [
     <$user_edit{scale=0.9}>
@@ -91,6 +106,13 @@ left to right direction
 
 !procedure $empty_engine()
   label engine [
+  ]
+!endprocedure
+
+!procedure $iconify_engine()
+  label engine [
+    ' <$user_cog{scale=0.9}>
+    <$user_cog>
   ]
 !endprocedure
 
@@ -109,11 +131,23 @@ left to right direction
 !procedure $fill_characters($count=1)
   !if ($count==1)
     rectangle character [
-      <$pen_square{scale=0.4}><size:8> </size>$translate(character, $count)
+      <$pen_square{scale=0.5}><size:8> </size>$translate(character, $count)
     ]
   !else
     collections character [
-      <$pen_square{scale=0.4}><size:8> </size>$translate(character, $count)
+      <$pen_square{scale=0.5}><size:8> </size>$translate(character, $count)
+    ]
+  !endif
+!endprocedure
+
+!procedure $textify_characters($count=1)
+  !if ($count==1)
+    card character #back:transparent;line.dotted [
+      $translate(character2, $count)
+    ]
+  !else
+    collections character #back:transparent;line.dotted [
+      $translate(character2, $count)
     ]
   !endif
 !endprocedure
@@ -126,12 +160,20 @@ left to right direction
 !procedure $fill_avatars($count=1)
   !if ($count==1)
     rectangle avatar [
-      <U+0000><$cog{scale=0.4}><size:8> </size>$translate(avatar, $count)<U+0000>
+      <U+0000><$cog{scale=0.5}><size:8> </size>$translate(avatar, $count)<U+0000>
     ]
   !else
     collections avatar [
-      <U+0000><$cog{scale=0.4}><size:8> </size>$translate(avatar, $count)<U+0000>
+      <U+0000><$cog{scale=0.5}><size:8> </size>$translate(avatar, $count)<U+0000>
     ]
+  !endif
+!endprocedure
+
+!procedure $textify_avatars($count=1)
+  !if ($count==1)
+    card "  $translate(avatar2, $count)  " as avatar #back:transparent;line.dotted
+  !else
+    collections " $translate(avatar2, $count) " as avatar #back:transparent;line.dotted
   !endif
 !endprocedure
 
@@ -147,122 +189,132 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $fill_legend()
-  $fill_legend_x()
-  $fill_legend_y()
+!procedure $fill_axes()
+  $fill_axis_x()
+  $fill_axis_y()
 !endprocedure
 
-!procedure $fill_legend_x($style=axis)
-  label leftmost <<$style>> [
-    $translate(story)
+!procedure $fill_axis_x($style=axis)
+  ' card character <<$style>> #line.dotted;back:transparent [
+  '   $translate(gametalk)
+  ' ]
+  ' card avatar <<$style>> #line.dotted;back:transparent [
+  '   $translate(gameplay)
+  ' ]
+  label character <<$style>> [
+    $translate(gametalk)
   ]
-  label rightmost <<$style>> [
+  label avatar <<$style>> [
     $translate(gameplay)
   ]
-!endprocedure
-
-!procedure $fill_legend_y($style=axis)
-  label highest <<$style>> [
-    $translate(ratio)
-  ]
-  label lowest <<$style>> [
-    $translate(emotio)
-  ]
-!endprocedure
-
-!procedure $empty_legend()
-  $empty_legend_x()
-  $empty_legend_y()
-!endprocedure
-
-!procedure $empty_legend_x()
   label leftmost <<axis>> [
   ]
   label rightmost <<axis>> [
   ]
 !endprocedure
 
-!procedure $empty_legend_y()
+!procedure $fill_axis_y($style=axis)
+  ' card plot <<$style>> #line.dotted;back:transparent [
+  '   $translate(ratio)
+  ' ]
+  ' card narrative <<$style>> #line.dotted;back:transparent [
+  '   $translate(emotio)
+  ' ]
+  label plot <<$style>> [
+    $translate(ratio)
+  ]
+  label narrative <<$style>> [
+    $translate(emotio)
+  ]
   label highest <<axis>> [
   ]
   label lowest <<axis>> [
   ]
 !endprocedure
 
-!procedure $join_legend_x($x="thickness=1")
+!procedure $empty_axes()
+  $empty_axis_x()
+  $empty_axis_y()
+!endprocedure
+
+!procedure $empty_axis_x()
+  label leftmost <<axis>> [
+  ]
+  label rightmost <<axis>> [
+  ]
+!endprocedure
+
+!procedure $empty_axis_y()
+  label highest <<axis>> [
+  ]
+  label lowest <<axis>> [
+  ]
+!endprocedure
+
+!procedure $join_axis_x($mode="thickness=1")
+  leftmost ~[$mode]d~ master
+  engine ~[$mode]d~ rightmost
+!endprocedure
+
+!procedure $join_axis_y($mode="thickness=1")
+  highest ~[$mode]r~ player
+  player ~[$mode]r~ lowest
+!endprocedure
+
+!procedure $join_axes_1x1($x="thickness=1", $y="thickness=1")
+  $join_axis_x($x)
+  $join_axis_y($y)
+!endprocedure
+
+!procedure $join_axes_3x1($mode="thickness=1")
+  leftmost ~[$mode]d~ character
+  $join_grid_3x1($mode)
+  avatar ~[$mode]d~ rightmost
+!endprocedure
+
+!procedure $join_axes_1x3($mode="thickness=1")
+  highest ~[$mode]r~ plot
+  $join_grid_1x3($mode)
+  narrative ~[$mode]r~ lowest
+!endprocedure
+
+!procedure $join_axes_3x3($x="thickness=1", $y="thickness=1")
+  $join_axes_3x1($x)
+  $join_axes_1x3($y)
+!endprocedure
+
+!procedure $join_axes_5x1($x="thickness=1", $y="thickness=1")
   leftmost ~[$x]d~ master
+  $join_grid_5x1($x)
   engine ~[$x]d~ rightmost
 !endprocedure
 
-!procedure $join_legend_y($y="thickness=1")
-  highest ~[$y]r~ player
-  player ~[$y]r~ lowest
-!endprocedure
-
-!procedure $join_legend_1x1($x="thickness=1", $y="thickness=1")
-  leftmost ~[$x]d~ player
-  player ~[$x]d~ rightmost
-  highest ~[$y]r~ player
-  player ~[$y]r~ lowest
-!endprocedure
-
-!procedure $join_legend_3x1($x="thickness=1", $y="thickness=1")
-  leftmost ~[$x]d~ character
-  avatar ~[$x]d~ rightmost
-  highest ~[$y]r~ player
-  player ~[$y]r~ lowest
-!endprocedure
-
-!procedure $join_legend_3x3($x="thickness=1", $y="thickness=1")
-  leftmost ~[$x]d~ character
-  avatar ~[$x]d~ rightmost
-  highest ~[$y]r~ upper
-  lower ~[$y]r~ lowest
-!endprocedure
-
-!procedure $join_legend_5x1($x="thickness=1", $y="thickness=1")
-  leftmost ~[$x]d~ master
-  engine ~[$x]d~ rightmost
-  highest ~[$y]r~ player
-  player ~[$y]r~ lowest
-!endprocedure
-
-!procedure $join_legend_5x3($x="thickness=1", $y="thickness=1")
-  leftmost ~[$x]d~ master
-  engine ~[$x]d~ rightmost
-  highest ~[$y]r~ upper
-  lower ~[$y]r~ lowest
+!procedure $join_axes_5x3($x="thickness=1", $y="thickness=1")
+  $join_axes_5x1($x)
+  $join_axes_1x3($y)
 !endprocedure
 
 !procedure $fill_arcs($count=1)
-  label arcs [
-    ""  $translate(arc, $count)  ""
-  ]
+  label "  $translate(arc, $count)  " as arcs <<matrix>>
 !endprocedure
 
 !procedure $fill_themes($count=1)
-  label themes [
-    ""  $translate(theme, $count)  ""
-  ]
+  label "  $translate(theme, $count)  " as themes <<matrix>>
 !endprocedure
 
 !procedure $fill_mechanics($count=1)
-  label mechanics [
-    ""$translate(mechanic, $count)""
-  ]
+  label "$translate(mechanic, $count)" as mechanics <<matrix>>
 !endprocedure
 
 !procedure $fill_settings($count=1)
-  label settings [
-    ""$translate(setting, $count)""
-  ]
+  label "$translate(setting, $count)" as settings <<matrix>>
 !endprocedure
 
-!procedure $fill_matrix($count=1)
-  $fill_arcs($count)
-  $fill_themes($count)
-  $fill_settings($count)
-  $fill_mechanics($count)
+!procedure $fill_matrix()
+  $fill_arcs(2)
+  $fill_themes(1)
+  $fill_settings(1)
+  $fill_mechanics(2)
 !endprocedure
 
 !procedure $guess_matrix()
@@ -280,17 +332,17 @@ left to right direction
 !endprocedure
 
 !procedure $join_matrix_3x3()
-  arcs -[hidden]d- upper
-  upper -[hidden]d- mechanics
-  themes -[hidden]d- lower
-  lower -[hidden]d- settings
+  arcs -[hidden]d- plot
+  plot -[hidden]d- mechanics
+  themes -[hidden]d- narrative
+  narrative -[hidden]d- settings
 !endprocedure
 
 !procedure $empty_grid_1x3()
-  label upper [
+  label plot [
   ]
   $fill_players()
-  label lower [
+  label narrative [
   ]
 !endprocedure
 
@@ -304,9 +356,9 @@ left to right direction
   $empty_character()
   $empty_avatar()
 
-  label upper [
+  label plot [
   ]
-  label lower [
+  label narrative [
   ]
 !endprocedure
 
@@ -316,6 +368,35 @@ left to right direction
   $fill_avatars($count)
 !endprocedure
 
+!procedure $iconify_grid_3x1($count=1)
+  $fill_characters($count)
+  $iconify_players($count)
+  $fill_avatars($count)
+!endprocedure
+
+!procedure $iconify_grid_5x1($count=1)
+  $iconify_master()
+  $iconify_grid_3x1($count)
+  $iconify_engine()
+!endprocedure
+
+!procedure $textify_grid_3x1($count=1)
+  $textify_characters($count)
+  $textify_avatars($count)
+!endprocedure
+
+!procedure $textify_grid_1x3($count=1)
+  card "  $translate(plot)  " as plot #back:transparent;line.dotted
+  card narrative #back:transparent;line.dotted [
+    $translate(narrative)
+  ]
+!endprocedure
+
+!procedure $textify_grid_3x3($count=1)
+  $textify_grid_3x1($count)
+  $textify_grid_1x3($count)
+!endprocedure
+
 !procedure $fill_grid_5x1($count=1)
   $fill_master()
   $fill_grid_3x1($count)
@@ -323,8 +404,8 @@ left to right direction
 !endprocedure
 
 !procedure $join_grid_1x3($mode="thickness=1")
-  upper ~[$mode]r~ player
-  player ~[$mode]r~ lower
+  plot ~[$mode]r~ player
+  player ~[$mode]r~ narrative
 !endprocedure
 
 !procedure $join_grid_3x1($mode="thickness=1")
@@ -332,34 +413,20 @@ left to right direction
   player ~[$mode]d~ avatar
 !endprocedure
 
-!procedure $join_grid_5x1($mode="thickness=1")
-  $join_narrative_5x1($mode)
-  $join_gameplay_5x1($mode)
-!endprocedure
-
 !procedure $join_grid_3x3($mode="thickness=1")
   $join_grid_3x1($mode)
   $join_grid_1x3($mode)
 !endprocedure
 
+!procedure $join_grid_5x1($mode="thickness=1")
+  master ~[$mode]d~ character
+  $join_grid_3x1($mode)
+  avatar ~[$mode]d~ engine
+!endprocedure
+
 !procedure $join_grid_5x3($mode="thickness=1")
   $join_grid_5x1($mode)
   $join_grid_1x3($mode)
-!endprocedure
-
-!procedure $join_narrative_5x1($mode="thickness=1")
-  master ~[$mode]d~ character
-  character ~[$mode]d~ player
-!endprocedure
-
-!procedure $join_gameplay_5x1($mode="thickness=1")
-  player ~[$mode]d~ avatar
-  avatar ~[$mode]d~ engine
-!endprocedure
-
-!procedure $join_protocol_5x1($mode="thickness=1")
-  master ~[$mode]d~ character
-  avatar ~[$mode]d~ engine
 !endprocedure
 
 !procedure $loop_character($mode="thickness=1")

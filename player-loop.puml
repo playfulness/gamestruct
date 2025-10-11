@@ -2,7 +2,7 @@
 !include lib/player.puml!loop
 skinparam ranksep 25
 skinparam nodesep 100
-$fill_legend()
+$fill_axes()
 $hiddenLoop()
 @enduml
 
@@ -10,7 +10,7 @@ $hiddenLoop()
 !include lib/player.puml!loop
 skinparam ranksep 15
 skinparam nodesep 100
-$fill_legend()
+$fill_axes()
 $hiddenLoop()
 $fillMatrix()
 @enduml
@@ -19,7 +19,7 @@ $fillMatrix()
 !include lib/player.puml!loop
 skinparam ranksep 60
 skinparam nodesep 50
-$empty_legend()
+$empty_axes()
 $fillLoop()
 @enduml
 
@@ -27,7 +27,7 @@ $fillLoop()
 !include lib/player.puml!loop
 skinparam ranksep 60
 skinparam nodesep 50
-$empty_legend()
+$empty_axes()
 $fillLoop()
 $fillMatrix()
 @enduml
@@ -36,7 +36,7 @@ $fillMatrix()
 !include lib/player.puml!loop
 skinparam ranksep 40
 skinparam nodesep 50
-$fill_legend()
+$fill_axes()
 $fillLoop()
 $fillMatrix()
 @enduml

@@ -1,7 +1,7 @@
 @startuml filled-player
 !include lib/game.puml!core
 !include lib/i18n.puml!en
-skinparam ranksep 200
+skinparam ranksep 150
 skinparam nodesep 50
 
 $empty_grid_3x1()
