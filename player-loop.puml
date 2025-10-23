@@ -19,7 +19,7 @@ $fillMatrix()
 !include lib/player.puml!loop
 skinparam ranksep 60
 skinparam nodesep 50
-$empty_axes()
+$empty_axes_1x1()
 $fillLoop()
 @enduml
 
@@ -27,7 +27,7 @@ $fillLoop()
 !include lib/player.puml!loop
 skinparam ranksep 60
 skinparam nodesep 50
-$empty_axes()
+$empty_axes_1x1()
 $fillLoop()
 $fillMatrix()
 @enduml

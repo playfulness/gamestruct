@@ -10,6 +10,9 @@
 
 @startuml (id=ru)
 !$locale = {
+  "as": {
+    "one": "как"
+  },
   "player": {
     "one": "игрок",
     "many": "игроки"
@@ -28,18 +31,40 @@
     "one": "аватар",
     "many": "аватары"
   },
-  "gametalk": {
-    "one": "и\nс\nт\nо\nр\nи\nя"
-    ' "one": "к\nу\nл\nс\nт\nо\nр\nи"
+  "gamelang": {
+    "one": "геймлэнг"
   },
   "gameplay": {
-    "one": "г\nе\nй\nм\nп\nл\nе\nй"
+    ' "one": "г\nе\nй\nм\nп\nл\nе\nй"
+    "one": "геймплей"
   },
-  "ratio": {
-    "one": "р а ц и о"
+  "impl": {
+    ' "one": "р а ц и о"
+    ' "one": "р\nа\nц\nи\nо\nн\nа\nл\nь\nн\nо\nе"
+    "one": "р\nа\nц\nи\nо"
   },
-  "emotio": {
-    "one": "э м о ц и о"
+  "spec": {
+    ' "one": "э м о ц и о"
+    ' "one": "э\nм\nо\nц\nи\nо\nн\nа\nл\nь\nн\nо\nе"
+    "one": "э\nм\nо\nц\nи\nо"
+  },
+  "intention": {
+    "one": "н а м е р е н и е"
+  },
+  "intentionSpace": {
+    "one": "пространство намерений"
+  },
+  "action": {
+    "one": "д е й с т в и е"
+  },
+  "operationSpace": {
+    "one": "пространство действий"
+  },
+  "plot": {
+    "one": "сюжет"
+  },
+  "narrative": {
+    "one": "нарратив"
   },
   "arc": {
     "one": "арка",
@@ -62,13 +87,16 @@
 
 @startuml (id=en)
 !$locale = {
+  "as": {
+    "one": "as"
+  },
   "player": {
     "one": "player",
     "many": "players"
   },
   "master": {
-    "one": "gamemaster",
-    "many": "gamemasters"
+    "one": "master",
+    "many": "masters"
   },
   "engine": {
     "one": "engine",
@@ -90,37 +118,42 @@
     "one": "a v a t a r",
     "many": "a v a t a r s"
   },
-  "gametalk": {
+  "gamelang": {
     ' "one": "g\na\nm\ne\nl\na\nn\ng"
-    ' "one": "g a m e l a n g"
-    "one": "g a m e t a l k"
-    ' "one": "g\nr\na\nm\nm\na\nr"
-    ' "one": "l\ne\nx\ni\nc\no\nn"
-    ' "one": "s\ne\nm\na\nn\nt\ni\nc\ns"
+    "one": "g a m e l a n g"
+    ' "one": "gamelang"
   },
   "gameplay": {
     ' "one": "g\na\nm\ne\np\nl\na\ny"
     "one": "g a m e p l a y"
+    ' "one": "gameplay"
+  },
+  "gameloop": {
+    "one": "g\na\nm\ne\nl\no\no\np"
+    ' "one": "g a m e l o o p"
+    ' "one": "gameloop"
+  },
+  "gamefeel": {
+    "one": "g\na\nm\ne\nf\ne\ne\nl"
+    ' "one": "g a m e f e e l"
+    ' "one": "gamefeel"
+  },
+  "intention": {
+    ' "one": "i n t e n t i o n a l"
+    "one": "i\nn\nt\ne\nn\nt\ni\no\nn"
+  },
+  "action": {
+    ' "one": "o p e r a t i o n a l"
+    "one": "a\nc\nt\ni\no\nn"
   },
   "plot": {
     ' "one": "p\nl\no\nt"
+    ' "one": "p l o t"
     "one": "plot"
   },
   "narrative": {
     ' "one": "n\na\nr\nr\na\nt\ni\nv\ne"
     "one": "narrative"
-  },
-  "ratio": {
-    ' "one": "r a t i o"
-    ' "one": "rational"
-    ' "one": "r a t i o n a l"
-    "one": "r\na\nt\ni\no\nn\na\nl"
-  },
-  "emotio": {
-    ' "one": "e m o t i o"
-    ' "one": "emotional"
-    ' "one": "e m o t i o n a l"
-    "one": "e\nm\no\nt\ni\no\nn\na\nl"
   },
   "arc": {
     "one": "arc",

@@ -57,7 +57,7 @@ note right
     Генерирует **риски**.
 end note
 
-folder " сюжет" as gametalk
+folder " сюжет" as gamelang
 note right
     Независимо **развивается** в рамках заданного **лора**.
     Может оказывать влияние на персонажей и мир.
@@ -71,8 +71,8 @@ note right
     Снимает риски и 
 end note
 
-world -[hidden]-> gametalk
-gametalk -[hidden]-> character
+world -[hidden]-> gamelang
+gamelang -[hidden]-> character
 @enduml
 
 @startuml цикл-существования

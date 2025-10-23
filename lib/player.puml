@@ -66,7 +66,7 @@ label origin [
   ]
 !endprocedure
 
-!procedure $empty_axes()
+!procedure $empty_axes_1x1()
   label leftmost <<axis>> [
     <U+0000>
   ]
@@ -83,16 +83,16 @@ label origin [
 
 !procedure $fillLoop()
   rectangle context [
-    <$database{scale=0.4}><size:8> </size>контекст
+    <$database{scale=0.4}><size:7> </size>контекст
   ]
   rectangle state [
-    <$cube{scale=0.4}><size:8> </size>состояние
+    <$cube{scale=0.4}><size:7> </size>состояние
   ]
   collections action [
-    <$chevron_circle_down{scale=0.4}><size:8> </size>действие
+    <$chevron_circle_down{scale=0.4}><size:7> </size>действие
   ]
   collections event [
-    <$chevron_circle_up{scale=0.4}><size:8> </size>событие
+    <$chevron_circle_up{scale=0.4}><size:7> </size>событие
   ]
 
   $fillGrid()

@@ -11,7 +11,7 @@ $join_grid_3x1("hidden")
 @startuml filled-master-and-filled-engine
 !include lib/game.puml!core
 !include lib/i18n.puml!en
-skinparam ranksep 35
+skinparam ranksep 30
 skinparam nodesep 50
 
 $fill_master()

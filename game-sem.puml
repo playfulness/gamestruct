@@ -4,9 +4,16 @@
 skinparam ranksep 20
 skinparam nodesep 1
 
+<style>
+  .axis {
+    FontColor: black;
+  }
+</style>
+
 $iconify_players()
 
 $fill_axes()
+$empty_axes_1x1()
 $join_axes_3x3(hidden, hidden)
 @enduml
 
@@ -25,6 +32,7 @@ skinparam nodesep 1
 $iconify_players()
 
 $fill_axes()
+$empty_axes_1x1()
 $join_axes_3x3(hidden, hidden)
 
 $fill_matrix()
@@ -34,8 +42,8 @@ $join_matrix_3x3()
 @startuml matrix-with-protocols
 !include lib/game.puml!core
 !include lib/i18n.puml!en
-skinparam ranksep 40
-skinparam nodesep 60
+skinparam ranksep 20
+skinparam nodesep 70
 
 <style>
   .matrix {
@@ -44,10 +52,11 @@ skinparam nodesep 60
   }
 </style>
 
-$iconify_grid_3x1()
-$textify_grid_1x3()
+$iconify_players()
 
-$empty_axes()
+$fill_grid_3x3(2)
+
+$empty_axes_1x1()
 $join_axes_3x3()
 
 $fill_matrix()

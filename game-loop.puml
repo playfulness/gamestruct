@@ -22,7 +22,7 @@ player "X\n\n\n" -[dashed]d- avatar
 $fill_matrix()
 $join_matrix_3x1()
 
-$empty_axes()
+$empty_axes_1x1()
 $join_axes_3x1()
 @enduml
 
@@ -54,7 +54,7 @@ avatar -[dashed]d- "X" engine
 $fill_matrix()
 $join_matrix_3x1()
 
-$empty_axes()
+$empty_axes_1x1()
 $join_axis_y()
 @enduml
 
@@ -86,6 +86,6 @@ avatar -[plain]d- "Z" engine
 $fill_matrix()
 $join_matrix_3x1()
 
-$empty_axes()
+$empty_axes_1x1()
 $join_axis_y()
 @enduml
