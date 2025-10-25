@@ -35,30 +35,19 @@
     "one": "геймлэнг"
   },
   "gameplay": {
-    ' "one": "г\nе\nй\nм\nп\nл\nе\nй"
     "one": "геймплей"
   },
-  "impl": {
-    ' "one": "р а ц и о"
-    ' "one": "р\nа\nц\nи\nо\nн\nа\nл\nь\nн\nо\nе"
-    "one": "р\nа\nц\nи\nо"
+  "gameloop": {
+    "one": "геймлуп"
   },
-  "spec": {
-    ' "one": "э м о ц и о"
-    ' "one": "э\nм\nо\nц\nи\nо\nн\nа\nл\nь\nн\nо\nе"
-    "one": "э\nм\nо\nц\nи\nо"
+  "gamefeel": {
+    "one": "геймфил"
   },
   "intention": {
     "one": "н а м е р е н и е"
   },
-  "intentionSpace": {
-    "one": "пространство намерений"
-  },
   "action": {
     "one": "д е й с т в и е"
-  },
-  "operationSpace": {
-    "one": "пространство действий"
   },
   "plot": {
     "one": "сюжет"
@@ -123,20 +112,32 @@
     "one": "g a m e l a n g"
     ' "one": "gamelang"
   },
+  "gamelang2": {
+    "one": "gamelang"
+  },
   "gameplay": {
     ' "one": "g\na\nm\ne\np\nl\na\ny"
     "one": "g a m e p l a y"
     ' "one": "gameplay"
+  },
+  "gameplay2": {
+    "one": "gameplay"
   },
   "gameloop": {
     "one": "g\na\nm\ne\nl\no\no\np"
     ' "one": "g a m e l o o p"
     ' "one": "gameloop"
   },
+  "gameloop2": {
+    "one": "gameloop"
+  },
   "gamefeel": {
     "one": "g\na\nm\ne\nf\ne\ne\nl"
     ' "one": "g a m e f e e l"
     ' "one": "gamefeel"
+  },
+  "gamefeel2": {
+    "one": "gamefeel"
   },
   "intention": {
     ' "one": "i n t e n t i o n a l"
@@ -149,11 +150,17 @@
   "plot": {
     ' "one": "p\nl\no\nt"
     ' "one": "p l o t"
-    "one": "plot"
+    "one": "plot",
+    "many": "plots"
+  },
+  "story": {
+    "one": "story",
+    "many": "stories"
   },
   "narrative": {
     ' "one": "n\na\nr\nr\na\nt\ni\nv\ne"
-    "one": "narrative"
+    "one": "narrative",
+    "many": "narratives"
   },
   "arc": {
     "one": "arc",

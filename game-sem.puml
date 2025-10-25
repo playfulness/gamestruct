@@ -17,6 +17,85 @@ $empty_axes_1x1()
 $join_axes_3x3(hidden, hidden)
 @enduml
 
+@startmindmap axis-x-with-clarifications
+!include lib/game.puml!core
+!include lib/i18n.puml!en
+
+<style>
+node {
+  MaximumWidth 600
+  Padding 5
+  Margin 10
+}
+arrow {
+  LineColor green
+  LineThickness 1
+}
+.term {
+  FontSize 30
+  ' LineStyle 1
+  LineColor DimGrey
+  LineThickness 0.5
+  BackgroundColor transparent
+}
+.defn {
+  FontSize 20
+  BackgroundColor transparent
+  LineColor transparent
+}
+</style>
+
+* $translate(gamelang2) <<term>>
+** идея, модель, объяснение <<defn>>
+** грамматика, сообщение, значение <<defn>>
+' мотив, повод, причина, основание
+** намерение, причина, склонность <<defn>>
+
+* $translate(gameplay2) <<term>>
+** мир, состояние, наблюдение <<defn>>
+** интерфейс, команда, эффект <<defn>>
+** действие, ресурс, инерция <<defn>>
+@endmindmap
+
+@startmindmap axis-y-with-clarifications
+!include lib/game.puml!core
+!include lib/i18n.puml!en
+
+<style>
+node {
+  MaximumWidth 600
+  Padding 5
+  Margin 10
+}
+arrow {
+  LineColor green
+  LineThickness 1
+}
+.term {
+  FontSize 30
+  ' LineStyle 1
+  LineColor DimGrey
+  LineThickness 0.5
+  BackgroundColor transparent
+}
+.defn {
+  FontSize 20
+  BackgroundColor transparent
+  LineColor transparent
+}
+</style>
+
+* $translate(gameloop2) <<term>>
+** логика, суждение, рациональность <<defn>>
+** инструкция, алгоритм, изолированность <<defn>>
+** цикличность, многократность, возвращение <<defn>>
+
+* $translate(gamefeel2) <<term>>
+** интуиция, ощущение, эмоциональность <<defn>>
+** навык, импровизация, интерактивность <<defn>>
+** линейность, однократность, необратимость <<defn>>
+@endmindmap
+
 @startuml matrix-with-axes
 !include lib/game.puml!core
 !include lib/i18n.puml!en
@@ -35,11 +114,11 @@ $fill_axes()
 $empty_axes_1x1()
 $join_axes_3x3(hidden, hidden)
 
-$fill_matrix()
+$fill_matrix(1)
 $join_matrix_3x3()
 @enduml
 
-@startuml matrix-with-protocols
+@startuml matrix-with-protocols-singular
 !include lib/game.puml!core
 !include lib/i18n.puml!en
 skinparam ranksep 20
@@ -54,11 +133,35 @@ skinparam nodesep 70
 
 $iconify_players()
 
+$fill_grid_3x3(1)
+
+$empty_axes_1x1()
+$join_axes_3x3()
+
+$fill_matrix(1)
+$join_matrix_3x3()
+@enduml
+
+@startuml matrix-with-protocols-plural
+!include lib/game.puml!core
+!include lib/i18n.puml!en
+skinparam ranksep 20
+skinparam nodesep 70
+
+<style>
+  .matrix {
+    FontSize: 30;
+    FontColor: Grey;
+  }
+</style>
+
+$iconify_players(2)
+
 $fill_grid_3x3(2)
 
 $empty_axes_1x1()
 $join_axes_3x3()
 
-$fill_matrix()
+$fill_matrix(2)
 $join_matrix_3x3()
 @enduml

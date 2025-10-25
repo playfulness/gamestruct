@@ -15,7 +15,7 @@
 !include <tupadr3/font-awesome-5/book_reader>
 !include <tupadr3/font-awesome/gamepad>
 !include <tupadr3/font-awesome-5/heartbeat>
-!include <tupadr3/font-awesome-5/history>
+!include <tupadr3/font-awesome/history>
 !include <tupadr3/font-awesome-5/mask>
 !include <tupadr3/font-awesome-5/pencil_ruler>
 !include <tupadr3/font-awesome-5/file_alt>
@@ -150,13 +150,13 @@ left to right direction
 !procedure $fill_characters($count=1)
   !if ($count==1)
     rectangle character [
-      ' <$pen_square{scale=0.53}><size:7> </size>$translate(character, $count)
-      <$book_reader{scale=0.52}><size:7> </size>$translate(character, $count)
+      <$pen_square{scale=0.52}><size:7> </size>$translate(character, $count)
+      ' <$book_reader{scale=0.52}><size:7> </size>$translate(character, $count)
     ]
   !else
     collections character [
-      ' <$pen_square{scale=0.53}><size:7> </size>$translate(character, $count)
-      <$book_reader{scale=0.53}><size:7> </size>$translate(character, $count)
+      <$pen_square{scale=0.52}><size:7> </size>$translate(character, $count)
+      ' <$book_reader{scale=0.52}><size:7> </size>$translate(character, $count)
     ]
   !endif
 !endprocedure
@@ -200,16 +200,32 @@ left to right direction
   !endif
 !endprocedure
 
-!procedure $fill_plot()
-  rectangle plot [
-    <U+0000><U+0000><$pen_square{scale=0.52}><size:7> </size>$translate(plot, 1)<U+0000><U+0000>
-  ]
+!procedure $fill_stories($count=1)
+  !if ($count==1)
+    rectangle story [
+      ' <U+0000><U+0000><$history{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
+      <U+0000><U+0000><$book_open{scale=0.50}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
+      ' <U+0000><U+0000><$film{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
+    ]
+  !else
+    collections story [
+      ' <U+0000><U+0000><$history{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
+      <U+0000><U+0000><$book_open{scale=0.50}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
+      ' <U+0000><U+0000><$film{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
+    ]
+  !endif
 !endprocedure
 
-!procedure $fill_narrative()
-  rectangle narrative [
-    <$extension{scale=0.52}><size:7> </size>$translate(narrative, 1)
-  ]
+!procedure $fill_narratives($count=1)
+  !if ($count==1)
+    rectangle narrative [
+      <$extension{scale=0.52}><size:7> </size>$translate(narrative, $count)
+    ]
+  !else
+    collections narrative [
+      <$extension{scale=0.52}><size:7> </size>$translate(narrative, $count)
+    ]
+  !endif
 !endprocedure
 
 !procedure $puzzle_agent($id)
@@ -245,7 +261,7 @@ left to right direction
 !endprocedure
 
 !procedure $fill_axis_y($style=axis)
-  label plot <<$style>> [
+  label story <<$style>> [
     $translate(gameloop)
   ]
   label narrative <<$style>> [
@@ -283,7 +299,7 @@ left to right direction
   $empty_axis_y()
   $empty_character()
   $empty_avatar()
-  label plot [
+  label story [
   ]
   label narrative [
   ]
@@ -311,7 +327,7 @@ left to right direction
 !endprocedure
 
 !procedure $join_axes_1x3($mode="thickness=1")
-  highest ~[$mode]r~ plot
+  highest ~[$mode]r~ story
   $join_grid_1x3($mode)
   narrative ~[$mode]r~ lowest
 !endprocedure
@@ -348,11 +364,11 @@ left to right direction
   label "$translate(setting, $count)" as settings <<matrix>>
 !endprocedure
 
-!procedure $fill_matrix()
-  $fill_arcs(2)
-  $fill_themes(2)
-  $fill_settings(2)
-  $fill_mechanics(2)
+!procedure $fill_matrix($count=2)
+  $fill_arcs($count)
+  $fill_themes($count)
+  $fill_settings($count)
+  $fill_mechanics($count)
 !endprocedure
 
 !procedure $guess_matrix()
@@ -370,14 +386,14 @@ left to right direction
 !endprocedure
 
 !procedure $join_matrix_3x3()
-  arcs -[hidden]d- plot
-  plot -[hidden]d- mechanics
+  arcs -[hidden]d- story
+  story -[hidden]d- mechanics
   themes -[hidden]d- narrative
   narrative -[hidden]d- settings
 !endprocedure
 
 !procedure $empty_grid_1x3()
-  label plot [
+  label story [
   ]
   $fill_players()
   label narrative [
@@ -394,7 +410,7 @@ left to right direction
   $empty_character()
   $empty_avatar()
 
-  label plot [
+  label story [
   ]
   label narrative [
   ]
@@ -409,8 +425,8 @@ left to right direction
 !procedure $fill_grid_3x3($count=1)
   $fill_characters($count)
   $fill_avatars($count)
-  $fill_plot()
-  $fill_narrative()
+  $fill_stories($count)
+  $fill_narratives($count)
 !endprocedure
 
 !procedure $iconify_grid_3x1($count=1)
@@ -431,11 +447,11 @@ left to right direction
 !endprocedure
 
 !procedure $textify_grid_1x3($count=1)
-  card "  $translate(plot)  " as plot #back:transparent;line.dotted
-  ' card plot #back:transparent;line.dotted [
+  card "  $translate(story)  " as story #back:transparent;line.dotted
+  ' card story #back:transparent;line.dotted [
   '   <U+0000>
   '   <U+0000>
-  '   $translate(plot)
+  '   $translate(story)
   '   <U+0000>
   '   <U+0000>
   ' ]
@@ -456,7 +472,7 @@ left to right direction
 !endprocedure
 
 !procedure $join_grid_1x3($mode="thickness=1")
-  plot ~[$mode]r~ player
+  story ~[$mode]r~ player
   player ~[$mode]r~ narrative
 !endprocedure
 
@@ -521,37 +537,37 @@ left to right direction
     <$local_library{scale=0.55}><size:7> </size>narrative
   ]
   rectangle p1 [
-    <U+0000><U+0000><$local_library{scale=0.55}><size:7> </size>plot<U+0000><U+0000>
+    <U+0000><U+0000><$local_library{scale=0.55}><size:7> </size>story<U+0000><U+0000>
   ]
   rectangle n2 [
     <$cog{scale=0.52}><size:7> </size>narrative
   ]
   rectangle p2 [
-    <U+0000><U+0000><$cog{scale=0.52}><size:7> </size>plot<U+0000><U+0000>
+    <U+0000><U+0000><$cog{scale=0.52}><size:7> </size>story<U+0000><U+0000>
   ]
   rectangle n3 [
     <$pen_square{scale=0.53}><size:7> </size>narrative
   ]
   rectangle p3 [
-    <U+0000><U+0000><$pen_square{scale=0.53}><size:7> </size>plot<U+0000><U+0000>
+    <U+0000><U+0000><$pen_square{scale=0.53}><size:7> </size>story<U+0000><U+0000>
   ]
   ' rectangle n4 [
   '   <$file_alt{scale=0.53}><size:7> </size>narrative
   ' ]
   ' rectangle p4 [
-  '   <U+0000><U+0000><$file_alt{scale=0.53}><size:7> </size>plot<U+0000><U+0000>
+  '   <U+0000><U+0000><$file_alt{scale=0.53}><size:7> </size>story<U+0000><U+0000>
   ' ]
   rectangle n5 [
     <$extension{scale=0.53}><size:7> </size>narrative
   ]
   rectangle p5 [
-    <U+0000><U+0000><$extension{scale=0.53}><size:7> </size>plot<U+0000><U+0000>
+    <U+0000><U+0000><$extension{scale=0.53}><size:7> </size>story<U+0000><U+0000>
   ]
   ' rectangle n6 [
   '   <$description{scale=0.53}><size:7> </size>narrative
   ' ]
   ' rectangle p6 [
-  '   <U+0000><U+0000><$description{scale=0.53}><size:7> </size>plot<U+0000><U+0000>
+  '   <U+0000><U+0000><$description{scale=0.53}><size:7> </size>story<U+0000><U+0000>
   ' ]
 !endif
 @enduml
