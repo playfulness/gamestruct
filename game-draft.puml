@@ -1,0 +1,41 @@
+@startuml
+!include lib/game.puml!core
+!include lib/i18n.puml!en
+
+skinparam NoteFontSize 20
+scale max 1200 width
+
+<style>
+note {
+  backgroundcolor transparent
+  linecolor transparent
+}
+</style>
+
+note as generalization
+  <#Gainsboro>|= |= Количественное масштабирование |= Качественное масштабирование |
+  |=<#Gainsboro> \n Предопределяем \n заранее | 1)атомарные персонажи \n 2)атомарные аватары \n 3)атомарные истории \n 4)атомарные нарративы | 1)составные персонажи \n 2)составные аватары \n 3)составные истории \n 4)составные нарративы |
+  |=<#Gainsboro> \n Генерируем в \n процессе | 1)атомарные арки \n 2)атомарные механики \n 3)атомарные темы \n 4)атомарные сеттинги | 1)составные арки \n 2)составные механики \n 3)составные темы \n 4)составные сеттинги |
+end note
+@enduml
+
+@startuml
+!include lib/game.puml!core
+!include lib/i18n.puml!en
+
+skinparam NoteFontSize 20
+scale max 1200 width
+
+<style>
+note {
+  backgroundcolor transparent
+  linecolor transparent
+}
+</style>
+
+note as generalization
+  <#Gainsboro>|= |= \n Подход с предопределением \n |= \n Подход с генерацией \n |
+  |=<#Gainsboro> \n Количественное \n масштабирование | 1)атомарные персонажи \n 2)атомарные аватары \n 3)атомарные истории \n 4)атомарные нарративы | 1)атомарные арки \n 2)атомарные механики \n 3)атомарные темы \n 4)атомарные сеттинги |
+  |=<#Gainsboro> \n Качественное \n масштабирование | 1)составные персонажи \n 2)составные аватары \n 3)составные истории \n 4)составные нарративы | 1)составные арки \n 2)составные механики \n 3)составные темы \n 4)составные сеттинги |
+end note
+@enduml
