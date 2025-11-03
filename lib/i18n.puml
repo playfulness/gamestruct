@@ -17,10 +17,10 @@
     "one": "игрок",
     "many": "игроки"
   },
-  "master": {
+  "characterAgent": {
     "one": "мастер"
   },
-  "engine": {
+  "avatarAgent": {
     "one": "движок"
   },
   "character": {
@@ -83,13 +83,44 @@
     "one": "player",
     "many": "players"
   },
-  "master": {
-    "one": "master",
-    "many": "masters"
+  "characterAgent": {
+    "one": "characterAgent"
   },
-  "engine": {
-    "one": "engine",
-    "many": "engines"
+  "characterWriter": {
+    ' "one": "writer"
+    "one": "game\nwriter"
+  },
+  "characterController": {
+    ' "one": "controller"
+    ' "one": "master"
+    "one": "game\nmaster"
+  },
+  "avatarDesigner": {
+    ' "one": "designer"
+    "one": "game\ndesigner"
+  },
+  "avatarController": {
+    ' "one": "controller"
+    ' "one": "engine"
+    "one": "game\nengine"
+  },
+  "storyWriter": {
+    ' "one": "writer"
+    "one": "game\nwriter"
+  },
+  "storyTeller": {
+    ' "one": "teller"
+    ' "one": "engine"
+    "one": "game\nengine"
+  },
+  "narrativeDesigner": {
+    ' "one": "designer"
+    "one": "game\ndesigner"
+  },
+  "narrativePerformer": {
+    ' "one": "performer"
+    ' "one": "master"
+    "one": "game\nmaster"
   },
   "character": {
     "one": "character",
@@ -106,6 +137,12 @@
   "avatar2": {
     "one": "a v a t a r",
     "many": "a v a t a r s"
+  },
+  "devtime": {
+    "one": "devtime"
+  },
+  "runtime": {
+    "one": "runtime"
   },
   "gamelang": {
     ' "one": "g\na\nm\ne\nl\na\nn\ng"

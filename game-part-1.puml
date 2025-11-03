@@ -8,15 +8,15 @@ $empty_grid_3x1()
 $join_grid_3x1("hidden")
 @enduml
 
-@startuml filled-master-and-filled-engine
+@startuml filled-characterAgent-and-filled-avatarAgent
 !include lib/game.puml!core
 !include lib/i18n.puml!en
 skinparam ranksep 30
 skinparam nodesep 50
 
-$fill_master()
+$fill_character_agent()
 $empty_grid_3x1()
-$fill_engine()
+$fill_avatar_agent()
 $join_grid_5x1("hidden")
 @enduml
 
@@ -26,11 +26,11 @@ $join_grid_5x1("hidden")
 skinparam ranksep 30
 skinparam nodesep 50
 
-$fill_master()
+$fill_character_agent()
 $draft_protocol(character)
 $fill_players()
 $draft_protocol(avatar)
-$fill_engine()
+$fill_avatar_agent()
 $join_grid_5x1("hidden")
 @enduml
 
@@ -40,11 +40,11 @@ $join_grid_5x1("hidden")
 skinparam ranksep 30
 skinparam nodesep 50
 
-$fill_master()
+$fill_character_agent()
 $fill_characters()
 $fill_players()
 $draft_protocol(avatar)
-$fill_engine()
+$fill_avatar_agent()
 $join_grid_5x1("hidden")
 @enduml
 
@@ -54,11 +54,11 @@ $join_grid_5x1("hidden")
 skinparam ranksep 25
 skinparam nodesep 50
 
-$fill_master()
+$fill_character_agent()
 $draft_protocol(character)
 $fill_players()
 $fill_avatars()
-$fill_engine()
+$fill_avatar_agent()
 $join_grid_5x1("hidden")
 @enduml
 

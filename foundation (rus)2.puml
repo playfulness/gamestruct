@@ -248,7 +248,7 @@ label {
 }
 </style>
 
-FA5_USER_EDIT(master, "мастер ", label)
+FA5_USER_EDIT(characterAgent, "мастер ", label)
 
 collections "<$pen_square{scale=0.4}><size:7> </size>персонаж" as character
 
@@ -256,12 +256,12 @@ FA5_USER_ALT(playerN, "игрок ", label)
 
 collections "<$cog{scale=0.4}><size:7> </size>аватар" as avatar
 
-FA5_USER_COG(engine, "движок ", label)
+FA5_USER_COG(avatarAgent, "движок ", label)
 
-master -[hidden]d- character
+characterAgent -[hidden]d- character
 character -[hidden]d- playerN
 playerN -[hidden]d- avatar
-avatar -[hidden]d- engine
+avatar -[hidden]d- avatarAgent
 
 label "<U+0000>" as highest
 label "<U+0000>" as lowest

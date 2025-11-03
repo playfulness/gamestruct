@@ -22,7 +22,7 @@ player "X\n\n\n" -[dashed]d- avatar
 $fill_matrix()
 $join_matrix_3x1()
 
-$empty_axes_1x1()
+$empty_axes()
 $join_axes_3x1()
 @enduml
 
@@ -35,9 +35,9 @@ scale max 1200 width
 
 $fill_grid_5x1()
 
-master "B" <-[plain]d- character
-master ~[thickness=1]d~ character
-master "C" -[dashed]d- character
+characterAgent "B" <-[plain]d- character
+characterAgent ~[thickness=1]d~ character
+characterAgent "C" -[dashed]d- character
 
 character -[dashed]d-> "D" player
 character ~[thickness=1]d~ player
@@ -47,14 +47,14 @@ player "W" <-[dashed]d- avatar
 player ~[thickness=1]d~ avatar
 player "Z" -[plain]d- avatar
 
-avatar -[plain]d-> "Y" engine
-avatar ~[thickness=1]d~ engine
-avatar -[dashed]d- "X" engine
+avatar -[plain]d-> "Y" avatarAgent
+avatar ~[thickness=1]d~ avatarAgent
+avatar -[dashed]d- "X" avatarAgent
 
 $fill_matrix()
 $join_matrix_3x1()
 
-$empty_axes_1x1()
+$empty_axes()
 $join_axis_y()
 @enduml
 
@@ -67,9 +67,9 @@ scale max 1200 width
 
 $fill_grid_5x1()
 
-master "D" <-[dashed]d- character
-master ~[thickness=1]d~ character
-master "A" -[plain]d- character
+characterAgent "D" <-[dashed]d- character
+characterAgent ~[thickness=1]d~ character
+characterAgent "A" -[plain]d- character
 
 character -[plain]d-> "B" player
 character ~[thickness=1]d~ player
@@ -79,13 +79,13 @@ player "Y" <-[plain]d- avatar
 player ~[thickness=1]d~ avatar
 player "X" -[dashed]d- avatar
 
-avatar -[dashed]d-> "W" engine
-avatar ~[thickness=1]d~ engine
-avatar -[plain]d- "Z" engine
+avatar -[dashed]d-> "W" avatarAgent
+avatar ~[thickness=1]d~ avatarAgent
+avatar -[plain]d- "Z" avatarAgent
 
 $fill_matrix()
 $join_matrix_3x1()
 
-$empty_axes_1x1()
+$empty_axes()
 $join_axis_y()
 @enduml

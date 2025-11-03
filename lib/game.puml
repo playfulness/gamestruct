@@ -2,6 +2,7 @@
 !include <tupadr3/common>
 !include <tupadr3/font-awesome-5/cog>
 !include <tupadr3/font-awesome-5/pen_square>
+!include <tupadr3/font-awesome-5/user>
 !include <tupadr3/font-awesome-5/user_alt>
 !include <tupadr3/font-awesome-5/user_cog>
 !include <tupadr3/font-awesome-5/user_edit>
@@ -105,40 +106,56 @@ left to right direction
 !endprocedure
 
 !procedure $empty_master()
-  label master [
+  label characterAgent [
   ]
 !endprocedure
 
 !procedure $iconify_master()
-  label master [
+  label characterAgent [
     ' <$user_edit{scale=0.9}>
     <$user_edit>
   ]
 !endprocedure
 
-!procedure $fill_master()
-  label master [
-    <$user_edit{scale=0.9}>
-    $translate(master)
+!procedure $fill_character_agent($time="dev")
+  label characterAgent <<agent>> [
+    <$user_alt{scale=0.7}>
+  !if ($time=="dev")
+    $translate(characterWriter)
+    ' ($translate(devtime))
+  !elseif ($time=="run")
+    $translate(characterController)
+    ' ($translate(runtime))
+  !else
+    !assert %false() : "Unknown time"
+  !endif
   ]
 !endprocedure
 
 !procedure $empty_engine()
-  label engine [
+  label avatarAgent [
   ]
 !endprocedure
 
 !procedure $iconify_engine()
-  label engine [
+  label avatarAgent [
     ' <$user_cog{scale=0.9}>
     <$user_cog>
   ]
 !endprocedure
 
-!procedure $fill_engine()
-  label engine [
-    <$user_cog{scale=0.9}>
-    $translate(engine)
+!procedure $fill_avatar_agent($time="dev")
+  label avatarAgent <<agent>> [
+    <$user_alt{scale=0.7}>
+  !if ($time=="dev")
+    $translate(avatarDesigner)
+    ' ($translate(devtime))
+  !elseif ($time=="run")
+    $translate(avatarController)
+    ' ($translate(runtime))
+  !else
+    !assert %false() : "Unknown time"
+  !endif
   ]
 !endprocedure
 
@@ -198,6 +215,36 @@ left to right direction
   !else
     collections " $translate(avatar2, $count) " as avatar #back:transparent;line.dotted
   !endif
+!endprocedure
+
+!procedure $fill_story_agent($time="run")
+  label storyAgent <<agent>> [
+    <$user_alt{scale=0.7}>
+  !if ($time=="dev")
+    $translate(storyWriter)
+    ' ($translate(devtime))
+  !elseif ($time=="run")
+    $translate(storyTeller)
+    ' ($translate(runtime))
+  !else
+    !assert %false() : "Unknown time"
+  !endif
+  ]
+!endprocedure
+
+!procedure $fill_narrative_agent($time="run")
+  label narrativeAgent <<agent>> [
+    <$user_alt{scale=0.7}>
+  !if ($time=="dev")
+    $translate(narrativeDesigner)
+    ' ($translate(devtime))
+  !elseif ($time=="run")
+    $translate(narrativePerformer)
+    ' ($translate(runtime))
+  !else
+    !assert %false() : "Unknown time"
+  !endif
+  ]
 !endprocedure
 
 !procedure $fill_stories($count=1)
@@ -275,7 +322,7 @@ left to right direction
   ' ]
 !endprocedure
 
-!procedure $empty_axes_1x1()
+!procedure $empty_axes()
   $empty_axis_x()
   $empty_axis_y()
 !endprocedure
@@ -338,14 +385,25 @@ left to right direction
 !endprocedure
 
 !procedure $join_axes_5x1($x="thickness=1", $y="thickness=1")
-  leftmost ~[$x]d~ master
+  ' leftmost ~[$x]d~ characterAgent
   $join_grid_5x1($x)
-  engine ~[$x]d~ rightmost
+  ' avatarAgent ~[$x]d~ rightmost
+!endprocedure
+
+!procedure $join_axes_1x5($x="thickness=1", $y="thickness=1")
+  ' highest ~[$x]r~ storyAgent
+  $join_grid_1x5($x)
+  ' narrativeAgent ~[$x]r~ lowest
 !endprocedure
 
 !procedure $join_axes_5x3($x="thickness=1", $y="thickness=1")
   $join_axes_5x1($x)
   $join_axes_1x3($y)
+!endprocedure
+
+!procedure $join_axes_5x5($x="thickness=1", $y="thickness=1")
+  $join_axes_5x1($x)
+  $join_axes_1x5($y)
 !endprocedure
 
 !procedure $fill_arcs($count=1)
@@ -422,11 +480,14 @@ left to right direction
   $fill_avatars($count)
 !endprocedure
 
-!procedure $fill_grid_3x3($count=1)
-  $fill_characters($count)
-  $fill_avatars($count)
+!procedure $fill_grid_1x3($count=1)
   $fill_stories($count)
   $fill_narratives($count)
+!endprocedure
+
+!procedure $fill_grid_3x3($count=1)
+  $fill_grid_3x1($count)
+  $fill_grid_1x3($count)
 !endprocedure
 
 !procedure $iconify_grid_3x1($count=1)
@@ -441,34 +502,19 @@ left to right direction
   $iconify_engine()
 !endprocedure
 
-!procedure $textify_grid_3x1($count=1)
-  $textify_characters($count)
-  $textify_avatars($count)
-!endprocedure
-
-!procedure $textify_grid_1x3($count=1)
-  card "  $translate(story)  " as story #back:transparent;line.dotted
-  ' card story #back:transparent;line.dotted [
-  '   <U+0000>
-  '   <U+0000>
-  '   $translate(story)
-  '   <U+0000>
-  '   <U+0000>
-  ' ]
-  card narrative #back:transparent;line.dotted [
-    $translate(narrative)
-  ]
-!endprocedure
-
-!procedure $textify_grid_3x3($count=1)
-  $textify_grid_3x1($count)
-  $textify_grid_1x3($count)
-!endprocedure
-
 !procedure $fill_grid_5x1($count=1)
-  $fill_master()
+  $fill_character_agent()
   $fill_grid_3x1($count)
-  $fill_engine()
+  $fill_avatar_agent()
+!endprocedure
+
+!procedure $fill_grid_5x5($count=1, $time="dev")
+  $fill_character_agent($time)
+  $fill_avatar_agent($time)
+  $fill_grid_3x1($count)
+  $fill_grid_1x3($count)
+  $fill_story_agent($time)
+  $fill_narrative_agent($time)
 !endprocedure
 
 !procedure $join_grid_1x3($mode="thickness=1")
@@ -487,14 +533,25 @@ left to right direction
 !endprocedure
 
 !procedure $join_grid_5x1($mode="thickness=1")
-  master ~[$mode]d~ character
+  characterAgent ~[$mode]d~ character
   $join_grid_3x1($mode)
-  avatar ~[$mode]d~ engine
+  avatar ~[$mode]d~ avatarAgent
+!endprocedure
+
+!procedure $join_grid_1x5($mode="thickness=1")
+  storyAgent ~[$mode]r~ story
+  $join_grid_1x3($mode)
+  narrative ~[$mode]r~ narrativeAgent
 !endprocedure
 
 !procedure $join_grid_5x3($mode="thickness=1")
   $join_grid_5x1($mode)
   $join_grid_1x3($mode)
+!endprocedure
+
+!procedure $join_grid_5x5($mode="thickness=1")
+  $join_grid_5x1($mode)
+  $join_grid_1x5($mode)
 !endprocedure
 
 !procedure $loop_character($mode="thickness=1")
@@ -510,15 +567,15 @@ left to right direction
 !endprocedure
 
 !procedure $loop_master($mode="thickness=1")
-  master <-[plain]d- character
-  master ~[$mode]d~ character
-  master -[plain]d-> character
+  characterAgent <-[plain]d- character
+  characterAgent ~[$mode]d~ character
+  characterAgent -[plain]d-> character
 !endprocedure
 
 !procedure $loop_engine($mode="thickness=1")
-  avatar -[plain]d-> engine
-  avatar ~[$mode]d~ engine
-  avatar <-[plain]d- engine
+  avatar -[plain]d-> avatarAgent
+  avatar ~[$mode]d~ avatarAgent
+  avatar <-[plain]d- avatarAgent
 !endprocedure
 
 !procedure $loop_story($mode="thickness=1")

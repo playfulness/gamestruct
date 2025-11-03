@@ -13,7 +13,7 @@ skinparam nodesep 1
 $iconify_players()
 
 $fill_axes()
-$empty_axes_1x1()
+$empty_axes()
 $join_axes_3x3(hidden, hidden)
 @enduml
 
@@ -29,7 +29,6 @@ node {
 }
 .term {
   FontSize 30
-  ' LineStyle 1
   LineColor DimGrey
   LineThickness 0.5
   BackgroundColor transparent
@@ -41,16 +40,16 @@ node {
 }
 </style>
 
-* $translate(gamelang2) <<term>>
-** идея, модель, объяснение <<defn>>
-** грамматика, сообщение, значение <<defn>>
++ $translate(gamelang2) <<term>>
+++ идея, модель, объяснение <<defn>>
+++ грамматика, сообщение, значение <<defn>>
 ' мотив, повод, причина, основание
-** намерение, причина, склонность <<defn>>
+++ намерение, причина, склонность <<defn>>
 
-* $translate(gameplay2) <<term>>
-** мир, состояние, наблюдение <<defn>>
-** интерфейс, команда, эффект <<defn>>
-** действие, ресурс, инерция <<defn>>
++ $translate(gameplay2) <<term>>
+++ мир, состояние, наблюдение <<defn>>
+++ интерфейс, команда, эффект <<defn>>
+++ действие, ресурс, инерция <<defn>>
 @endmindmap
 
 @startmindmap axis-y-with-clarifications
@@ -76,19 +75,19 @@ node {
 }
 </style>
 
-* $translate(gameloop2) <<term>>
-** логика, суждение, рациональность <<defn>>
-' навык, мастерство, стандартизация, отчуждение, обособление
-** инструкция, реальность, отчуждение <<defn>>
++ $translate(gameloop2) <<term>>
+++ логика, суждение, рациональность <<defn>>
+' навык, мастерство, объективность, отчуждение, обособление
+++ инструкция, отчуждение, подлинность <<defn>>
 ' типичность, независимость, дискретность, изолированность
-** цикличность, типичность, изолированность <<defn>>
+++ цикличность, типичность, изолированность <<defn>>
 
-* $translate(gamefeel2) <<term>>
-** интуиция, ощущение, эмоциональность <<defn>>
-' вкус, вдохновение, вымысел, фантазия, вовлечение, сопричастие
-** вдохновение, идеальность, вовлечение <<defn>>
++ $translate(gamefeel2) <<term>>
+++ интуиция, ощущение, эмоциональность <<defn>>
+' вкус, вдохновение, субъективность, фантазия, вовлечение, сопричастие
+++ вдохновение, сопричастие, вымышленность <<defn>>
 ' уникальность, связность, непрерывность
-** конечность, уникальность, интерактивность <<defn>>
+++ конечность, уникальность, интерактивность <<defn>>
 @endmindmap
 
 @startuml matrix-with-axes
@@ -106,7 +105,7 @@ skinparam nodesep 1
 $iconify_players()
 
 $fill_axes()
-$empty_axes_1x1()
+$empty_axes()
 $join_axes_3x3(hidden, hidden)
 
 $fill_matrix(1)
@@ -130,7 +129,7 @@ $iconify_players()
 
 $fill_grid_3x3(1)
 
-$empty_axes_1x1()
+$empty_axes()
 $join_axes_3x3()
 
 $fill_matrix(1)
@@ -154,9 +153,49 @@ $iconify_players(2)
 
 $fill_grid_3x3(2)
 
-$empty_axes_1x1()
+$empty_axes()
 $join_axes_3x3()
 
 $fill_matrix(2)
 $join_matrix_3x3()
+@enduml
+
+@startuml protocols-with-devtime-agents
+!include lib/game.puml!core
+!include lib/i18n.puml!en
+skinparam ranksep 20
+skinparam nodesep 20
+
+<style>
+  .agent {
+    FontSize: 18;
+  }
+</style>
+
+$iconify_players(2)
+
+$fill_grid_5x5(2, "dev")
+
+$empty_axes()
+$join_axes_5x5()
+@enduml
+
+@startuml protocols-with-runtime-agents
+!include lib/game.puml!core
+!include lib/i18n.puml!en
+skinparam ranksep 20
+skinparam nodesep 20
+
+<style>
+  .agent {
+    FontSize: 18;
+  }
+</style>
+
+$iconify_players(2)
+
+$fill_grid_5x5(2, "run")
+
+$empty_axes()
+$join_axes_5x5()
 @enduml

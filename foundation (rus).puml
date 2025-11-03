@@ -101,14 +101,14 @@ node impl [
     <size:20>состояние</size>
 ]
 
-entity master [
+entity characterAgent [
     <size:20>мастер</size>
     ..
     вскрывает
     **риски**
 
 ]
-control engine [
+control avatarAgent [
     <size:20>движок</size>
     ..
     порождает
@@ -126,18 +126,18 @@ main ~[hidden]u~ impl: -
 main ~[hidden]d~ expl
 main ~[hidden]d~ infl
 
-main ~[hidden]u~ engine
+main ~[hidden]u~ avatarAgent
 main ~[hidden]d~ player
-main ~[hidden]u~ master
+main ~[hidden]u~ characterAgent
 
-impl ~[hidden]r~ engine
-engine ~[hidden]d~ infl
+impl ~[hidden]r~ avatarAgent
+avatarAgent ~[hidden]d~ infl
 
 infl ~[hidden]d~ player
 expl ~[hidden]d~ player
 
-expl ~[hidden]u~ master
-master ~[hidden]r~ impl
+expl ~[hidden]u~ characterAgent
+characterAgent ~[hidden]r~ impl
 
 impl -d-> expl
 expl -r-> infl
@@ -170,14 +170,14 @@ node impl [
     <size:20>состояние</size>
 ]
 
-entity master [
+entity characterAgent [
     <size:20>мастер</size>
     ..
     порождает
     **неопределенности**
 
 ]
-control engine [
+control avatarAgent [
     <size:20>движок</size>
     ..
     вскрывает
@@ -195,18 +195,18 @@ main ~[hidden]u~ impl: -
 main ~[hidden]d~ expl
 main ~[hidden]d~ infl
 
-main ~[hidden]u~ engine
+main ~[hidden]u~ avatarAgent
 main ~[hidden]d~ player
-main ~[hidden]u~ master
+main ~[hidden]u~ characterAgent
 
-impl ~[hidden]r~ engine
-engine ~[hidden]d~ infl
+impl ~[hidden]r~ avatarAgent
+avatarAgent ~[hidden]d~ infl
 
 infl ~[hidden]d~ player
 expl ~[hidden]d~ player
 
-expl ~[hidden]u~ master
-master ~[hidden]r~ impl
+expl ~[hidden]u~ characterAgent
+characterAgent ~[hidden]r~ impl
 
 impl -d-> expl
 expl -r-> infl
@@ -239,14 +239,14 @@ node impl [
     <size:20>состояние</size>
 ]
 
-entity master [
+entity characterAgent [
     <size:20>мастер</size>
     ..
     ???
     **издержки**
 
 ]
-control engine [
+control avatarAgent [
     <size:20>движок</size>
     ..
     ???
@@ -268,18 +268,18 @@ main ~[hidden]u~ impl: -
 main ~[hidden]d~ expl
 main ~[hidden]d~ infl
 
-main ~[hidden]u~ engine
+main ~[hidden]u~ avatarAgent
 main ~[hidden]d~ player
-main ~[hidden]u~ master
+main ~[hidden]u~ characterAgent
 
-impl ~[hidden]r~ engine
-engine ~[hidden]d~ infl
+impl ~[hidden]r~ avatarAgent
+avatarAgent ~[hidden]d~ infl
 
 infl ~[hidden]d~ player
 expl ~[hidden]d~ player
 
-expl ~[hidden]u~ master
-master ~[hidden]r~ impl
+expl ~[hidden]u~ characterAgent
+characterAgent ~[hidden]r~ impl
 @enduml
 
 @startuml цикл-обобщенный
@@ -320,7 +320,7 @@ node "состояние" as impl
 cloud "объяснение" as expl
 queue "воздействие" as infl
 
-entity master [
+entity characterAgent [
     мастер
     ....
     <size:15>отвечает за **трансдукцию**</size>
@@ -337,7 +337,7 @@ actor player [
     <size:15>нового объяснения</size>
 ]
 
-control engine [
+control avatarAgent [
     движок
     ....
     <size:15>отвечает за **трансформацию**</size>
@@ -346,14 +346,14 @@ control engine [
 
 ]
 
-impl ~[hidden]r~ engine
-engine ~[hidden]d~ infl
+impl ~[hidden]r~ avatarAgent
+avatarAgent ~[hidden]d~ infl
 
 infl ~[hidden]d~ player
 expl ~[hidden]d~ player
 
-expl ~[hidden]u~ master
-master ~[hidden]r~ impl
+expl ~[hidden]u~ characterAgent
+characterAgent ~[hidden]r~ impl
 
 impl -d-> expl
 expl -r-> infl: <size:35>правила</size>\t\n\n

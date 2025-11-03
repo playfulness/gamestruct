@@ -66,7 +66,7 @@ label origin [
   ]
 !endprocedure
 
-!procedure $empty_axes_1x1()
+!procedure $empty_axes()
   label leftmost <<axis>> [
     <U+0000>
   ]
