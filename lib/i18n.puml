@@ -10,18 +10,40 @@
 
 @startuml (id=ru)
 !$locale = {
-  "as": {
-    "one": "как"
+  "layer": {
+    "one": "слой"
+  },
+  "abstraction": {
+    "one": "абстракция",
+    "many": "абстракции"
   },
   "player": {
     "one": "игрок",
     "many": "игроки"
   },
-  "characterAgent": {
+  "characterWriter": {
+    "one": "сценарист"
+  },
+  "characterController": {
     "one": "мастер"
   },
-  "avatarAgent": {
+  "avatarDesigner": {
+    "one": "дизайнер"
+  },
+  "avatarController": {
     "one": "движок"
+  },
+  "storyWriter": {
+    "one": "сценарист"
+  },
+  "storyTeller": {
+    "one": "движок"
+  },
+  "narrativeDesigner": {
+    "one": "дизайнер"
+  },
+  "narrativePerformer": {
+    "one": "мастер"
   },
   "character": {
     "one": "персонаж",
@@ -32,28 +54,40 @@
     "many": "аватары"
   },
   "gamelang": {
+    "one": "г е й м л э н г"
+  },
+  "gamelang2": {
     "one": "геймлэнг"
   },
   "gameplay": {
+    "one": "г е й м п л е й"
+  },
+  "gameplay2": {
     "one": "геймплей"
   },
   "gameloop": {
+    "one": "г\nе\nй\nм\nл\nу\nп"
+  },
+  "gameloop2": {
     "one": "геймлуп"
   },
   "gamefeel": {
+    "one": "г\nе\nй\nм\nф\nи\nл"
+  },
+  "gamefeel2": {
     "one": "геймфил"
   },
-  "intention": {
-    "one": "н а м е р е н и е"
-  },
-  "action": {
-    "one": "д е й с т в и е"
-  },
   "plot": {
-    "one": "сюжет"
+    "one": "сюжет",
+    "many": "сюжеты"
+  },
+  "story": {
+    "one": "история",
+    "many": "истории"
   },
   "narrative": {
-    "one": "нарратив"
+    "one": "нарратив",
+    "many": "нарративы"
   },
   "arc": {
     "one": "арка",
@@ -70,57 +104,209 @@
   "setting": {
     "one": "сеттинг",
     "many": "сеттинги"
+  },
+  "idea": {
+    ' "one": "идея"
+    "one": "лор"
+  },
+  "model": {
+    "one": "модель"
+  },
+  "explanation": {
+    "one": "объяснение"
+  },
+  "grammar": {
+    "one": "грамматика"
+  },
+  "query": {
+    ' "one": "запрос"
+    ' "one": "обращение"
+    "one": "сообщение"
+  },
+  "meaning": {
+    ' "one": "значение"
+    "one": "семантика"
+    ' "one": "смысл"
+  },
+  "intention": {
+    ' "one": "цель"
+    ' "one": "образ"
+    ' "one": "мечта"
+    ' "one": "амбиция"
+    "one": "намерение"
+    ' "one": "стремление"
+  },
+  "cause": {
+    ' "one": "основание"
+    ' "one": "причина"
+    ' "one": "оказия"
+    "one": "повод"
+    ' "one": "мотив"
+  },
+  "concern": {
+    ' "one": "обоснование"
+    "one": "уместность"
+    ' "one": "приемлемость"
+    ' "one": "допустимость"
+    ' "one": "релевантность"
+    ' "one": "адекватность"
+  },
+  "world": {
+    "one": "мир"
+  },
+  "state": {
+    "one": "состояние"
+  },
+  "observation": {
+    "one": "наблюдение"
+  },
+  "interface": {
+    "one": "интерфейс"
+  },
+  "command": {
+    "one": "команда"
+  },
+  "effect": {
+    "one": "эффект"
+  },
+  "action": {
+    "one": "действие"
+  },
+  "resource": {
+    "one": "ресурс"
+  },
+  "inertia": {
+    ' "one": "доступ"
+    ' "one": "право"
+    ' "one": "привилегия"
+    "one": "разрешение"
+    ' "one": "консенсус"
+  },
+  "logic": {
+    "one": "логика"
+  },
+  "judgment": {
+    ' "one": "суждение"
+    ' "one": "знание"
+    ' "one": "исследование"
+    ' "one": "изучение"
+    "one": "познание"
+    ' "one": "информация"
+  },
+  "rationality": {
+    "one": "рациональность"
+  },
+  "rule": {
+    ' "one": "правило"
+    "one": "инструкция"
+  },
+  "alienation": {
+    ' "one": "обособление"
+    "one": "отчуждение"
+  },
+  "authenticity": {
+    ' "one": "подлинность"
+    "one": "объективность"
+  },
+  "cyclicality": {
+    "one": "цикличность"
+    ' "one": "ритмичность"
+  },
+  "typicality": {
+    "one": "типичность"
+    ' "one": "схожесть"
+  },
+  "isolation": {
+    ' "one": "независимость"
+    "one": "изолированность"
+  },
+  "intuition": {
+    "one": "интуиция"
+  },
+  "feeling": {
+    "one": "ощущение"
+  },
+  "emotionality": {
+    "one": "эмоциональность"
+  },
+  "inspiration": {
+    "one": "вдохновение"
+  },
+  "participation": {
+    ' "one": "вовлечение"
+    "one": "сопричастие"
+  },
+  "subjectivity": {
+    "one": "субъективность"
+  },
+  "finiteness": {
+    "one": "конечность"
+  },
+  "uniqueness": {
+    "one": "уникальность"
+  },
+  "interactivity": {
+    "one": "интерактивность"
   }
 }
 @enduml
 
 @startuml (id=en)
 !$locale = {
-  "as": {
-    "one": "as"
+  "layer": {
+    "one": "layer"
+  },
+  "abstraction": {
+    "one": "abstraction",
+    "many": "abstractions"
+  },
+  "event": {
+    "one": "event",
+    "many": "events"
+  },
+  "effect": {
+    "one": "effect",
+    "many": "effects"
   },
   "player": {
     "one": "player",
     "many": "players"
   },
-  "characterAgent": {
-    "one": "characterAgent"
-  },
   "characterWriter": {
-    ' "one": "writer"
-    "one": "game\nwriter"
+    "one": "writer"
+    ' "one": "game\nwriter"
   },
   "characterController": {
     ' "one": "controller"
-    ' "one": "master"
-    "one": "game\nmaster"
+    "one": "master"
+    ' "one": "game\nmaster"
   },
   "avatarDesigner": {
-    ' "one": "designer"
-    "one": "game\ndesigner"
+    "one": "designer"
+    ' "one": "game\ndesigner"
   },
   "avatarController": {
     ' "one": "controller"
-    ' "one": "engine"
-    "one": "game\nengine"
+    "one": "engine"
+    ' "one": "game\nengine"
   },
   "storyWriter": {
-    ' "one": "writer"
-    "one": "game\nwriter"
+    "one": "writer"
+    ' "one": "game\nwriter"
   },
   "storyTeller": {
     ' "one": "teller"
-    ' "one": "engine"
-    "one": "game\nengine"
+    "one": "engine"
+    ' "one": "game\nengine"
   },
   "narrativeDesigner": {
-    ' "one": "designer"
-    "one": "game\ndesigner"
+    "one": "designer"
+    ' "one": "game\ndesigner"
   },
   "narrativePerformer": {
     ' "one": "performer"
-    ' "one": "master"
-    "one": "game\nmaster"
+    "one": "master"
+    ' "one": "game\nmaster"
   },
   "character": {
     "one": "character",
@@ -176,14 +362,6 @@
   "gamefeel2": {
     "one": "gamefeel"
   },
-  "intention": {
-    ' "one": "i n t e n t i o n a l"
-    "one": "i\nn\nt\ne\nn\nt\ni\no\nn"
-  },
-  "action": {
-    ' "one": "o p e r a t i o n a l"
-    "one": "a\nc\nt\ni\no\nn"
-  },
   "plot": {
     ' "one": "p\nl\no\nt"
     ' "one": "p l o t"
@@ -214,6 +392,134 @@
   "setting": {
     "one": "setting",
     "many": "settings"
+  },
+  "idea": {
+    ' "one": "idea"
+    "one": "lore"
+  },
+  "model": {
+    "one": "model"
+  },
+  "explanation": {
+    "one": "explanation"
+  },
+  "grammar": {
+    "one": "grammar"
+  },
+  "query": {
+    ' "one": "query"
+    ' "one": "record"
+    ' "one": "statement"
+    "one": "message"
+  },
+  "meaning": {
+    "one": "meaning"
+    ' "one": "semantic"
+  },
+  "intention": {
+    ' "one": "vision"
+    "one": "intention"
+  },
+  "cause": {
+    ' "one": "cause"
+    "one": "reason"
+    ' "one": "occasion"
+    ' "one": "motive"
+  },
+  "concern": {
+    "one": "relevance"
+    ' "one": "knowledge"
+  },
+  "world": {
+    "one": "world"
+  },
+  "state": {
+    "one": "state"
+  },
+  "observation": {
+    "one": "observation"
+  },
+  "interface": {
+    "one": "interface"
+  },
+  "command": {
+    "one": "command"
+  },
+  "effect": {
+    "one": "effect"
+  },
+  "action": {
+    "one": "action"
+  },
+  "resource": {
+    "one": "resource"
+  },
+  "inertia": {
+    "one": "permission"
+    ' "one": "access"
+    ' "one": "right"
+  },
+  "logic": {
+    "one": "logic"
+  },
+  "judgment": {
+    "one": "knowledge"
+    ' "one": "cognition"
+  },
+  "resource": {
+    "one": "resource"
+  },
+  "rationality": {
+    "one": "rationality"
+  },
+  "rule": {
+    ' "one": "rule"
+    "one": "instruction"
+  },
+  "alienation": {
+    ' "one": "estrangement"
+    "one": "alienation"
+  },
+  "authenticity": {
+    "one": "objectivity"
+  },
+  "cyclicality": {
+    ' "one": "cyclicality"
+    "one": "rhythmicity"
+  },
+  "typicality": {
+    "one": "similarity"
+    ' "one": "typicality"
+  },
+  "isolation": {
+    "one": "isolation"
+  },
+  "intuition": {
+    "one": "intuition"
+  },
+  "feeling": {
+    "one": "feeling"
+  },
+  "emotionality": {
+    "one": "emotionality"
+  },
+  "inspiration": {
+    "one": "inspiration"
+  },
+  "participation": {
+    "one": "participation"
+  },
+  "subjectivity": {
+    "one": "subjectivity"
+  },
+  "finiteness": {
+    "one": "finiteness"
+  },
+  "uniqueness": {
+    "one": "uniqueness"
+  },
+  "interactivity": {
+    "one": "interactivity"
   }
 }
 @enduml

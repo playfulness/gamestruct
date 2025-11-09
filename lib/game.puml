@@ -105,21 +105,21 @@ left to right direction
   !endif
 !endprocedure
 
-!procedure $empty_master()
+!procedure $empty_character_agent()
   label characterAgent [
   ]
 !endprocedure
 
-!procedure $iconify_master()
+!procedure $iconify_character_agent()
   label characterAgent [
     ' <$user_edit{scale=0.9}>
-    <$user_edit>
+    <$user_alt>
   ]
 !endprocedure
 
 !procedure $fill_character_agent($time="dev")
   label characterAgent <<agent>> [
-    <$user_alt{scale=0.7}>
+    <$user_alt{scale=0.8}>
   !if ($time=="dev")
     $translate(characterWriter)
     ' ($translate(devtime))
@@ -132,21 +132,21 @@ left to right direction
   ]
 !endprocedure
 
-!procedure $empty_engine()
+!procedure $empty_avatar_agent()
   label avatarAgent [
   ]
 !endprocedure
 
-!procedure $iconify_engine()
+!procedure $iconify_avatar_agent()
   label avatarAgent [
     ' <$user_cog{scale=0.9}>
-    <$user_cog>
+    <$user_alt>
   ]
 !endprocedure
 
 !procedure $fill_avatar_agent($time="dev")
   label avatarAgent <<agent>> [
-    <$user_alt{scale=0.7}>
+    <$user_alt{scale=0.8}>
   !if ($time=="dev")
     $translate(avatarDesigner)
     ' ($translate(devtime))
@@ -219,7 +219,7 @@ left to right direction
 
 !procedure $fill_story_agent($time="run")
   label storyAgent <<agent>> [
-    <$user_alt{scale=0.7}>
+    <$user_alt{scale=0.8}>
   !if ($time=="dev")
     $translate(storyWriter)
     ' ($translate(devtime))
@@ -234,7 +234,7 @@ left to right direction
 
 !procedure $fill_narrative_agent($time="run")
   label narrativeAgent <<agent>> [
-    <$user_alt{scale=0.7}>
+    <$user_alt{scale=0.8}>
   !if ($time=="dev")
     $translate(narrativeDesigner)
     ' ($translate(devtime))
@@ -250,15 +250,15 @@ left to right direction
 !procedure $fill_stories($count=1)
   !if ($count==1)
     rectangle story [
-      ' <U+0000><U+0000><$history{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
-      <U+0000><U+0000><$book_open{scale=0.50}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
-      ' <U+0000><U+0000><$film{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
+      ' <U+0000><$history{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000>
+      <U+0000><$book_open{scale=0.50}><size:7> </size>$translate(story, $count)<U+0000>
+      ' <U+0000><$film{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000>
     ]
   !else
     collections story [
-      ' <U+0000><U+0000><$history{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
-      <U+0000><U+0000><$book_open{scale=0.50}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
-      ' <U+0000><U+0000><$film{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000><U+0000>
+      ' <U+0000><$history{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000>
+      <U+0000><$book_open{scale=0.50}><size:7> </size>$translate(story, $count)<U+0000>
+      ' <U+0000><$film{scale=0.52}><size:7> </size>$translate(story, $count)<U+0000>
     ]
   !endif
 !endprocedure
@@ -273,12 +273,6 @@ left to right direction
       <$extension{scale=0.52}><size:7> </size>$translate(narrative, $count)
     ]
   !endif
-!endprocedure
-
-!procedure $puzzle_agent($id)
-  label $id <<puzzler>> [
-     ?
-  ]
 !endprocedure
 
 !procedure $draft_protocol($id)
@@ -299,12 +293,6 @@ left to right direction
   label avatar <<$style>> [
     $translate(gameplay)
   ]
-  ' label leftmost <<axis>> [
-  '   $translate(intention)
-  ' ]
-  ' label rightmost <<axis>> [
-  '   $translate(action)
-  ' ]
 !endprocedure
 
 !procedure $fill_axis_y($style=axis)
@@ -314,12 +302,6 @@ left to right direction
   label narrative <<$style>> [
     $translate(gamefeel)
   ]
-  ' label highest <<axis>> [
-  '   $translate(impl)
-  ' ]
-  ' label lowest <<axis>> [
-  '   $translate(spec)
-  ' ]
 !endprocedure
 
 !procedure $empty_axes()
@@ -429,13 +411,6 @@ left to right direction
   $fill_mechanics($count)
 !endprocedure
 
-!procedure $guess_matrix()
-  $puzzle_agent(arcs)
-  $puzzle_agent(mechanics)
-  $puzzle_agent(settings)
-  $puzzle_agent(themes)
-!endprocedure
-
 !procedure $join_matrix_3x1()
   arcs -[hidden]r- character
   character -[hidden]r- themes
@@ -476,7 +451,6 @@ left to right direction
 
 !procedure $fill_grid_3x1($count=1)
   $fill_characters($count)
-  $fill_players($count)
   $fill_avatars($count)
 !endprocedure
 
@@ -490,25 +464,18 @@ left to right direction
   $fill_grid_1x3($count)
 !endprocedure
 
-!procedure $iconify_grid_3x1($count=1)
-  $fill_characters($count)
-  $iconify_players($count)
-  $fill_avatars($count)
-!endprocedure
-
-!procedure $iconify_grid_5x1($count=1)
-  $iconify_master()
-  $iconify_grid_3x1($count)
-  $iconify_engine()
-!endprocedure
-
-!procedure $fill_grid_5x1($count=1)
-  $fill_character_agent()
+!procedure $fill_grid_5x1($time="dev", $count=1)
+  $fill_character_agent($time)
   $fill_grid_3x1($count)
-  $fill_avatar_agent()
+  $fill_avatar_agent($time)
 !endprocedure
 
-!procedure $fill_grid_5x5($count=1, $time="dev")
+!procedure $fill_grid_5x3($time="dev", $count=1)
+  $fill_grid_5x1($time, $count)
+  $fill_grid_1x3($count)
+!endprocedure
+
+!procedure $fill_grid_5x5($time="dev", $count=1)
   $fill_character_agent($time)
   $fill_avatar_agent($time)
   $fill_grid_3x1($count)
@@ -566,65 +533,30 @@ left to right direction
   player -[plain]d-> avatar
 !endprocedure
 
-!procedure $loop_master($mode="thickness=1")
+!procedure $loop_character_agent($mode="thickness=1")
   characterAgent <-[plain]d- character
   characterAgent ~[$mode]d~ character
   characterAgent -[plain]d-> character
 !endprocedure
 
-!procedure $loop_engine($mode="thickness=1")
+!procedure $loop_avatar_agent($mode="thickness=1")
   avatar -[plain]d-> avatarAgent
   avatar ~[$mode]d~ avatarAgent
   avatar <-[plain]d- avatarAgent
 !endprocedure
 
 !procedure $loop_story($mode="thickness=1")
-  $loop_master($mode)
+  $loop_character_agent($mode)
   $loop_character($mode)
 !endprocedure
 
 !procedure $loop_gameplay($mode="thickness=1")
   $loop_avatar($mode)
-  $loop_engine($mode)
+  $loop_avatar_agent($mode)
 !endprocedure
 
 !$debug = %false()
 !if ($debug)
-  rectangle n1 [
-    <$local_library{scale=0.55}><size:7> </size>narrative
-  ]
-  rectangle p1 [
-    <U+0000><U+0000><$local_library{scale=0.55}><size:7> </size>story<U+0000><U+0000>
-  ]
-  rectangle n2 [
-    <$cog{scale=0.52}><size:7> </size>narrative
-  ]
-  rectangle p2 [
-    <U+0000><U+0000><$cog{scale=0.52}><size:7> </size>story<U+0000><U+0000>
-  ]
-  rectangle n3 [
-    <$pen_square{scale=0.53}><size:7> </size>narrative
-  ]
-  rectangle p3 [
-    <U+0000><U+0000><$pen_square{scale=0.53}><size:7> </size>story<U+0000><U+0000>
-  ]
-  ' rectangle n4 [
-  '   <$file_alt{scale=0.53}><size:7> </size>narrative
-  ' ]
-  ' rectangle p4 [
-  '   <U+0000><U+0000><$file_alt{scale=0.53}><size:7> </size>story<U+0000><U+0000>
-  ' ]
-  rectangle n5 [
-    <$extension{scale=0.53}><size:7> </size>narrative
-  ]
-  rectangle p5 [
-    <U+0000><U+0000><$extension{scale=0.53}><size:7> </size>story<U+0000><U+0000>
-  ]
-  ' rectangle n6 [
-  '   <$description{scale=0.53}><size:7> </size>narrative
-  ' ]
-  ' rectangle p6 [
-  '   <U+0000><U+0000><$description{scale=0.53}><size:7> </size>story<U+0000><U+0000>
-  ' ]
+
 !endif
 @enduml
