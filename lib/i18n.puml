@@ -112,7 +112,7 @@
   "model": {
     "one": "модель"
   },
-  "explanation": {
+  "prediction": {
     "one": "объяснение"
   },
   "grammar": {
@@ -133,7 +133,8 @@
     ' "one": "образ"
     ' "one": "мечта"
     ' "one": "амбиция"
-    "one": "намерение"
+    "one": "намерение",
+    "many": "намерения"
     ' "one": "стремление"
   },
   "cause": {
@@ -167,10 +168,16 @@
     "one": "команда"
   },
   "effect": {
-    "one": "эффект"
+    "one": "эффект",
+    "many": "эффекты"
   },
   "action": {
-    "one": "действие"
+    "one": "действие",
+    "many": "действия"
+  },
+  "event": {
+    "one": "событие",
+    "many": "события"
   },
   "resource": {
     "one": "ресурс"
@@ -247,6 +254,30 @@
   },
   "interactivity": {
     "one": "интерактивность"
+  },
+  "master_character_management": {
+    "many": "управление персонажами мастера"
+  },
+  "master_character_prediction": {
+    "many": "предсказание персонажей мастера"
+  },
+  "player_character_control": {
+    "many": "контроль персонажей игрока"
+  },
+  "player_character_management": {
+    "many": "управление персонажами игрока"
+  },
+  "player_avatar_management": {
+    "many": "управление аватарами игрока"
+  },
+  "player_avatar_control": {
+    "many": "контроль аватаров игрока"
+  },
+  "engine_avatar_prediction": {
+    "many": "предсказание аватаров движка"
+  },
+  "engine_avatar_management": {
+    "many": "управление аватарами движка"
   }
 }
 @enduml
@@ -400,8 +431,8 @@
   "model": {
     "one": "model"
   },
-  "explanation": {
-    "one": "explanation"
+  "prediction": {
+    "one": "prediction"
   },
   "grammar": {
     "one": "grammar"
@@ -520,6 +551,30 @@
   },
   "interactivity": {
     "one": "interactivity"
+  },
+  "master_character_management": {
+    "many": "master characters management"
+  },
+  "master_character_prediction": {
+    "many": "master characters prediction"
+  },
+  "player_character_management": {
+    "many": "player characters management"
+  },
+  "player_character_control": {
+    "many": "player characters control"
+  },
+  "player_avatar_management": {
+    "many": "player avatars management"
+  },
+  "player_avatar_control": {
+    "many": "player avatars control"
+  },
+  "engine_avatar_management": {
+    "many": "engine avatars management"
+  },
+  "engine_avatar_prediction": {
+    "many": "engine avatars prediction"
   }
 }
 @enduml

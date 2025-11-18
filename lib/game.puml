@@ -119,7 +119,7 @@ left to right direction
 
 !procedure $fill_character_agent($time="dev")
   label characterAgent <<agent>> [
-    <$user_alt{scale=0.8}>
+    <$user_alt{scale=0.9}>
   !if ($time=="dev")
     $translate(characterWriter)
     ' ($translate(devtime))
@@ -146,7 +146,7 @@ left to right direction
 
 !procedure $fill_avatar_agent($time="dev")
   label avatarAgent <<agent>> [
-    <$user_alt{scale=0.8}>
+    <$user_alt{scale=0.9}>
   !if ($time=="dev")
     $translate(avatarDesigner)
     ' ($translate(devtime))
@@ -219,7 +219,7 @@ left to right direction
 
 !procedure $fill_story_agent($time="run")
   label storyAgent <<agent>> [
-    <$user_alt{scale=0.8}>
+    <$user_alt{scale=0.9}>
   !if ($time=="dev")
     $translate(storyWriter)
     ' ($translate(devtime))
@@ -234,7 +234,7 @@ left to right direction
 
 !procedure $fill_narrative_agent($time="run")
   label narrativeAgent <<agent>> [
-    <$user_alt{scale=0.8}>
+    <$user_alt{scale=0.9}>
   !if ($time=="dev")
     $translate(narrativeDesigner)
     ' ($translate(devtime))
@@ -503,6 +503,11 @@ left to right direction
   characterAgent ~[$mode]d~ character
   $join_grid_3x1($mode)
   avatar ~[$mode]d~ avatarAgent
+!endprocedure
+
+!procedure $join_half_5x1($mode="thickness=1")
+  characterAgent ~[$mode]d~ character
+  character ~[$mode]d~ player
 !endprocedure
 
 !procedure $join_grid_1x5($mode="thickness=1")
