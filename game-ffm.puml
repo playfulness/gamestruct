@@ -236,23 +236,3 @@ $fill_grid_5x3("run", 2)
 $empty_axes()
 $join_axes_5x3("hidden")
 @enduml
-
-@startuml abstraction-stack
-!include lib/game.puml!core
-!include lib/i18n.puml!en
-
-<style>
-  label {
-    FontSize: 30;
-    HorizontalAlignment: center;
-  }
-</style>
-
-label stack [
-  <#gainsboro>|= $translate(layer) |=\t     $translate(abstraction, 2) |
-  ' |   3 | $translate(player), $translate(characterController), $translate(avatarController) |
-  |<r> 2 | $translate(character), $translate(avatar), $translate(story), $translate(narrative) |
-  |<r> 2 | $translate(intention), $translate(action), $translate(event), $translate(effect) |
-  |<r> 1 | $translate(theme), $translate(arc), $translate(setting), $translate(mechanic) |
-]
-@enduml
