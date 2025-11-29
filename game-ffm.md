@@ -2,68 +2,130 @@
 
 TBD
 
-## Источники
+## Ссылки
 
-- Jennifer Grouling `The Creation of Narrative in Tabletop Role-Playing Games`.
+### Понятия
 
-### Про понятие геймлэнга
+#### Персонаж
 
-- Cole Wehrle [Game Design Workshops](https://www.youtube.com/playlist?list=PLNOeNKnzorF5BsM8Rwm3WouPvChzBh2-h) (первое видео). Wehrle использует термин "грамматика".
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 18, метод непрямого контроля 5.
+    - Глава 20.
+- Fullerton `Game Design Workshop`
+    - Chapter 4, section `Character`.
 
-### Про понятие геймплея
+#### Аватар
 
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 15).
+- Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 3, section `The Player as Part of a Larger System`. Sellers существенно расширяет понятие аватара.
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 20, раздел `Аватар`.
 
-### Про понятие геймлупа
+#### История
 
-TBD
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 17.
 
-### Про понятие геймфила
+#### Нарратив
 
-- Steve Swink `Game Feel: A Game Designer's Guide to Virtual Sensation`.
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 22). Шелл использует термин "эстетика".
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Подробное исследование нарратива вообще и нарратива, генерируемого в реальном времени, в частности.
+- Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 3, section `Narrative`.
+    - Chapter 4, section `Narrative and Interactive Engagement`.
+- Sylvester `Designing Games: A Guide to Engineering Experiences`
+    - Chapter 4.
 
-### Про понятие темы
+#### Намерение
 
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 6).
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 18, метод непрямого контроля 2. Шелл использует термин _цель_.
+    - Глава 20, раздел `Создание привлекательных игровых персонажей`.
+        - Совет 1. Шелл использует термин _функция_.
+        - Совет 2. Шелл использует термин _черта_.
 
-### Про понятие арки
+#### Действие
 
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 20, совет 8). Шелл использует термин "трансформация".
-- Tracy Fullerton `Game Design Workshop` (chapter 4, section "The Dramatic Arc")
-- Tracy Fullerton `Game Design Workshop` (chapter 11, section "Progress")
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 12, механика 4.
 
-### Про понятие сеттинга
+#### Тема
 
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 19). Шелл использует термин "трансмедийный мир".
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 6).
+- Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 3, section `Architecture and Thematic Elements`.
+    - Chapter 3, section `Theme, Experience, and Meaning`.
+- Swink `Game Feel: A Game Designer's Guide to Virtual Sensation`
+    - Chapter 5, section `Metaphor`.
 
-### Про понятие механики
+#### Арка
 
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 12).
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 20, раздел `Создание привлекательных игровых персонажей`, совет 8. Шелл использует термин _трансформация_.
+- Fullerton `Game Design Workshop`
+    - Chapter 4, section `The Dramatic Arc`.
+    - Chapter 11, section `Progress`.
+- Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 4, section `Narrative and Interactive Engagement`.
+- Sylvester `Designing Games: A Guide to Engineering Experiences`
+    - Chapter 1, section `Emotion Through Character Arcs`.
 
-### Про понятие персонажа
+#### Сеттинг
 
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 20).
-- Tracy Fullerton `Game Design Workshop` (chapter 4, section "Character")
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 19. Шелл использует термин _трансмедийный мир_.
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Chapter 4, section `Campaign Settings in D&D`.
 
-### Про понятие аватара
+#### Механика
 
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 20, раздел "Аватар").
-- Michael Sellers `Advanced Game Design: A Systems Approach` (chapter 3, section "The Player as Part of a Larger System").
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 12.
+- Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 3, section `Structural Elements and Game Mechanics`.
+    - Chapter 7, section `Game Mechanics`.
+- Swink `Game Feel: A Game Designer's Guide to Virtual Sensation`
+    - Chapter 4, section `Mechanics: Game Feel Atoms`.
 
-### Про дихотомию персонажа и аватара
+#### Мастер
 
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 17, проблема 4). Шелл противопоставляет персонажей игр персонажам книг и кино.
-- Tracy Fullerton `Game Design Workshop` (chapter 4, figure "Characters versus avatars"). Fullerton противопоставляет персонажей, предопределенных сюжетом, и персонажей, создаваемых игроком. 
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 18, метод непрямого контроля 5. Шелл предлагает контролировать персонажа игрока через других персонажей.
 
-### Про понятие истории
+#### Геймлэнг
 
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 17).
+- Wehrle [Game Design Workshops](https://www.youtube.com/playlist?list=PLNOeNKnzorF5BsM8Rwm3WouPvChzBh2-h)
+    - Видео 1, минута 20. Wehrle использует термин _грамматика_.
 
-### Про понятие нарратива
+#### Геймплей
 
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 16, фактор 2).
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 15.
 
-### Про дихотомию истории и нарратива
+#### Геймлуп
 
-- Джесси Шелл `Геймдизайн. Как создать игру, в которую будут играть все` (глава 17, раздел "Перерождение мечты").
+- Michael Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 7.
+
+#### Геймфил
+
+- Swink `Game Feel: A Game Designer's Guide to Virtual Sensation`.
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 22. Шелл использует термин _эстетика_.
+
+### Дуальности
+
+#### Намерение и действие
+
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 12, механика 4. Шелл противопоставляет стратегические действия и базовые.
+
+#### Персонаж и аватар
+
+- Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
+    - Глава 17, раздел `Проблемы`, проблема 4. Шелл противопоставляет персонажей фильмов и персонажей игр.
+- Fullerton `Game Design Workshop`
+    - Chapter 4, figure `Characters versus avatars`. Fullerton противопоставляет персонажей, предопределенных автором, и персонажей, конструируемых игроком.
+- Sylvester `Designing Games: A Guide to Engineering Experiences`
+    - Chapter 4, section `Player–Character Motivation Alignment`.
+    - Chapter 4, section `The Human Interaction Problem`.
