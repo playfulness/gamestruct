@@ -162,3 +162,9 @@
 - Sylvester `Designing Games: A Guide to Engineering Experiences`
     - Chapter 4, section `Player–Character Motivation Alignment`.
     - Chapter 4, section `The Human Interaction Problem`.
+
+[^1]: К сожалению, пока не удалось подобрать более подходящий общепринятый термин. Почему такой выбор? Во-первых, термин должен иметь значение противоположное геймплею. Во-вторых, Коул Верле неоднократно [утверждал](https://www.youtube.com/watch?v=hNdAbZQsqrc&t=1257s), что в фундаменте любого дизайна лежит построение синтаксиса, грамматических правил, которые позволяют выражать различные игровые ситуации.
+[^2]: Термин из одноименной книги Стивена Свинка "Game Feel: A Game Designer's Guide to Virtual Sensation".
+[^3]: Термины механики и арки взяты из [статьи](https://lostgarden.com/2012/04/30/loops-and-arcs) и [доклада](https://www.youtube.com/watch?v=qwPe3OHR04c) Даниэля Кука. Или на русском из [доклада](https://www.youtube.com/watch?v=RDZdxjzFKzI&t=968s) Андрея Столярова. В оригинале Кук использует термин loop, но в качестве примеров приводит различные механики. Столяров подтверждает, что "петли это просто понятие, которое используется для описания игровых механик".
+[^4]: Подразумевается тема и сеттинг в литературном смысле, т.к. в сообществе настольщиков часто сеттинг называют темой. Но существуют и обратные примеры (например, [раз](https://louardongames.blogspot.com/2014/08/theme-setting.html), [два](https://bumblingthroughdungeons.com/theme-setting-and-mechanics-in-games) и [три](https://www.youtube.com/watch?v=tAHnu4PIyG0)).
+[^5]: Почему эффект? Во-первых, эффект приводит к необратимым изменениям. Во-вторых, один и тот же контент, невзирая на количество повторов, может произвести не более одного эффекта (at most once).
