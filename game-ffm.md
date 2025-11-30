@@ -50,15 +50,17 @@
 - Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
     - Глава 18, метод непрямого контроля 5.
     - Глава 20.
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Grouling использует термин _character_ на протяжении всей книги.
 - Fullerton `Game Design Workshop`
     - Chapter 4, section `Character`.
 
 #### Аватар
 
-- Sellers `Advanced Game Design: A Systems Approach`
-    - Chapter 3, section `The Player as Part of a Larger System`. Sellers существенно расширяет понятие аватара.
 - Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
     - Глава 20, раздел `Аватар`.
+- Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 3, section `The Player as Part of a Larger System`. Sellers существенно расширяет понятие аватара.
 
 #### Нарратив
 
@@ -74,6 +76,8 @@
 
 - Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
     - Глава 17.
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Grouling использует термин _story_ на протяжении всей книги.
 
 #### Намерение
 
@@ -82,6 +86,9 @@
     - Глава 20, раздел `Создание привлекательных игровых персонажей`
         - Совет 1. Шелл использует термин _функция_.
         - Совет 2. Шелл использует термин _черта_.
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Chapter 5, section `The Creation of Possible Worlds in Fiction`. Grouling использует термин _possible world_.
+    - Chapter 5, section `The Game Frame`. Grouling использует термин _statement of intention_.
 
 #### Действие
 
@@ -94,7 +101,8 @@
 
 #### Событие
 
-- TBD
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Chapter 1, section `Cybertext: A Model for Adventure Games`.
 
 #### Тема
 
@@ -167,7 +175,7 @@
 
 #### Геймлуп
 
-- Michael Sellers `Advanced Game Design: A Systems Approach`
+- Sellers `Advanced Game Design: A Systems Approach`
     - Chapter 7.
 
 ### Дуальности
@@ -175,7 +183,8 @@
 #### Персонаж и аватар
 
 - Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
-    - Глава 17, раздел `Проблемы`, проблема 4. Шелл противопоставляет персонажей фильмов и персонажей игр.
+    - Глава 17, раздел `Проблемы`
+        - Проблема 4. Шелл противопоставляет персонажей фильмов и персонажей игр.
 - Fullerton `Game Design Workshop`
     - Chapter 4, figure `Characters versus avatars`. Fullerton противопоставляет персонажей, предопределенных автором, и персонажей, конструируемых игроком.
 - Sylvester `Designing Games: A Guide to Engineering Experiences`
@@ -189,7 +198,9 @@
 
 #### Нарратив и история
 
-- TBD
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Chapter 3, section `Stories Across Media`.
+    - Chapter 4, section `Games Versus Narratives`.
 
 #### Эффект и событие
 
