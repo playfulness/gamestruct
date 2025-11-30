@@ -30,13 +30,13 @@
 
 #### По форме
 
-- Задать вопрос в рамках нового [обсуждения](https://github.com/playfulness/gamestruct/discussions/new/choose).
+- Поделиться мнением в рамках существующего [обсуждения](https://github.com/playfulness/gamestruct/discussions).
 
-- Высказать мнение в рамках существующего [обсуждения](https://github.com/playfulness/gamestruct/discussions).
+- Поднять вопрос в рамках нового [обсуждения](https://github.com/playfulness/gamestruct/discussions/new/choose).
+
+- Поделиться мнением в рамках существующего [тикета](https://github.com/playfulness/gamestruct/issues).
 
 - Предложить улучшение или сообщить об ошибке в рамках нового [тикета](https://github.com/playfulness/gamestruct/issues/new/choose).
-
-- Высказать мнение в рамках существующего [тикета](https://github.com/playfulness/gamestruct/issues).
 
 - Предложить [правки](https://github.com/playfulness/gamestruct/pulls) по одному из существующих тикетов.
 
