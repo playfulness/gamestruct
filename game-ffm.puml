@@ -75,7 +75,7 @@ node {
 </style>
 
 + $translate(gamelang2) <<term>>
-++ $translate(idea), $translate(model), $translate(explanation) <<defn>>
+++ $translate(idea), $translate(model), $translate(prediction) <<defn>>
 ++ $translate(grammar), $translate(query), $translate(meaning) <<defn>>
 ++ $translate(intention), $translate(cause), $translate(concern) <<defn>>
 
