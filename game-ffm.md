@@ -87,17 +87,20 @@
         - Совет 1. Шелл использует термин _функция_.
         - Совет 2. Шелл использует термин _черта_.
 - Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
-    - Chapter 5, section `The Creation of Possible Worlds in Fiction`. Grouling использует термин _possible world_.
+    - Chapter 5, section `The Social Frame`. Grouling использует термин _narrative planning speech_.
     - Chapter 5, section `The Game Frame`. Grouling использует термин _statement of intention_.
 
 #### Действие
 
 - Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
     - Глава 12, механика 4.
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Grouling использует термин _action_ на протяжении всей книги.
 
 #### Эффект
 
-- TBD
+- Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 8, section `Providing Feedback`.
 
 #### Событие
 
@@ -123,7 +126,7 @@
     - Chapter 4, section `The Dramatic Arc`.
     - Chapter 11, section `Progress`.
 - Sellers `Advanced Game Design: A Systems Approach`
-    - Chapter 4, section `Narrative and Interactive Engagement`.
+    - Chapter 4, section `Narrative and Interactive Engagement`. Sellers ссылается на [работу](https://lostgarden.com/2012/04/30/loops-and-arcs) Даниэля Кука.
 - Sylvester `Designing Games: A Guide to Engineering Experiences`
     - Chapter 1, section `Emotion Through Character Arcs`.
 
@@ -148,19 +151,28 @@
 
 - Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
     - Глава 18, метод непрямого контроля 5. Шелл предлагает контролировать персонажа игрока через других персонажей.
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Grouling использует термин _dungeon master_ (DM) на протяжении всей книги.
 
 #### Движок
 
-- TBD
+- Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 7, section `Engines`.
 
 #### Игрок
 
-- TBD
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Grouling использует термин _player_ на протяжении всей книги.
 
 #### Геймлэнг
 
 - Wehrle [Game Design Workshops](https://www.youtube.com/playlist?list=PLNOeNKnzorF5BsM8Rwm3WouPvChzBh2-h)
     - Видео `Game Design as Process`, минута 20. Wehrle использует термин _грамматика_.
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Chapter 5, section `The Creation of Possible Worlds in Fiction`. Grouling использует термин _possible world_.
+- Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 3, section `The Player’s Mental Model`.
+    - Chapter 12, section `Goals for Your Playtests`.
 
 #### Геймплей
 
@@ -180,6 +192,8 @@
 
 ### Дуальности
 
+Ссылки на разделы, в которых указанные понятия противопоставляются, связываются или просто упоминаются как синонимы.
+
 #### Персонаж и аватар
 
 - Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
@@ -195,12 +209,20 @@
 
 - Шелл `Геймдизайн. Как создать игру, в которую будут играть все`
     - Глава 12, механика 4. Шелл противопоставляет стратегические действия и базовые.
+- Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
+    - Chapter 5, section `The Game Frame`. Grouling противопоставляет narrative planning speech и narrative suggestion.
+- Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 4, section `Player Behaviors and Cognitive Load`. Sellers указывает на _semantic distance_ между намерением и действием.
+    - Chapter 4, section `Core Loops`. Sellers указывает на взаимообусловленность намерения и действия.
 
 #### Нарратив и история
 
 - Grouling `The Creation of Narrative in Tabletop Role-Playing Games`
     - Chapter 3, section `Stories Across Media`.
     - Chapter 4, section `Games Versus Narratives`.
+    - Chapter 5, section `The Creation of Possible Worlds in Fiction`. Grouling указывает на то, что _textual actual world_ (TAW) является частичным представлением _text reference world_ (TRW).
+- Sellers `Advanced Game Design: A Systems Approach`
+    - Chapter 3, section `Narrative`. Sellers использует термины _narrative_ и _story_ как синонимы.
 
 #### Эффект и событие
 
