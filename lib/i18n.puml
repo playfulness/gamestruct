@@ -53,29 +53,37 @@
     "one": "аватар",
     "many": "аватары"
   },
-  "gamelang": {
-    "one": "г е й м л э н г"
+  "xAxisNegativeTerm": {
+    "one": "абстрактное"
+    ' "one": "абстракция"
+    ' "one": "логическое"
   },
-  "gamelang2": {
-    "one": "геймлэнг"
+  "xAxisPositiveTerm": {
+    ' "one": "физическое"
+    ' "one": "реализация"
+    ' "one": "реальное"
+    ' "one": "осязаемое"
+    ' "one": "материальное"
+    "one": "конкретное"
   },
-  "gameplay": {
-    "one": "г е й м п л е й"
+  "yAxisNegativeTerm": {
+    "one": "поведение"
   },
-  "gameplay2": {
-    "one": "геймплей"
+  "yAxisPositiveTerm": {
+    "one": "состояние"
+    ' "one": "структура"
   },
-  "gameloop": {
-    "one": "г\nе\nй\nм\nл\nу\nп"
+  "xAxisNegativeLabel": {
+    "one": "а б с т р а к т н о е"
   },
-  "gameloop2": {
-    "one": "геймлуп"
+  "xAxisPositiveLabel": {
+    "one": "к о н к р е т н о е"
   },
-  "gamefeel": {
-    "one": "г\nе\nй\nм\nф\nи\nл"
+  "yAxisNegativeLabel": {
+    "one": "п\nо\nв\nе\nд\nе\nн\nи\nе"
   },
-  "gamefeel2": {
-    "one": "геймфил"
+  "yAxisPositiveLabel": {
+    "one": "с\nо\nс\nт\nо\nя\nн\nи\nе"
   },
   "plot": {
     "one": "сюжет",
@@ -154,9 +162,6 @@
   },
   "world": {
     "one": "мир"
-  },
-  "state": {
-    "one": "состояние"
   },
   "observation": {
     "one": "наблюдение"
@@ -361,41 +366,40 @@
   "runtime": {
     "one": "runtime"
   },
-  "gamelang": {
-    ' "one": "g\na\nm\ne\nl\na\nn\ng"
-    "one": "g a m e l a n g"
-    ' "one": "gamelang"
+  "xAxisNegativeTerm": {
+    "one": "abstract"
   },
-  "gamelang2": {
-    "one": "gamelang"
+  "xAxisPositiveTerm": {
+    "one": "concrete"
   },
-  "gameplay": {
-    ' "one": "g\na\nm\ne\np\nl\na\ny"
-    "one": "g a m e p l a y"
-    ' "one": "gameplay"
+  "yAxisNegativeTerm": {
+    "one": "behavior"
   },
-  "gameplay2": {
-    "one": "gameplay"
+  "yAxisPositiveTerm": {
+    "one": "state"
   },
-  "gameloop": {
-    "one": "g\na\nm\ne\nl\no\no\np"
-    ' "one": "g a m e l o o p"
-    ' "one": "gameloop"
+  "xAxisNegativeLabel": {
+    ' "one": "l o g i c a l"
+    ' "one": "m e n t a l"
+    "one": "a b s t r a c t"
+    ' "one": "a b s t r a c t i o n"
+    ' "one": "s p e c i f i c a t i o n"
   },
-  "gameloop2": {
-    "one": "gameloop"
+  "xAxisPositiveLabel": {
+    ' "one": "p h y s i c a l"
+    ' "one": "m a t e r i a l"
+    "one": "c o n c r e t e"
+    ' "one": "r e a l i z a t i o n"
+    ' "one": "r    e    a    l"
   },
-  "gamefeel": {
-    "one": "g\na\nm\ne\nf\ne\ne\nl"
-    ' "one": "g a m e f e e l"
-    ' "one": "gamefeel"
+  "yAxisNegativeLabel": {
+    "one": "b\ne\nh\na\nv\ni\no\nr"
   },
-  "gamefeel2": {
-    "one": "gamefeel"
+  "yAxisPositiveLabel": {
+    "one": "s\n\nt\n\na\n\nt\n\ne"
+    ' "one": "s\nt\nr\nu\nc\nt\nu\nr\ne"
   },
   "plot": {
-    ' "one": "p\nl\no\nt"
-    ' "one": "p l o t"
     "one": "plot",
     "many": "plots"
   },
@@ -404,7 +408,6 @@
     "many": "stories"
   },
   "narrative": {
-    ' "one": "n\na\nr\nr\na\nt\ni\nv\ne"
     "one": "narrative",
     "many": "narratives"
   },
@@ -463,9 +466,6 @@
   },
   "world": {
     "one": "world"
-  },
-  "state": {
-    "one": "state"
   },
   "observation": {
     "one": "observation"

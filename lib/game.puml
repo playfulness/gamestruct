@@ -288,19 +288,19 @@ left to right direction
 
 !procedure $fill_axis_x($style=axis)
   label character <<$style>> [
-    $translate(gamelang)
+    $translate(xAxisNegativeLabel)
   ]
   label avatar <<$style>> [
-    $translate(gameplay)
+    $translate(xAxisPositiveLabel)
   ]
 !endprocedure
 
 !procedure $fill_axis_y($style=axis)
-  label story <<$style>> [
-    $translate(gameloop)
-  ]
   label narrative <<$style>> [
-    $translate(gamefeel)
+    $translate(yAxisPositiveLabel)
+  ]
+  label story <<$style>> [
+    $translate(yAxisNegativeLabel)
   ]
 !endprocedure
 
@@ -356,9 +356,9 @@ left to right direction
 !endprocedure
 
 !procedure $join_axes_1x3($mode="thickness=1")
-  highest ~[$mode]r~ story
+  highest ~[$mode]r~ narrative
   $join_grid_1x3($mode)
-  narrative ~[$mode]r~ lowest
+  story ~[$mode]r~ lowest
 !endprocedure
 
 !procedure $join_axes_3x3($x="thickness=1", $y="thickness=1")
@@ -485,8 +485,8 @@ left to right direction
 !endprocedure
 
 !procedure $join_grid_1x3($mode="thickness=1")
-  story ~[$mode]r~ player
-  player ~[$mode]r~ narrative
+  narrative ~[$mode]r~ player
+  player ~[$mode]r~ story
 !endprocedure
 
 !procedure $join_grid_3x1($mode="thickness=1")
@@ -524,40 +524,6 @@ left to right direction
 !procedure $join_grid_5x5($mode="thickness=1")
   $join_grid_5x1($mode)
   $join_grid_1x5($mode)
-!endprocedure
-
-!procedure $loop_character($mode="thickness=1")
-  character -[plain]d-> player
-  character ~[$mode]d~ player
-  character <-[plain]d- player
-!endprocedure
-
-!procedure $loop_avatar($mode="thickness=1")
-  player <-[plain]d- avatar
-  player ~[$mode]d~ avatar
-  player -[plain]d-> avatar
-!endprocedure
-
-!procedure $loop_character_agent($mode="thickness=1")
-  characterAgent <-[plain]d- character
-  characterAgent ~[$mode]d~ character
-  characterAgent -[plain]d-> character
-!endprocedure
-
-!procedure $loop_avatar_agent($mode="thickness=1")
-  avatar -[plain]d-> avatarAgent
-  avatar ~[$mode]d~ avatarAgent
-  avatar <-[plain]d- avatarAgent
-!endprocedure
-
-!procedure $loop_story($mode="thickness=1")
-  $loop_character_agent($mode)
-  $loop_character($mode)
-!endprocedure
-
-!procedure $loop_gameplay($mode="thickness=1")
-  $loop_avatar($mode)
-  $loop_avatar_agent($mode)
 !endprocedure
 
 !$debug = %false()
